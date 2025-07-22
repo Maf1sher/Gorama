@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://rbj80erdhio0"]
+[gd_scene load_steps=27 format=3 uid="uid://rbj80erdhio0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v4s45"]
 [ext_resource type="Script" path="res://components/stats.gd" id="2_4fk36"]
 [ext_resource type="Texture2D" uid="uid://cst5nut17csra" path="res://assests/sprites/player/Idle/Idle.png" id="2_jvixd"]
 [ext_resource type="Texture2D" uid="uid://8lkqep78nkdy" path="res://assests/sprites/player/Walk/walk.png" id="3_rqshr"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="5_f02ew"]
+[ext_resource type="Script" path="res://components/hitbox.gd" id="6_et50x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnsay"]
 atlas = ExtResource("2_jvixd")
@@ -143,8 +144,8 @@ script/source = "extends ProgressBar
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ao3o"]
-radius = 3.0
-height = 14.0
+radius = 31.0
+height = 62.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
 collision_layer = 2
@@ -182,6 +183,16 @@ script = ExtResource("5_f02ew")
 stats = NodePath("../Stats")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_7ao3o")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("6_et50x")
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_7ao3o")
 

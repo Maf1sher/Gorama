@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dip0t5cixw72i"]
+[gd_scene load_steps=23 format=3 uid="uid://dip0t5cixw72i"]
 
 [ext_resource type="Script" path="res://scripts/orc.gd" id="1_6vy0w"]
 [ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/orc/Orc.png" id="1_c56u5"]
 [ext_resource type="Script" path="res://components/stats.gd" id="1_sip4y"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="3_xgb0k"]
+[ext_resource type="Script" path="res://components/hurtbox.gd" id="5_xopne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwpua"]
 atlas = ExtResource("1_c56u5")
@@ -153,5 +154,26 @@ script = ExtResource("3_xgb0k")
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ckutg")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.982729, 0.00020263, 0.000112626, 1)
+offset_left = -9.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = -16.0
+value = 100.0
+show_percentage = false
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("stats")]
+position = Vector2(-9, -20)
+collision_layer = 0
+collision_mask = 512
+script = ExtResource("5_xopne")
+stats = NodePath("../Stats")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_ckutg")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="hit_registered" from="HitBox" to="." method="_on_hit_box_hit_registered"]
+[connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]

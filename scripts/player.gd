@@ -8,6 +8,9 @@ extends CharacterBody2D
 
 var input
 
+func _ready() -> void:
+	health_bar.max_value = stats.maximum_hp
+
 func _physics_process(delta: float) -> void:
 	input = Input.get_vector("left", "right", "up", "down")
 	velocity = input * stats.movement_speed
@@ -30,4 +33,4 @@ func take_hit(damage: int) -> void:
 
 
 func _on_hurt_box_received_damage(damage: int) -> void:
-	health_bar.value -= damage
+	health_bar.value = stats.hp

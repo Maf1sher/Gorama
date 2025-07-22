@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/player.tscn" id="1_le3ny"]
 [ext_resource type="Texture2D" uid="uid://bnraouuojsfjw" path="res://assests/sprites/tilesets/tilemap_packed.png" id="2_7fj5m"]
-[ext_resource type="Script" path="res://components/enemy_generator.gd" id="4_vlj8n"]
+[ext_resource type="Script" path="res://scripts/enemy_generator.gd" id="4_vlj8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyrcg"]
 texture = ExtResource("2_7fj5m")

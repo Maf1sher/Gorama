@@ -9,6 +9,10 @@ var direction := Vector2.ZERO
 @onready var target = $"../Player"
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var hitbox = $HitBox
+@onready var health_bar = $ProgressBar
+
+func _ready() -> void:
+	health_bar.max_value = stats.maximum_hp
 
 func _physics_process(delta: float) -> void:
 	var enemy_to_player = (target.global_position - global_position)
@@ -38,9 +42,6 @@ func animation() -> void:
 	else:
 		animated_sprite.play("walk")
 
-func _on_timer_timeout() -> void:
-	attack_is_ready = true
-
 func _on_hit_box_hit_registered() -> void:
 	player_in_area = true
 
@@ -48,3 +49,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "attack":
 		player_in_area = false
 		hitbox.monitoring = true
+
+
+func _on_hurt_box_received_damage(damage: int) -> void:
+	health_bar.value = stats.hp
