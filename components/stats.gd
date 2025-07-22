@@ -15,7 +15,7 @@ extends Node
 @export var movement_speed: int = 100
 @export var life_stealing: int = 0
 
-func deal_damage(damage: int) -> int:
+func health_depleted(damage: int) -> int:
 	var taken_dmg = ceil( damage - ( tanh( armor / 70.0 ) * damage ))
 	hp -= taken_dmg
 	hp = max(0, hp)

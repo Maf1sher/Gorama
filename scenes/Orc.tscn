@@ -82,7 +82,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tbbwu")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 20.0
 }, {
@@ -111,7 +111,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bthla")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 10.0
 }]
@@ -137,28 +137,22 @@ movement_speed = 50
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -7)
 sprite_frames = SubResource("SpriteFrames_cjagp")
-animation = &"attack"
+animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_vnp0j")
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("3_xgb0k")
+damage = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ckutg")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
-[connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
-[connection signal="area_shape_entered" from="HitBox" to="." method="_on_hit_box_area_shape_entered"]
-[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="hit_registered" from="HitBox" to="." method="_on_hit_box_hit_registered"]

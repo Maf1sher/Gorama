@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var player_in_area = false
-var direction := Vector2.ZERO
+var player_in_area: bool = false
 var attack_is_ready: bool = true
+var direction := Vector2.ZERO
 
 @export var stats: Stats
 
@@ -24,14 +24,7 @@ func _physics_process(delta: float) -> void:
 	
 		
 	animation()
-	attack_target()
 	move_and_slide()
-	
-func attack_target() -> void:
-	if player_in_area and attack_is_ready:
-		attack_is_ready = false
-		$Timer.start()
-
 
 func animation() -> void:
 	if direction.x < 0:
@@ -40,6 +33,7 @@ func animation() -> void:
 		animated_sprite.flip_h = false
 	
 	if player_in_area:
+		$HitBox.monitoring = false
 		animated_sprite.play("attack")
 	else:
 		animated_sprite.play("walk")
@@ -47,8 +41,10 @@ func animation() -> void:
 func _on_timer_timeout() -> void:
 	attack_is_ready = true
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
+func _on_hit_box_hit_registered() -> void:
 	player_in_area = true
 
-func _on_hit_box_body_exited(body: Node2D) -> void:
-	player_in_area = false
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite.animation == "attack":
+		player_in_area = false
+		$HitBox.monitoring = true

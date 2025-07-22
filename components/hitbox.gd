@@ -1,6 +1,8 @@
 class_name HitBox
 extends Area2D
 
+signal hit_registered
+
 @export var damage: int = 1 : set = set_damage, get = get_damage
 
 func set_damage(value: int):
@@ -8,3 +10,4 @@ func set_damage(value: int):
 	
 func get_damage() -> int:
 	return damage
+	
