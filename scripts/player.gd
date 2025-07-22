@@ -30,5 +30,4 @@ func take_hit(damage: int) -> void:
 
 
 func _on_hurt_box_received_damage(damage: int) -> void:
-	print(damage)
 	health_bar.value -= damage

@@ -148,7 +148,6 @@ shape = SubResource("CapsuleShape2D_vnp0j")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("3_xgb0k")
-damage = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -7)

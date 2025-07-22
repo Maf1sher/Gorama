@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://cruivemipt4f2"]
+[gd_scene load_steps=11 format=4 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/player.tscn" id="1_le3ny"]
 [ext_resource type="Texture2D" uid="uid://bnraouuojsfjw" path="res://assests/sprites/tilesets/tilemap_packed.png" id="2_7fj5m"]
+[ext_resource type="Script" path="res://components/enemy_generator.gd" id="4_vlj8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyrcg"]
 texture = ExtResource("2_7fj5m")
@@ -196,3 +197,6 @@ position = Vector2(0, 11)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
 zoom = Vector2(4, 4)
+
+[node name="EnemyGenerator" type="Node" parent="."]
+script = ExtResource("4_vlj8n")

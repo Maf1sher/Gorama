@@ -8,6 +8,7 @@ var direction := Vector2.ZERO
 
 @onready var target = $"../Player"
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var hitbox = $HitBox
 
 func _physics_process(delta: float) -> void:
 	var enemy_to_player = (target.global_position - global_position)
@@ -22,7 +23,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, stats.movement_speed)
 		velocity.y = move_toward(velocity.y, 0, stats.movement_speed)
 	
-		
 	animation()
 	move_and_slide()
 
@@ -33,7 +33,7 @@ func animation() -> void:
 		animated_sprite.flip_h = false
 	
 	if player_in_area:
-		$HitBox.monitoring = false
+		hitbox.monitoring = false
 		animated_sprite.play("attack")
 	else:
 		animated_sprite.play("walk")
@@ -47,4 +47,4 @@ func _on_hit_box_hit_registered() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "attack":
 		player_in_area = false
-		$HitBox.monitoring = true
+		hitbox.monitoring = true
