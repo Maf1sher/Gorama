@@ -7,7 +7,8 @@ var direction := Vector2.ZERO
 @export var stats: Stats
 
 @onready var target = $"../Player"
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite = $AnimationPlayer
+@onready var sprite = $Sprite2D
 @onready var hitbox = $HitBox
 @onready var health_bar = $ProgressBar
 
@@ -32,24 +33,21 @@ func _physics_process(delta: float) -> void:
 
 func animation() -> void:
 	if direction.x < 0:
-		animated_sprite.flip_h = true
+		sprite.flip_h = true
 	elif direction.x > 0:
-		animated_sprite.flip_h = false
+		sprite.flip_h = false
 	
 	if player_in_area:
-		hitbox.monitoring = false
 		animated_sprite.play("attack")
 	else:
 		animated_sprite.play("walk")
 
 func _on_hit_box_hit_registered() -> void:
-	player_in_area = true
-
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if animated_sprite.animation == "attack":
-		player_in_area = false
-		hitbox.monitoring = true
+	pass
 
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	health_bar.value = stats.hp
+
+func _on_player_detector_player_detection(in_area: bool) -> void:
+	player_in_area = in_area

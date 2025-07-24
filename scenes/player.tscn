@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://rbj80erdhio0"]
+[gd_scene load_steps=28 format=3 uid="uid://rbj80erdhio0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v4s45"]
 [ext_resource type="Script" path="res://components/stats.gd" id="2_4fk36"]
@@ -144,8 +144,12 @@ script/source = "extends ProgressBar
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ao3o"]
-radius = 31.0
-height = 62.0
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_faq21"]
+radius = 20.0
+height = 40.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
 collision_layer = 2
@@ -194,7 +198,7 @@ damage = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -11)
-shape = SubResource("CapsuleShape2D_7ao3o")
+shape = SubResource("CapsuleShape2D_faq21")
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
