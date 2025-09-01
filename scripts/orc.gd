@@ -45,7 +45,6 @@ func animation() -> void:
 func _on_hit_box_hit_registered() -> void:
 	pass
 
-
 func _on_hurt_box_received_damage(damage: int) -> void:
 	health_bar.value = stats.hp
 
