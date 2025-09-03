@@ -4,6 +4,7 @@ var player_in_area: bool = false
 var attack_is_ready: bool = true
 var direction := Vector2.ZERO
 var can_move = true
+var is_hurt = false
 
 @export var stats: Stats
 
@@ -41,6 +42,8 @@ func animation() -> void:
 		
 	if stats.hp <= 0:
 		die()
+	elif is_hurt:
+		hurt()
 	elif player_in_area:
 		animated_sprite.play("attack")
 	else:
@@ -51,12 +54,23 @@ func die():
 	collision_shape.set_deferred("disabled", true)
 	animated_sprite.play("death")
 
+func hurt():
+	can_move = false
+	collision_shape.set_deferred("disabled", true)
+	animated_sprite.play("hurt")
+
 func _on_hurt_box_received_damage(damage: int) -> void:
+	is_hurt = true
 	health_bar.value = stats.hp
 
 func _on_player_detector_player_detection(in_area: bool) -> void:
 	player_in_area = in_area
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "death":
-		queue_free()
+	match anim_name:
+		"death":
+			queue_free()
+		"hurt":
+			is_hurt = false
+			can_move = true
+			collision_shape.set_deferred("disabled", false)
