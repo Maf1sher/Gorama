@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://rbj80erdhio0"]
+[gd_scene load_steps=34 format=3 uid="uid://rbj80erdhio0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v4s45"]
 [ext_resource type="Script" path="res://components/stats.gd" id="2_4fk36"]
@@ -132,35 +132,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_22ejo"]
-resource_name = "idle"
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
 [sub_resource type="Animation" id="Animation_tlyoj"]
 length = 0.001
 tracks/0/type = "value"
@@ -198,6 +169,35 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_22ejo"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_5f20b"]
@@ -292,6 +292,12 @@ _data = {
 radius = 3.0
 height = 14.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyqma"]
+bg_color = Color(0.478431, 0.478431, 0.478431, 0.345098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loocs"]
+bg_color = Color(0.82882, 0, 0.0108883, 1)
+
 [sub_resource type="GDScript" id="GDScript_djbji"]
 script/source = "extends ProgressBar
 
@@ -330,11 +336,12 @@ position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_5anm6")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(0.954467, 0, 0, 1)
 offset_left = -9.0
-offset_top = -31.0
+offset_top = -29.0
 offset_right = 10.0
-offset_bottom = -27.0
+offset_bottom = -26.0
+theme_override_styles/background = SubResource("StyleBoxFlat_pyqma")
+theme_override_styles/fill = SubResource("StyleBoxFlat_loocs")
 step = 1.0
 value = 100.0
 show_percentage = false

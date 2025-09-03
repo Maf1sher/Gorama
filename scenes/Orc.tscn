@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dip0t5cixw72i"]
+[gd_scene load_steps=19 format=3 uid="uid://dip0t5cixw72i"]
 
 [ext_resource type="Script" path="res://scripts/orc.gd" id="1_6vy0w"]
 [ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/orc/Orc.png" id="1_c56u5"]
@@ -63,11 +63,10 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_t2v54"]
-resource_name = "walk"
-length = 1.00001
-loop_mode = 1
-step = 0.1
+[sub_resource type="Animation" id="Animation_8pvwp"]
+resource_name = "death"
+length = 0.6
+step = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -75,10 +74,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.002306, 0.136916, 0.265721, 0.393393, 0.537207, 0.657941, 0.787939, 0.910416),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11, 12, 13, 14, 15]
+"values": [40, 41, 42, 43]
 }
 
 [sub_resource type="Animation" id="Animation_gyaa8"]
@@ -98,10 +97,11 @@ tracks/0/keys = {
 "values": [32, 33, 34, 35]
 }
 
-[sub_resource type="Animation" id="Animation_8pvwp"]
-resource_name = "death"
-length = 0.6
-step = 0.6
+[sub_resource type="Animation" id="Animation_t2v54"]
+resource_name = "walk"
+length = 1.00001
+loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,10 +109,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.002306, 0.136916, 0.265721, 0.393393, 0.537207, 0.657941, 0.787939, 0.910416),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [40, 41, 42, 43]
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5srb1"]
@@ -139,6 +139,12 @@ height = 24.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4jp8"]
 radius = 3.0
 height = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o1mc"]
+bg_color = Color(0.31802, 0.31802, 0.31802, 0.435294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7ocm"]
+bg_color = Color(0.780491, 0, 0.0207087, 1)
 
 [node name="Orc" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
 collision_layer = 256
@@ -179,6 +185,7 @@ collision_layer = 512
 collision_mask = 0
 monitoring = false
 script = ExtResource("3_xgb0k")
+damage = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -7)
@@ -197,11 +204,12 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_f4jp8")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(0.982729, 0.00020263, 0.000112626, 1)
-offset_left = -9.0
-offset_top = -20.0
-offset_right = 8.0
-offset_bottom = -16.0
+offset_left = -8.0
+offset_top = -19.0
+offset_right = 9.0
+offset_bottom = -17.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0o1mc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q7ocm")
 value = 100.0
 show_percentage = false
 
