@@ -10,6 +10,7 @@ extends CharacterBody2D
 var input
 var current_look_dir = "right"
 var alive = true
+var can_attack = true
 
 func _ready() -> void:
 	health_bar.max_value = stats.maximum_hp
@@ -21,15 +22,11 @@ func _physics_process(delta: float) -> void:
 	if !alive:
 		velocity = Vector2.ZERO
 		
-	#if input.x > 0:
-		#current_look_dir = "right"
-	#elif input.x < 0:
-		#current_look_dir = "left"
-		
 	animation()
 	move_and_slide()
 	
-	if(Input.is_action_pressed("attack")):
+	if(Input.is_action_pressed("attack") and can_attack):
+		can_attack = false
 		weapon.play_attack_animation()
 
 func animation():
@@ -41,8 +38,6 @@ func animation():
 	elif current_look_dir == "left" and get_global_mouse_position().x > global_position.x:
 		animated_sprite.play("look_right")
 		current_look_dir = "right"
-	#else:
-		#animated_sprite.play("idle")
 
 func take_hit(damage: int) -> void:
 	var taken_hp = stats.take_hit(damage)
@@ -56,3 +51,6 @@ func _on_hurt_box_received_damage(damage: int) -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death":
 		get_tree().change_scene_to_file("res://scenes/Menu.tscn")
+
+func _on_sword_attack_ready() -> void:
+	can_attack = true

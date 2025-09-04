@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cft2ma5kps054"]
+[gd_scene load_steps=9 format=3 uid="uid://cft2ma5kps054"]
 
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_07cgf"]
 [ext_resource type="Texture2D" uid="uid://b8of02pcjx1ak" path="res://assests/sprites/weapons/fa1608.png" id="1_gr1kk"]
@@ -59,7 +59,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.5, -2),
 "update": 0,
 "values": [0.0, -3.31613]
 }
@@ -88,10 +88,40 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(1.1, 1.2)]
 }
 
+[sub_resource type="Animation" id="Animation_ip8pm"]
+resource_name = "sword_return"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.65),
+"transitions": PackedFloat32Array(-2, -2, 0.5),
+"update": 0,
+"values": [-3.31613, -3.31613, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1.1, 1.2), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_maa3u"]
 _data = {
 "RESET": SubResource("Animation_0qxq3"),
-"slash": SubResource("Animation_wey5q")
+"slash": SubResource("Animation_wey5q"),
+"sword_return": SubResource("Animation_ip8pm")
 }
 
 [node name="Sword" type="Node2D"]
@@ -99,7 +129,6 @@ script = ExtResource("1_07cgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, -8)
-rotation = 0.00818885
 texture = ExtResource("1_gr1kk")
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]
