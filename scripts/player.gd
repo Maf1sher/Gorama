@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 	if(Input.is_action_pressed("attack") and can_attack):
 		can_attack = false
-		weapon.play_attack_animation()
+		weapon.play_attack_animation(stats.attack_speed_percent)
 
 func animation():
 	if !alive:
