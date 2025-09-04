@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimationPlayer
 @onready var health_bar = $ProgressBar
-@onready var weapon = $AnimatedSprite2D/Sword
+@onready var weapon = $Sprite2D/Sword
 
 var input
 var current_look_dir = "right"
@@ -21,10 +21,10 @@ func _physics_process(delta: float) -> void:
 	if !alive:
 		velocity = Vector2.ZERO
 		
-	if input.x > 0:
-		current_look_dir = "right"
-	elif input.x < 0:
-		current_look_dir = "left"
+	#if input.x > 0:
+		#current_look_dir = "right"
+	#elif input.x < 0:
+		#current_look_dir = "left"
 		
 	animation()
 	move_and_slide()
@@ -35,12 +35,14 @@ func _physics_process(delta: float) -> void:
 func animation():
 	if !alive:
 		animated_sprite.play("death")
-	elif velocity and current_look_dir == "right":
-		animated_sprite.play("walk_right")
-	elif velocity and current_look_dir == "left":
-		animated_sprite.play("walk_left")
-	else:
-		animated_sprite.play("idle")
+	elif current_look_dir == "right" and get_global_mouse_position().x < global_position.x:
+		animated_sprite.play("look_left")
+		current_look_dir = "left"
+	elif current_look_dir == "left" and get_global_mouse_position().x > global_position.x:
+		animated_sprite.play("look_right")
+		current_look_dir = "right"
+	#else:
+		#animated_sprite.play("idle")
 
 func take_hit(damage: int) -> void:
 	var taken_hp = stats.take_hit(damage)

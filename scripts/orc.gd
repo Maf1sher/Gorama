@@ -50,14 +50,16 @@ func animation() -> void:
 		animated_sprite.play("walk")
 
 func die():
-	can_move = false
-	collision_shape.set_deferred("disabled", true)
+	set_stunned(true)
 	animated_sprite.play("death")
 
 func hurt():
-	can_move = false
-	collision_shape.set_deferred("disabled", true)
+	set_stunned(true)
 	animated_sprite.play("hurt")
+	
+func set_stunned(value: bool):
+	can_move = !value
+	collision_shape.set_deferred("disabled", value)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	is_hurt = true
@@ -66,11 +68,13 @@ func _on_hurt_box_received_damage(damage: int) -> void:
 func _on_player_detector_player_detection(in_area: bool) -> void:
 	player_in_area = in_area
 	
+func _on_hit_box_hit_registered() -> void:
+	hitbox.monitorable = false
+	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"death":
 			queue_free()
 		"hurt":
 			is_hurt = false
-			can_move = true
-			collision_shape.set_deferred("disabled", false)
+			set_stunned(false)

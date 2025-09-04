@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=4 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h7oay"]
-[ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/player.tscn" id="1_le3ny"]
 [ext_resource type="Texture2D" uid="uid://bnraouuojsfjw" path="res://assests/sprites/tilesets/tilemap_packed.png" id="2_7fj5m"]
 [ext_resource type="Script" path="res://scripts/enemy_generator.gd" id="4_vlj8n"]
+[ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/player.tscn" id="5_dqgws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyrcg"]
 texture = ExtResource("2_7fj5m")
@@ -191,12 +191,10 @@ shape = SubResource("SegmentShape2D_5328e")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D"]
 shape = SubResource("SegmentShape2D_xembd")
 
-[node name="Player" parent="." instance=ExtResource("1_le3ny")]
-position = Vector2(0, 11)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -11)
-zoom = Vector2(4, 4)
-
 [node name="EnemyGenerator" type="Node" parent="."]
 script = ExtResource("4_vlj8n")
+
+[node name="Player" parent="." instance=ExtResource("5_dqgws")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
