@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	velocity = input * stats.movement_speed
 	
 	if !alive:
-		velocity = Vector2.ZERO
+		die()
 		
 	animation()
 	move_and_slide()
@@ -42,6 +42,10 @@ func animation():
 func take_hit(damage: int) -> void:
 	var taken_hp = stats.take_hit(damage)
 	health_bar.value = stats.hp
+
+func die():
+	velocity = Vector2.ZERO
+	can_attack = false
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	health_bar.value = stats.hp
