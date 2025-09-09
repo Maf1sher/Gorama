@@ -17,6 +17,9 @@ func _ready() -> void:
 	for i in range(60):
 		create_slot()
 
+func _unhandled_input(event: InputEvent) -> void:
+	pass
+
 func _process(delta: float) -> void:
 	if item_held:
 		if Input.is_action_just_pressed("inventory_right_click"):
@@ -32,10 +35,12 @@ func _process(delta: float) -> void:
 func open():
 	visible = true
 	is_open = true
+	InputManager.block_input()
 	
 func close():
 	visible = false
 	is_open = false
+	InputManager.unblock_input()
 	
 
 func create_slot():
