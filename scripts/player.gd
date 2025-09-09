@@ -28,10 +28,6 @@ func _physics_process(delta: float) -> void:
 		
 	animation()
 	move_and_slide()
-	
-	#if Input.is_action_pressed("attack") and can_attack:
-		#can_attack = false
-		#weapon.play_attack_animation(stats.attack_speed_percent)
 
 func _input(event: InputEvent) -> void:
 	if InputManager.is_input_blocked():

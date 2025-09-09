@@ -17,20 +17,18 @@ func _ready() -> void:
 	for i in range(60):
 		create_slot()
 
-func _unhandled_input(event: InputEvent) -> void:
-	pass
-
 func _process(delta: float) -> void:
-	if item_held:
-		if Input.is_action_just_pressed("inventory_right_click"):
-			rotate_item()
-		if Input.is_action_just_pressed("inventory_left_click"):
-			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
-				place_item()
-	else:
-		if Input.is_action_just_pressed("inventory_left_click"):
-			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
-				pick_item()
+	#if is_open:
+		if item_held:
+			if Input.is_action_just_pressed("inventory_right_click"):
+				rotate_item()
+			if Input.is_action_just_pressed("inventory_left_click"):
+				if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
+					place_item()
+		else:
+			if Input.is_action_just_pressed("inventory_left_click"):
+				if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
+					pick_item()
 
 func open():
 	visible = true
