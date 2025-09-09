@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var IconRect_path = $Icon
 
+var icons_path ="res://assests/sprites/inventory/"
 var item_ID: int
 var item_grids := []
 var selected = false
@@ -12,9 +13,7 @@ func _process(delta: float) -> void:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 	
 func load_item(a_ItemID: int) -> void:
-	var Icon_path = "res://assests/sprites/inventory/" + \
-	 DataHandler.item_data[str(a_ItemID)]["Name"] + ".png"
-	print(Icon_path)
+	var Icon_path = icons_path + DataHandler.item_data[str(a_ItemID)]["Name"] + ".png"
 	IconRect_path.texture = load(Icon_path)
 	for grid in DataHandler.item_grid_data[str(a_ItemID)]:
 		var converter_array := []

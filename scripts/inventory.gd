@@ -1,8 +1,8 @@
 extends Control
 
 @onready var slot_scene = preload("res://scenes/UI/inventory/slot.tscn")
-@onready var grid_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @onready var item_scene = preload("res://scenes/UI/inventory/Item.tscn")
+@onready var grid_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @onready var scroll_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer
 @onready var col_count = grid_container.columns
 
@@ -11,9 +11,10 @@ var item_held = null
 var current_slot = null
 var can_place := false
 var icon_anchor: Vector2
+var is_open := false
 
 func _ready() -> void:
-	for i in range(100):
+	for i in range(60):
 		create_slot()
 
 func _process(delta: float) -> void:
@@ -27,6 +28,15 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("inventory_left_click"):
 			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
 				pick_item()
+
+func open():
+	visible = true
+	is_open = true
+	
+func close():
+	visible = false
+	is_open = false
+	
 
 func create_slot():
 	var new_slot = slot_scene.instantiate()

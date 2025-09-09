@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimationPlayer
 @onready var health_bar = $ProgressBar
 @onready var weapon = $Sprite2D/Sword
+@onready var inventory = $Inventory
 
 var input
 var current_look_dir = "right"
