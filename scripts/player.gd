@@ -54,7 +54,7 @@ func _on_hurt_box_received_damage(damage: int) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death":
-		get_tree().change_scene_to_file("res://scenes/Menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/UI/Menu.tscn")
 
 func _on_sword_attack_ready() -> void:
 	can_attack = true

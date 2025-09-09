@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://dip0t5cixw72i"]
 
-[ext_resource type="Script" path="res://scripts/orc.gd" id="1_6vy0w"]
-[ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/orc/Orc.png" id="1_c56u5"]
-[ext_resource type="Script" path="res://components/stats.gd" id="1_sip4y"]
-[ext_resource type="Script" path="res://components/hitbox.gd" id="3_xgb0k"]
-[ext_resource type="Script" path="res://components/player_detector.gd" id="4_cloy1"]
-[ext_resource type="Script" path="res://components/hurtbox.gd" id="5_xopne"]
+[ext_resource type="Script" path="res://scripts/orc.gd" id="1_ji0vp"]
+[ext_resource type="Script" path="res://components/stats.gd" id="2_dsf7i"]
+[ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/orc/Orc.png" id="3_f00c8"]
+[ext_resource type="Script" path="res://components/player_detector.gd" id="4_4jv7i"]
+[ext_resource type="Script" path="res://components/hitbox.gd" id="5_qyqbv"]
+[ext_resource type="Script" path="res://components/hurtbox.gd" id="6_cgjki"]
 
 [sub_resource type="Animation" id="Animation_vvv1s"]
 length = 0.001
@@ -149,16 +149,16 @@ bg_color = Color(0.780491, 0, 0.0207087, 1)
 [node name="Orc" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
 collision_layer = 256
 collision_mask = 256
-script = ExtResource("1_6vy0w")
+script = ExtResource("1_ji0vp")
 stats = NodePath("Stats")
 
 [node name="Stats" type="Node" parent="."]
-script = ExtResource("1_sip4y")
+script = ExtResource("2_dsf7i")
 movement_speed = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -7)
-texture = ExtResource("1_c56u5")
+texture = ExtResource("3_f00c8")
 hframes = 8
 vframes = 6
 
@@ -174,7 +174,7 @@ shape = SubResource("CapsuleShape2D_vnp0j")
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("4_cloy1")
+script = ExtResource("4_4jv7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(0, -7)
@@ -185,7 +185,7 @@ collision_layer = 512
 collision_mask = 0
 monitoring = false
 monitorable = false
-script = ExtResource("3_xgb0k")
+script = ExtResource("5_qyqbv")
 damage = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -196,7 +196,7 @@ shape = SubResource("CapsuleShape2D_ckutg")
 collision_layer = 0
 collision_mask = 4
 monitorable = false
-script = ExtResource("5_xopne")
+script = ExtResource("6_cgjki")
 stats = NodePath("../Stats")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]

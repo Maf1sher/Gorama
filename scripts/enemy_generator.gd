@@ -1,7 +1,7 @@
 class_name EnemyGenerator
 extends Node
 
-@onready var orc: PackedScene = preload("res://scenes/Orc.tscn")
+@onready var orc: PackedScene = preload("res://scenes/entity/Orc.tscn")
 
 func _ready() -> void:
 	for i in 1:
