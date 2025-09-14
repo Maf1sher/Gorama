@@ -24,12 +24,14 @@ script = ExtResource("2_byc5t")
 name = "hhh"
 texture = ExtResource("3_as0tf")
 dimentions = Vector2i(1, 1)
+sceen_achor_point = Vector2i(0, 0)
 
 [sub_resource type="Resource" id="Resource_f2e7q"]
 script = ExtResource("2_byc5t")
 name = "ddd"
 texture = ExtResource("4_gor17")
 dimentions = Vector2i(1, 2)
+sceen_achor_point = Vector2i(0, 0)
 
 [sub_resource type="Resource" id="Resource_lmq4x"]
 script = ExtResource("2_byc5t")
@@ -37,6 +39,7 @@ name = "sword"
 texture = ExtResource("6_4u6yj")
 dimentions = Vector2i(2, 3)
 item_sceen = ExtResource("6_4sovq")
+sceen_achor_point = Vector2i(-1, 5)
 
 [node name="Inventory" type="Control"]
 layout_mode = 3

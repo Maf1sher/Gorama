@@ -6,3 +6,4 @@
 script = ExtResource("1_gj48l")
 name = ""
 dimentions = Vector2i(0, 0)
+sceen_achor_point = Vector2i(0, 0)

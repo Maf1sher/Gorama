@@ -75,6 +75,12 @@ func _on_item_changed(slot, item: Node) -> void:
 	if slot == "left_hand":
 		if item:
 			var weapon = item.data.item_sceen.instantiate()
+			weapon.position.x = item.data.sceen_achor_point.x
+			weapon.position.y = item.data.sceen_achor_point.y
 			left_hand = weapon
 			sprite.add_child(weapon)
 			weapon.connect("attack_ready", self._on_sword_attack_ready)
+		else:
+			left_hand.get_parent().remove_child(left_hand)
+			left_hand.queue_free()
+			left_hand = null
