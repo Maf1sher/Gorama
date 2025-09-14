@@ -1,5 +1,8 @@
 extends Control
 
+@onready var equipment = $Equipment
+@onready var character_sheet = $CharacterSheet
+
 var is_open := false
 var held_item: Node = null
 
@@ -28,3 +31,6 @@ func place_item(item: Node, destination: Node) -> void:
 		
 func get_held_item() -> Node:
 	return held_item
+	
+func get_character_sheet():
+	return $CharacterSheet

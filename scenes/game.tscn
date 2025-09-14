@@ -194,7 +194,8 @@ shape = SubResource("SegmentShape2D_5328e")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D"]
 shape = SubResource("SegmentShape2D_xembd")
 
-[node name="Player" parent="." instance=ExtResource("4_t34ol")]
+[node name="Player" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("4_t34ol")]
+inventory = NodePath("../CanvasLayer/Inventory")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -202,5 +203,6 @@ shape = SubResource("SegmentShape2D_xembd")
 script = ExtResource("4_v0md5")
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("5_lelb7")]
+visible = false
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("6_v07ir")]

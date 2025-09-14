@@ -2,11 +2,14 @@ class_name Player
 extends CharacterBody2D
 
 @export var stats: Stats
+@export var inventory: Node
 
 @onready var animated_sprite = $AnimationPlayer
 @onready var health_bar = $ProgressBar
-@onready var weapon = $Sprite2D/Sword
-@onready var inventory = $Inventory
+@onready var sprite = $Sprite2D
+@onready var character_sheet = inventory.get_character_sheet()
+
+var left_hand: Node
 
 var input
 var current_look_dir = "right"
@@ -14,6 +17,7 @@ var alive = true
 var can_attack = true
 
 func _ready() -> void:
+	character_sheet.connect("item_changed", self._on_item_changed)
 	health_bar.max_value = stats.maximum_hp
 
 func _physics_process(delta: float) -> void:
@@ -33,9 +37,9 @@ func _input(event: InputEvent) -> void:
 	if InputManager.is_input_blocked():
 		return
 
-	if Input.is_action_pressed("attack") and can_attack:
+	if Input.is_action_pressed("attack") and left_hand and can_attack:
 		can_attack = false
-		weapon.play_attack_animation(stats.attack_speed_percent)
+		left_hand.play_attack_animation(stats.attack_speed_percent)
 
 func animation():
 	if !alive:
@@ -66,3 +70,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_sword_attack_ready() -> void:
 	can_attack = true
+	
+func _on_item_changed(slot, item: Node) -> void:
+	if slot == "left_hand":
+		if item:
+			var weapon = item.data.item_sceen.instantiate()
+			left_hand = weapon
+			sprite.add_child(weapon)
+			weapon.connect("attack_ready", self._on_sword_attack_ready)

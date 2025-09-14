@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cq0bl0moltd4t"]
+[gd_scene load_steps=22 format=3 uid="uid://cq0bl0moltd4t"]
 
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_rgsww"]
 [ext_resource type="Script" path="res://scripts/inventory/item_grid.gd" id="1_t33lg"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://c0vvol8oddn4i" path="res://assests/sprites/inventory/example_1x1.png" id="3_as0tf"]
 [ext_resource type="Texture2D" uid="uid://dlvgkg6gla4u4" path="res://assests/sprites/inventory/example_1x2.png" id="4_gor17"]
 [ext_resource type="PackedScene" uid="uid://bdhifj2wsy1jx" path="res://scenes/UI/inventory/inventory_item.tscn" id="4_ruclq"]
+[ext_resource type="PackedScene" uid="uid://cft2ma5kps054" path="res://scenes/item/sword.tscn" id="6_4sovq"]
+[ext_resource type="Texture2D" uid="uid://cametniu6akn6" path="res://assests/sprites/weapons/fb1608.png" id="6_4u6yj"]
 [ext_resource type="Texture2D" uid="uid://c7xiihp46dkmd" path="res://assests/sprites/inventory/character_sheet.png" id="9_wc4px"]
 [ext_resource type="PackedScene" uid="uid://co8eb2bac67yh" path="res://scenes/UI/inventory/character_sheet_slot.tscn" id="10_6h8rt"]
+[ext_resource type="Script" path="res://scripts/inventory/character_sheet.gd" id="10_u1iq6"]
 [ext_resource type="Texture2D" uid="uid://b4ic42y8375d6" path="res://assests/sprites/inventory/head_slot.png" id="11_hlqqx"]
 [ext_resource type="Texture2D" uid="uid://d1judwc0d6eqs" path="res://assests/sprites/inventory/weapon_slot.png" id="11_px6va"]
 [ext_resource type="Texture2D" uid="uid://t3a40ph314ml" path="res://assests/sprites/inventory/chest_slot.png" id="12_rehx7"]
@@ -28,6 +31,13 @@ name = "ddd"
 texture = ExtResource("4_gor17")
 dimentions = Vector2i(1, 2)
 
+[sub_resource type="Resource" id="Resource_lmq4x"]
+script = ExtResource("2_byc5t")
+name = "sword"
+texture = ExtResource("6_4u6yj")
+dimentions = Vector2i(2, 3)
+item_sceen = ExtResource("6_4sovq")
+
 [node name="Inventory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -44,7 +54,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
 script = ExtResource("2_rmjkk")
-items = Array[ExtResource("2_byc5t")]([SubResource("Resource_gx0h6"), SubResource("Resource_f2e7q")])
+items = Array[ExtResource("2_byc5t")]([SubResource("Resource_gx0h6"), SubResource("Resource_f2e7q"), SubResource("Resource_lmq4x")])
 inventory_item_scene = ExtResource("4_ruclq")
 
 [node name="ItemGrid" type="GridContainer" parent="Equipment"]
@@ -58,9 +68,10 @@ inventory_path = NodePath("../..")
 
 [node name="CharacterSheet" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 200.0
+offset_left = 185.0
 offset_right = 320.0
 offset_bottom = 179.0
+script = ExtResource("10_u1iq6")
 
 [node name="TextureRect" type="TextureRect" parent="CharacterSheet"]
 layout_mode = 1
@@ -146,3 +157,11 @@ layout_mode = 2
 texture = ExtResource("13_e37mo")
 type = 3
 inventory_path = NodePath("../../../..")
+
+[connection signal="item_changed" from="CharacterSheet/TextureRect/LeftRing" to="CharacterSheet" method="_on_left_ring_item_changed"]
+[connection signal="item_changed" from="CharacterSheet/TextureRect/RightRing" to="CharacterSheet" method="_on_right_ring_item_changed"]
+[connection signal="item_changed" from="CharacterSheet/TextureRect/LeftHand" to="CharacterSheet" method="_on_left_hand_item_changed"]
+[connection signal="item_changed" from="CharacterSheet/TextureRect/RightHand" to="CharacterSheet" method="_on_right_hand_item_changed"]
+[connection signal="item_changed" from="CharacterSheet/TextureRect/HBoxContainer/Head" to="CharacterSheet" method="_on_head_item_changed"]
+[connection signal="item_changed" from="CharacterSheet/TextureRect/HBoxContainer/Chest" to="CharacterSheet" method="_on_chest_item_changed"]
+[connection signal="item_changed" from="CharacterSheet/TextureRect/HBoxContainer/Boots" to="CharacterSheet" method="_on_boots_item_changed"]

@@ -1,5 +1,7 @@
 extends TextureRect
 
+signal item_changed(item)
+
 @export var dimentions: Vector2i
 @export var type: Types
 @export var inventory_path: NodePath
@@ -22,9 +24,10 @@ func _gui_input(event: InputEvent) -> void:
 				item = held_item
 				inventory.place_item(held_item, self)
 				held_item.get_placed(global_position + size / 2 - held_item.size / 2)
+				emit_signal("item_changed", item)
 		else:
 			if item:
 				inventory.pick_up_item(item)
 				item.get_picked_up()
 				item = null
-		
+				emit_signal("item_changed", item)
