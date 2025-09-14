@@ -5,7 +5,7 @@ extends TextureRect
 @export var inventory_path: NodePath
 var inventory: Node
 	
-enum Types {WEAPON}
+enum Types {WEAPON, HEAD, CHEST, BOOTS, RING}
 
 var item: Node = null
 
