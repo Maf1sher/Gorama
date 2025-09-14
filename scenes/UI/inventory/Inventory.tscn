@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cq0bl0moltd4t"]
+[gd_scene load_steps=22 format=3 uid="uid://cq0bl0moltd4t"]
 
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_rgsww"]
 [ext_resource type="Script" path="res://scripts/inventory/item_grid.gd" id="1_t33lg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bdhifj2wsy1jx" path="res://scenes/UI/inventory/inventory_item.tscn" id="4_ruclq"]
 [ext_resource type="PackedScene" uid="uid://cft2ma5kps054" path="res://scenes/item/sword.tscn" id="6_4sovq"]
 [ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/sword.tres" id="7_mi44v"]
+[ext_resource type="Resource" uid="uid://berthunsd3jyo" path="res://resources/items/sword2.tres" id="8_oq3rt"]
 [ext_resource type="Texture2D" uid="uid://c7xiihp46dkmd" path="res://assests/sprites/inventory/character_sheet.png" id="9_wc4px"]
 [ext_resource type="PackedScene" uid="uid://co8eb2bac67yh" path="res://scenes/UI/inventory/character_sheet_slot.tscn" id="10_6h8rt"]
 [ext_resource type="Script" path="res://scripts/inventory/character_sheet.gd" id="10_u1iq6"]
@@ -52,7 +53,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
 script = ExtResource("2_rmjkk")
-items = Array[ExtResource("2_byc5t")]([SubResource("Resource_gx0h6"), SubResource("Resource_f2e7q"), ExtResource("7_mi44v"), ExtResource("7_mi44v")])
+items = Array[ExtResource("2_byc5t")]([SubResource("Resource_gx0h6"), SubResource("Resource_f2e7q"), ExtResource("7_mi44v"), ExtResource("7_mi44v"), ExtResource("8_oq3rt")])
 inventory_item_scene = ExtResource("4_ruclq")
 
 [node name="ItemGrid" type="GridContainer" parent="Equipment"]

@@ -1,14 +1,17 @@
 extends Node2D
 
-signal attack_ready
+#signal attack_ready
 
 @onready var animation = $AnimationPlayer
 
-var attack_speed = 100
+var attack_speed: int = 100
+var can_attack: bool = true
 	
 func play_attack_animation(attack_speed: int):
-	self.attack_speed = attack_speed
-	animation.play("slash")
+	if can_attack:
+		can_attack = false
+		self.attack_speed = attack_speed
+		animation.play("slash")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "slash":
@@ -16,4 +19,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animation.play("sword_return")
 	elif anim_name == "sword_return":
 		animation.play("RESET")
-		attack_ready.emit()
+		#attack_ready.emit()
+		can_attack = true
