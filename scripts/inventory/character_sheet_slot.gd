@@ -3,11 +3,9 @@ extends TextureRect
 signal item_changed(item)
 
 @export var dimentions: Vector2i
-@export var type: Types
+@export var type: ItemTypes.Type
 @export var inventory_path: NodePath
 var inventory: Node
-	
-enum Types {WEAPON, HEAD, CHEST, BOOTS, RING}
 
 var item: Node = null
 
@@ -19,6 +17,8 @@ func _gui_input(event: InputEvent) -> void:
 		var held_item = inventory.get_held_item()
 		if held_item:
 			if !item:
+				if held_item.data.type != type:
+					return
 				if held_item.data.is_rotated:
 					held_item.do_rotation()
 				item = held_item
