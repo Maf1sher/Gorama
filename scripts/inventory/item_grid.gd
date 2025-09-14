@@ -4,11 +4,14 @@ const SLOT_SIZE: int = 16
 
 @export var inventory_slot_scene: PackedScene
 @export var dimentions: Vector2i
+@export var inventory_path: NodePath
+var inventory: Node
 
 var slot_data: Array[Node] = []
 var held_item_intersects: bool = false
 
 func _ready() -> void:
+	inventory = get_node(inventory_path)
 	create_slots()
 	init_slot_data()
 	
@@ -26,14 +29,14 @@ func init_slot_data() -> void:
 	
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory_left_click"):
-		var held_item = get_tree().get_first_node_in_group("held_item")
+		var held_item = inventory.get_held_item()
 		if !held_item:
 			var index = get_slot_index_from_coords(get_global_mouse_position())
 			var slot_index = get_slot_index_from_coords(get_global_mouse_position())
 			var item = slot_data[slot_index]
 			if !item:
 				return
-			item.get_picked_up()
+			pick_up_item(item)
 			remove_item_from_slot_data(item)
 		else:
 			if !held_item_intersects:
@@ -43,18 +46,26 @@ func _gui_input(event: InputEvent) -> void:
 			var items = items_in_area(index, held_item.data.dimentions)
 			if items.size():
 				if items.size() == 1:
-					held_item.get_placed(get_coords_from_slot_index(index))
+					place_item(held_item, index)
 					remove_item_from_slot_data(items[0])
 					add_item_to_slot_data(index, held_item)
-					items[0].get_picked_up()
+					pick_up_item(items[0])
 				return
-			held_item.get_placed(get_coords_from_slot_index(index))
+			place_item(held_item, index)
 			add_item_to_slot_data(index, held_item)
 			
 	if event is InputEventMouseMotion:
-		var held_item = get_tree().get_first_node_in_group("held_item")
+		var held_item = inventory.get_held_item()
 		if held_item:
 			detect_held_item_intersection(held_item)
+
+func pick_up_item(item: Node) -> void:
+	inventory.pick_up_item(item)
+	item.get_picked_up()
+	
+func place_item(item: Node, index: int) -> void:
+	inventory.place_item(item, self)
+	item.get_placed(get_coords_from_slot_index(index))
 
 func detect_held_item_intersection(held_item: Node) -> void:
 	var h_rect = Rect2(held_item.anchor_point, held_item.size)
@@ -89,7 +100,7 @@ func get_slot_index_from_coords(coords: Vector2i) -> int:
 	coords = coords / SLOT_SIZE
 	var index = coords.x + coords.y * columns
 	if index > dimentions.x * dimentions.y || index < 0:
-		return - 1
+		return -1
 	return index
 	
 func get_coords_from_slot_index(index: int) -> Vector2i:

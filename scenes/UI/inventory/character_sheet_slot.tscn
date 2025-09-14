@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://co8eb2bac67yh"]
+
+[ext_resource type="Script" path="res://scripts/inventory/character_sheet_slot.gd" id="1_acwjv"]
+
+[node name="CharacterSheetSlot" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_acwjv")

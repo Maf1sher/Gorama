@@ -5,6 +5,9 @@
 
 [node name="Slot" type="TextureRect"]
 custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
 texture = ExtResource("1_j8y5j")
 expand_mode = 1
 script = ExtResource("2_gavle")
