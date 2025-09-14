@@ -16,9 +16,6 @@ func close():
 	is_open = false
 	InputManager.unblock_input()
 	
-#func set_held_item(item: Node) -> void:
-	#held_item = item
-	
 func pick_up_item(item: Node) -> void:
 	held_item = item
 	item.get_parent().remove_child(item)
@@ -28,6 +25,14 @@ func place_item(item: Node, destination: Node) -> void:
 	held_item = null
 	remove_child(item)
 	destination.add_child(item)
+	
+func swap_items(item: Node, destination: Node) -> void:
+	var tmp = held_item
+	held_item = item
+	item.get_parent().remove_child(item)
+	add_child(item)
+	remove_child(tmp)
+	destination.add_child(tmp)
 		
 func get_held_item() -> Node:
 	return held_item
