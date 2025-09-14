@@ -1,15 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://cq0bl0moltd4t"]
+[gd_scene load_steps=21 format=3 uid="uid://cq0bl0moltd4t"]
 
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_rgsww"]
 [ext_resource type="Script" path="res://scripts/inventory/item_grid.gd" id="1_t33lg"]
-[ext_resource type="Script" path="res://resources/item_data.gd" id="2_byc5t"]
+[ext_resource type="Script" path="res://resources/items/item_data.gd" id="2_byc5t"]
 [ext_resource type="PackedScene" uid="uid://ckq1wu7kvt3oy" path="res://scenes/UI/inventory/inventory_slot.tscn" id="2_cfbhn"]
 [ext_resource type="Script" path="res://scripts/inventory/equipment.gd" id="2_rmjkk"]
 [ext_resource type="Texture2D" uid="uid://c0vvol8oddn4i" path="res://assests/sprites/inventory/example_1x1.png" id="3_as0tf"]
 [ext_resource type="Texture2D" uid="uid://dlvgkg6gla4u4" path="res://assests/sprites/inventory/example_1x2.png" id="4_gor17"]
 [ext_resource type="PackedScene" uid="uid://bdhifj2wsy1jx" path="res://scenes/UI/inventory/inventory_item.tscn" id="4_ruclq"]
 [ext_resource type="PackedScene" uid="uid://cft2ma5kps054" path="res://scenes/item/sword.tscn" id="6_4sovq"]
-[ext_resource type="Texture2D" uid="uid://cametniu6akn6" path="res://assests/sprites/weapons/fb1608.png" id="6_4u6yj"]
+[ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/sword.tres" id="7_mi44v"]
 [ext_resource type="Texture2D" uid="uid://c7xiihp46dkmd" path="res://assests/sprites/inventory/character_sheet.png" id="9_wc4px"]
 [ext_resource type="PackedScene" uid="uid://co8eb2bac67yh" path="res://scenes/UI/inventory/character_sheet_slot.tscn" id="10_6h8rt"]
 [ext_resource type="Script" path="res://scripts/inventory/character_sheet.gd" id="10_u1iq6"]
@@ -36,15 +36,6 @@ item_sceen = ExtResource("6_4sovq")
 sceen_achor_point = Vector2i(0, 0)
 type = 0
 
-[sub_resource type="Resource" id="Resource_lmq4x"]
-script = ExtResource("2_byc5t")
-name = "sword"
-texture = ExtResource("6_4u6yj")
-dimentions = Vector2i(2, 3)
-item_sceen = ExtResource("6_4sovq")
-sceen_achor_point = Vector2i(-1, 5)
-type = 0
-
 [node name="Inventory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -61,7 +52,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
 script = ExtResource("2_rmjkk")
-items = Array[ExtResource("2_byc5t")]([SubResource("Resource_gx0h6"), SubResource("Resource_f2e7q"), SubResource("Resource_lmq4x")])
+items = Array[ExtResource("2_byc5t")]([SubResource("Resource_gx0h6"), SubResource("Resource_f2e7q"), ExtResource("7_mi44v"), ExtResource("7_mi44v")])
 inventory_item_scene = ExtResource("4_ruclq")
 
 [node name="ItemGrid" type="GridContainer" parent="Equipment"]

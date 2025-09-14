@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://14tb3i0ulsku"]
+
+[ext_resource type="PackedScene" uid="uid://cft2ma5kps054" path="res://scenes/item/sword.tscn" id="1_idbtl"]
+[ext_resource type="Script" path="res://resources/items/item_data.gd" id="2_xfdhe"]
+[ext_resource type="Texture2D" uid="uid://cametniu6akn6" path="res://assests/sprites/weapons/fb1608.png" id="3_tw7s7"]
+
+[resource]
+script = ExtResource("2_xfdhe")
+name = ""
+texture = ExtResource("3_tw7s7")
+dimentions = Vector2i(2, 3)
+item_sceen = ExtResource("1_idbtl")
+sceen_achor_point = Vector2i(-1, 5)
+type = 0

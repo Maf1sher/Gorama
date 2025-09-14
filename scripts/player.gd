@@ -74,6 +74,7 @@ func _on_sword_attack_ready() -> void:
 func _on_item_changed(slot, item: Node) -> void:
 	if slot == "left_hand":
 		if item:
+			can_attack = true
 			var weapon = item.data.item_sceen.instantiate()
 			weapon.position.x = item.data.sceen_achor_point.x
 			weapon.position.y = item.data.sceen_achor_point.y
