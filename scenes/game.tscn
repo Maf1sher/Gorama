@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://cruivemipt4f2"]
+[gd_scene load_steps=13 format=4 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="Texture2D" uid="uid://bnraouuojsfjw" path="res://assests/sprites/tilesets/tilemap_packed.png" id="2_7fj5m"]
 [ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/entity/player.tscn" id="4_t34ol"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="4_v0md5"]
 [ext_resource type="PackedScene" uid="uid://cq0bl0moltd4t" path="res://scenes/UI/inventory/Inventory.tscn" id="5_lelb7"]
+[ext_resource type="PackedScene" uid="uid://bjgrr0y7d4qgn" path="res://scenes/liftable_item/crystal.tscn" id="6_nm6y8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyrcg"]
 texture = ExtResource("2_7fj5m")
@@ -203,3 +204,12 @@ script = ExtResource("4_v0md5")
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("5_lelb7")]
 visible = false
+
+[node name="Crystal" parent="." instance=ExtResource("6_nm6y8")]
+position = Vector2(-49, -17)
+
+[node name="Crystal2" parent="." instance=ExtResource("6_nm6y8")]
+position = Vector2(-14, 33)
+
+[node name="Crystal3" parent="." instance=ExtResource("6_nm6y8")]
+position = Vector2(46, -1)
