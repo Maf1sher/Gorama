@@ -4,7 +4,7 @@ extends Node
 @onready var orc: PackedScene = preload("res://scenes/entity/Orc.tscn")
 
 func _ready() -> void:
-	for i in 40:
+	for i in 2:
 		await get_tree().create_timer(1).timeout
 		var orc = orc.instantiate()
 		orc.position = Vector2(randi_range(-100,100),randi_range(-100,100))

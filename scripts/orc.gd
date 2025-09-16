@@ -1,19 +1,20 @@
 extends CharacterBody2D
 
-var player_in_area: bool = false
-var attack_is_ready: bool = true
-var direction := Vector2.ZERO
-var can_move = true
-var is_hurt = false
-
 @export var stats: Stats
 
+@onready var crystal: PackedScene = preload("res://scenes/liftable_item/crystal.tscn")
 @onready var target = $"../Player"
 @onready var animated_sprite = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var hitbox = $HitBox
 @onready var health_bar = $ProgressBar
 @onready var collision_shape = $CollisionShape2D
+
+var player_in_area: bool = false
+var attack_is_ready: bool = true
+var direction := Vector2.ZERO
+var can_move = true
+var is_hurt = false
 
 func _ready() -> void:
 	health_bar.max_value = stats.maximum_hp
@@ -74,6 +75,9 @@ func _on_hit_box_hit_registered() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"death":
+			var new_crystal = crystal.instantiate()
+			new_crystal.global_position = global_position
+			get_parent().add_child(new_crystal)
 			queue_free()
 		"hurt":
 			is_hurt = false
