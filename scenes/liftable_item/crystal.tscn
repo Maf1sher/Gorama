@@ -84,7 +84,7 @@ autoplay = "rotation"
 
 [node name="LiftableArea" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("2_8juvw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LiftableArea"]

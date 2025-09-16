@@ -1,7 +1,10 @@
 extends Area2D
 
-func _ready():
-	connect("body_entered", _on_body_entered)
+#func _ready():
+	#connect("body_entered", _on_body_entered)
 	
-func _on_body_entered(body: Node2D) -> void:
+#func _on_body_entered(body: Node2D) -> void:
+	#get_parent().queue_free()
+	
+func pick_up_item() -> void:
 	get_parent().queue_free()
