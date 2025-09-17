@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var stats: Stats
 @export var inventory: Node
+@export var exp: Node
 
 @onready var animated_sprite = $AnimationPlayer
 @onready var health_bar = $ProgressBar
@@ -13,9 +14,10 @@ extends CharacterBody2D
 var left_hand: Node
 var right_hand: Node
 
-var input
-var current_look_dir = "right"
-var alive = true
+var current_look_dir: String = "right"
+var alive: bool = true
+
+#var exp: int = 0
 
 func _ready() -> void:
 	character_sheet.connect("item_changed", self._on_item_changed)
@@ -25,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if InputManager.is_input_blocked():
 		return
 	
-	input = Input.get_vector("left", "right", "up", "down")
+	var input = Input.get_vector("left", "right", "up", "down")
 	velocity = input * stats.movement_speed
 	
 	if !alive:
@@ -60,6 +62,10 @@ func take_hit(damage: int) -> void:
 
 func die():
 	velocity = Vector2.ZERO
+	
+func add_exp(amount: int) -> void:
+	exp.add_exp(amount)
+	#print("EXP: ", exp)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	health_bar.value = stats.hp

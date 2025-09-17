@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+signal died(exp_reward: int)
+
 @export var stats: Stats
+@export var target: Player
 
 @onready var crystal: PackedScene = preload("res://scenes/liftable_item/crystal.tscn")
-@onready var target = $"../Player"
 @onready var animated_sprite = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var hitbox = $HitBox
@@ -78,6 +80,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			var new_crystal = crystal.instantiate()
 			new_crystal.global_position = global_position
 			get_parent().add_child(new_crystal)
+			emit_signal("died", 15)
 			queue_free()
 		"hurt":
 			is_hurt = false

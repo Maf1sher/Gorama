@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://da4qswnh5a3l1"]
+
+[ext_resource type="Script" path="res://scripts/exp_bar/exp_bar.gd" id="1_ljoip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuve"]
+bg_color = Color(0.6, 0.6, 0.6, 0.286275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xev25"]
+bg_color = Color(0.202622, 0.413323, 1, 1)
+
+[node name="ExpBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ljoip")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 149.0
+offset_bottom = 12.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mcuve")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xev25")
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "LVL 1"
