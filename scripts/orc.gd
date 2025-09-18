@@ -53,7 +53,8 @@ func animation() -> void:
 		animated_sprite.play("walk")
 
 func die():
-	set_stunned(true)
+	set_physics_process(false)
+	emit_signal("died", 15)
 	animated_sprite.play("death")
 
 func hurt():
@@ -80,7 +81,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			var new_crystal = crystal.instantiate()
 			new_crystal.global_position = global_position
 			get_parent().add_child(new_crystal)
-			emit_signal("died", 15)
 			queue_free()
 		"hurt":
 			is_hurt = false

@@ -214,4 +214,5 @@ visible = false
 mouse_filter = 2
 
 [node name="EnemyGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_o1rp0")]
+position = Vector2(158, 89)
 player = NodePath("../Player")

@@ -8,17 +8,16 @@ var lvl: int = 1
 
 func _ready() -> void:
 	set_lvl_label()
-	reset_exp_bar()
+	await reset_exp_bar()
 
 func add_exp(amount: int) -> void:
 	exp += amount
-	progresBar.value = exp - cal_exp_from_lvl(lvl)
+	await set_progerssbar_value(exp - cal_exp_from_lvl(lvl))
 	var cal_lvl = cal_lvl_from_exp(exp)
 	if lvl != cal_lvl:
-		#exp -=needed_exp_to_next_lvl(lvl, lvl + 1)
 		lvl += 1
 		set_lvl_label()
-		reset_exp_bar()
+		await reset_exp_bar()
 	print(exp)
 		
 func cal_lvl_from_exp(exp: int) -> int:
@@ -35,4 +34,10 @@ func needed_exp_to_next_lvl(current_lvl: int, next_level: int) -> int:
 
 func reset_exp_bar() -> void:
 	progresBar.max_value = needed_exp_to_next_lvl(lvl, lvl +1)
-	progresBar.value = exp - cal_exp_from_lvl(lvl)
+	progresBar.value = 0
+	await set_progerssbar_value(exp - cal_exp_from_lvl(lvl))
+	
+func set_progerssbar_value(value: int) -> void:
+	var tween = create_tween()
+	tween.tween_property(progresBar, "value", value, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await tween.finished
