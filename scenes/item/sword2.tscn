@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c33hc2cuk70r"]
 
-[ext_resource type="Script" path="res://scripts/sword.gd" id="1_qaqkf"]
+[ext_resource type="Script" path="res://scripts/items/sword.gd" id="1_qaqkf"]
 [ext_resource type="Texture2D" uid="uid://n2jnbqin56l8" path="res://assests/sprites/weapons/fa1713.png" id="2_h3aee"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="3_7nurd"]
 

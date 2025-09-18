@@ -1,5 +1,7 @@
 extends Control
 
+signal lvl_up()
+
 @onready var progresBar = $ProgressBar
 @onready var lvl_label = $Label
 
@@ -17,6 +19,7 @@ func add_exp(amount: int) -> void:
 	if lvl != cal_lvl:
 		lvl += 1
 		set_lvl_label()
+		emit_signal("lvl_up")
 		await reset_exp_bar()
 	print(exp)
 		

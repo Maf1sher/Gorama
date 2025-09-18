@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=4 uid="uid://cruivemipt4f2"]
+[gd_scene load_steps=16 format=4 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="Texture2D" uid="uid://bnraouuojsfjw" path="res://assests/sprites/tilesets/tilemap_packed.png" id="2_7fj5m"]
 [ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/entity/player.tscn" id="4_t34ol"]
-[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="4_v0md5"]
+[ext_resource type="Script" path="res://scripts/UI/inventory_layer.gd" id="4_v0md5"]
 [ext_resource type="PackedScene" uid="uid://cq0bl0moltd4t" path="res://scenes/UI/inventory/Inventory.tscn" id="5_lelb7"]
 [ext_resource type="PackedScene" uid="uid://da4qswnh5a3l1" path="res://scenes/UI/exp_bar/exp_bar.tscn" id="6_3uqqr"]
+[ext_resource type="Script" path="res://scripts/UI/ui.gd" id="6_c3x2e"]
 [ext_resource type="PackedScene" uid="uid://d2khi3ger03ku" path="res://scenes/enemy_generator.tscn" id="6_o1rp0"]
+[ext_resource type="PackedScene" uid="uid://le8j3cnqotuj" path="res://scenes/UI/select_card/select_card.tscn" id="7_utq1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyrcg"]
 texture = ExtResource("2_7fj5m")
@@ -198,7 +200,7 @@ shape = SubResource("SegmentShape2D_xembd")
 [node name="Player" parent="." node_paths=PackedStringArray("inventory", "exp") instance=ExtResource("4_t34ol")]
 position = Vector2(160, 90)
 inventory = NodePath("../InvetoryLayer/Inventory")
-exp = NodePath("../CanvasLayer/ExpBar")
+exp = NodePath("../UI/ExpBar")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -208,11 +210,17 @@ script = ExtResource("4_v0md5")
 [node name="Inventory" parent="InvetoryLayer" instance=ExtResource("5_lelb7")]
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("6_c3x2e")
 
-[node name="ExpBar" parent="CanvasLayer" instance=ExtResource("6_3uqqr")]
+[node name="ExpBar" parent="UI" instance=ExtResource("6_3uqqr")]
 mouse_filter = 2
+
+[node name="SelectCard" parent="UI" instance=ExtResource("7_utq1f")]
+visible = false
 
 [node name="EnemyGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_o1rp0")]
 position = Vector2(158, 89)
 player = NodePath("../Player")
+
+[connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
