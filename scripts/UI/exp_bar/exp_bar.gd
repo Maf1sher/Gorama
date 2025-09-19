@@ -21,7 +21,6 @@ func add_exp(amount: int) -> void:
 		set_lvl_label()
 		emit_signal("lvl_up")
 		await reset_exp_bar()
-	print(exp)
 		
 func cal_lvl_from_exp(exp: int) -> int:
 	return floor(sqrt(exp / 20.0)) + 1
