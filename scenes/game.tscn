@@ -217,6 +217,7 @@ script = ExtResource("6_c3x2e")
 mouse_filter = 2
 
 [node name="SelectCard" parent="UI" instance=ExtResource("7_utq1f")]
+process_mode = 2
 visible = false
 
 [node name="EnemyGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_o1rp0")]
@@ -224,3 +225,4 @@ position = Vector2(158, 89)
 player = NodePath("../Player")
 
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
+[connection signal="select_card" from="UI/SelectCard" to="." method="_on_select_card_select_card"]

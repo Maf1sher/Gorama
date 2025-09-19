@@ -1,5 +1,7 @@
 extends Control
 
+signal select_card
+
 @onready var cards_container = $TextureRect/MarginContainer/HBoxContainer
 
 var cardScene = preload("res://scenes/UI/select_card/card.tscn")
@@ -21,10 +23,12 @@ func _on_card_clicked(card):
 func open():
 	visible = true
 	is_open = true
+	emit_signal("select_card")
 	InputManager.block_input()
 	
 func close():
 	visible = false
 	is_open = false
+	emit_signal("select_card")
 	InputManager.unblock_input()
 	

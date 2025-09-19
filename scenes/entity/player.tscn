@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://rbj80erdhio0"]
+[gd_scene load_steps=18 format=3 uid="uid://rbj80erdhio0"]
 
 [ext_resource type="Script" path="res://scripts/entity/player/player.gd" id="1_rxeow"]
 [ext_resource type="Script" path="res://components/stats.gd" id="2_3ppm0"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/entity/player/graphics.gd" id="3_513h3"]
 [ext_resource type="PackedScene" uid="uid://cov7wcfpuohaa" path="res://scenes/player/hand.tscn" id="5_q4th5"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="5_qpnn2"]
-[ext_resource type="PackedScene" uid="uid://cft2ma5kps054" path="res://scenes/item/sword.tscn" id="6_pbmal"]
 [ext_resource type="Script" path="res://scripts/entity/player/item_detector.gd" id="7_dwnhr"]
 
 [sub_resource type="Animation" id="Animation_tlyoj"]
@@ -163,15 +162,9 @@ vframes = 2
 [node name="LeftHand" parent="Graphics" instance=ExtResource("5_q4th5")]
 position = Vector2(0, -2)
 
-[node name="Sword" parent="Graphics/LeftHand" instance=ExtResource("6_pbmal")]
-visible = false
-
 [node name="RightHand" parent="Graphics" instance=ExtResource("5_q4th5")]
 z_index = 0
 position = Vector2(-4, -2)
-
-[node name="Sword" parent="Graphics/RightHand" instance=ExtResource("6_pbmal")]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
