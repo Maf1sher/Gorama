@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bidv6y4agmiyb"]
-
-[ext_resource type="Script" path="res://resources/cards/card_data.gd" id="1_tipm3"]
-[ext_resource type="Texture2D" uid="uid://5asid5qsqq8n" path="res://assests/sprites/cards/example2.png" id="2_onnog"]
-
-[resource]
-script = ExtResource("1_tipm3")
-texture = ExtResource("2_onnog")
-name = "test2"

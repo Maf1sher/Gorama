@@ -1,10 +1,9 @@
 extends Node
 
 var card_paths = [
-	"res://resources/cards/card_test.tres",
-	"res://resources/cards/card_test2.tres"
+	"res://resources/cards/data/card_test.tres",
+	"res://resources/cards/data/card_test2.tres"
 ]
-
 
 func get_random_card_paths(count: int) -> Array:
 	var result: Array = []

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cicc5vdhnt832"]
+
+[ext_resource type="Script" path="res://scripts/UI/select_card/effect.gd" id="1_cf54l"]
+
+[node name="Effect" type="Label"]
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 5
+script = ExtResource("1_cf54l")

@@ -9,7 +9,6 @@ var cardScene = preload("res://scenes/UI/select_card/card.tscn")
 var is_open: bool = false
 		
 func _on_card_clicked(card):
-	print(card.data.name)
 	close()
 	
 func open():
