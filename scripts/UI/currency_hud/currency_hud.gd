@@ -7,7 +7,6 @@ func _ready():
 	_update_display(CurrencyManager.currencie)
 
 func _on_currency_changed(value: int):
-	#if type == "crystal":
 	_update_display(value)
 
 func _update_display(value: int):

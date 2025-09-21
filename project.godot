@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DataHandler="res://scripts/auto_load/DataHandler.gd"
 InputManager="*res://scripts/auto_load/InputManager.gd"
 CurrencyManager="*res://scripts/auto_load/CurrencyManager.gd"
+CardManager="*res://scripts/auto_load/CardManager.gd"
+CardDatabase="*res://scripts/auto_load/CardDatabase.gd"
 
 [display]
 

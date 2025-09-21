@@ -7,22 +7,15 @@ signal select_card
 var cardScene = preload("res://scenes/UI/select_card/card.tscn")
 
 var is_open: bool = false
-
-func _ready() -> void:
-	for i in 3:
-		var card = cardScene.instantiate()
-		card.card_name = str("card ", i+1)
-		card.texture = load("res://assests/sprites/cards/example1.png")
-		card.clicked.connect(_on_card_clicked)
-		cards_container.add_child(card)
 		
 func _on_card_clicked(card):
-	print(card.card_name)
+	print(card.data.name)
 	close()
 	
 func open():
 	visible = true
 	is_open = true
+	get_random_cards(3)
 	emit_signal("select_card")
 	InputManager.block_input()
 	
@@ -32,3 +25,15 @@ func close():
 	emit_signal("select_card")
 	InputManager.unblock_input()
 	
+func get_random_cards(count: int) -> void:
+	clear_children(cards_container)
+	var card_path = CardDatabase.get_random_card_paths(count)
+	for i in count:
+		var card = cardScene.instantiate()
+		card.data = load(card_path[i])
+		card.clicked.connect(_on_card_clicked)
+		cards_container.add_child(card)
+		
+func clear_children(node: Node) -> void:
+	for child in node.get_children():
+		child.queue_free()
