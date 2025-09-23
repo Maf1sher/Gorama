@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cruivemipt4f2"]
+[gd_scene load_steps=18 format=4 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="Texture2D" uid="uid://bnraouuojsfjw" path="res://assests/sprites/tilesets/tilemap_packed.png" id="2_7fj5m"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d2khi3ger03ku" path="res://scenes/enemy_generator.tscn" id="6_o1rp0"]
 [ext_resource type="PackedScene" uid="uid://le8j3cnqotuj" path="res://scenes/UI/select_card/select_card.tscn" id="7_utq1f"]
 [ext_resource type="PackedScene" uid="uid://brriki1m05fmo" path="res://scenes/UI/currency_hud/currency_hud.tscn" id="9_w02he"]
+[ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/stats_panel/stats_panel.tscn" id="10_0tbwd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyrcg"]
 texture = ExtResource("2_7fj5m")
@@ -224,9 +225,14 @@ visible = false
 [node name="CrystalHUD" parent="UI" instance=ExtResource("9_w02he")]
 mouse_filter = 2
 
+[node name="StatsPanel" parent="UI" instance=ExtResource("10_0tbwd")]
+mouse_filter = 2
+
 [node name="EnemyGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_o1rp0")]
 position = Vector2(158, 89)
 player = NodePath("../Player")
 
+[connection signal="inventory_is_open" from="InvetoryLayer/Inventory" to="UI/StatsPanel" method="_on_inventory_inventory_is_open"]
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
-[connection signal="select_card" from="UI/SelectCard" to="." method="_on_select_card_select_card"]
+[connection signal="select_card_is_open" from="UI/SelectCard" to="." method="_on_select_card_select_card_is_open"]
+[connection signal="select_card_is_open" from="UI/SelectCard" to="UI/StatsPanel" method="_on_select_card_select_card_is_open"]

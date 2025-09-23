@@ -11,5 +11,5 @@ func toggle_pause():
 	get_tree().paused = is_paused
 
 
-func _on_select_card_select_card() -> void:
+func _on_select_card_select_card_is_open(status: bool) -> void:
 	toggle_pause()

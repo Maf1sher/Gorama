@@ -1,6 +1,6 @@
 extends Control
 
-signal select_card
+signal select_card_is_open(status: bool)
 
 @onready var cards_container = $TextureRect/MarginContainer/HBoxContainer
 
@@ -15,13 +15,13 @@ func open():
 	visible = true
 	is_open = true
 	get_random_cards(3)
-	emit_signal("select_card")
+	emit_signal("select_card_is_open", is_open)
 	InputManager.block_input()
 	
 func close():
 	visible = false
 	is_open = false
-	emit_signal("select_card")
+	emit_signal("select_card_is_open", is_open)
 	InputManager.unblock_input()
 	
 func get_random_cards(count: int) -> void:
