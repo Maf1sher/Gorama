@@ -35,14 +35,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if InputManager.is_input_blocked():
-		return
+	if alive:
+		if InputManager.is_input_blocked():
+			return
 
-	if Input.is_action_pressed("letf_hand_attack") and left_hand:
-		left_hand.play_attack_animation(stats.attack_speed_percent)
-		
-	if Input.is_action_pressed("right_hand_attack") and right_hand:
-		right_hand.play_attack_animation(stats.attack_speed_percent)
+		if Input.is_action_pressed("letf_hand_attack") and left_hand:
+			left_hand.play_attack_animation(stats.attack_speed_percent)
+			
+		if Input.is_action_pressed("right_hand_attack") and right_hand:
+			right_hand.play_attack_animation(stats.attack_speed_percent)
 
 func animation():
 	if !alive:
