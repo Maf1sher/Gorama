@@ -19,7 +19,7 @@ var can_move = true
 var is_hurt = false
 
 func _ready() -> void:
-	health_bar.max_value = stats.maximum_hp
+	health_bar.max_value = stats.max_hp
 
 func _physics_process(delta: float) -> void:
 	var enemy_to_player = (target.global_position - global_position)

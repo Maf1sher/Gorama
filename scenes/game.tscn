@@ -232,6 +232,7 @@ mouse_filter = 2
 position = Vector2(158, 89)
 player = NodePath("../Player")
 
+[connection signal="stats_changed" from="Player" to="UI/StatsPanel" method="_on_player_stats_changed"]
 [connection signal="inventory_is_open" from="InvetoryLayer/Inventory" to="UI/StatsPanel" method="_on_inventory_inventory_is_open"]
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
 [connection signal="select_card_is_open" from="UI/SelectCard" to="." method="_on_select_card_select_card_is_open"]

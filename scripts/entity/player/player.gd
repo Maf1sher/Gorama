@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal stats_changed(stats: Stats)
+
 @export var stats: Stats
 @export var inventory: Node
 @export var exp: Node
@@ -19,7 +21,8 @@ var alive: bool = true
 
 func _ready() -> void:
 	character_sheet.connect("item_changed", self._on_item_changed)
-	health_bar.max_value = stats.maximum_hp
+	health_bar.max_value = stats.max_hp
+	emit_signal("stats_changed", stats)
 
 func _physics_process(delta: float) -> void:
 	if InputManager.is_input_blocked():

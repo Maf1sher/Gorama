@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1amtmrswyst8"]
+[gd_scene load_steps=6 format=3 uid="uid://d1amtmrswyst8"]
 
 [ext_resource type="Texture2D" uid="uid://bvr66egjbbr8t" path="res://assests/sprites/stats_panel/stats_panel.png" id="1_gapge"]
 [ext_resource type="Script" path="res://scripts/UI/stats_panel/stats_panel.gd" id="1_v44mb"]
+[ext_resource type="Script" path="res://scripts/UI/stats_panel/stats_container.gd" id="3_1e8s1"]
+[ext_resource type="Texture2D" uid="uid://blu5r8ykg1yoi" path="res://assests/sprites/crystal_hud.png" id="3_e8e26"]
+[ext_resource type="PackedScene" uid="uid://bgs8senkw3dvk" path="res://scenes/UI/stats_panel/stat.tscn" id="3_yef0u"]
 
 [node name="StatsPanel" type="Control"]
 layout_mode = 3
@@ -25,3 +28,79 @@ offset_bottom = 135.0
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("1_gapge")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="StatsContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+script = ExtResource("3_1e8s1")
+
+[node name="PhysicalDamage" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "Physical Damage"
+
+[node name="MagicDamage" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "Magic Damage"
+
+[node name="PhysicalDamagePercent" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "% Physical Damage"
+
+[node name="MagicDamagePercent" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "% Magic Damage"
+
+[node name="MaxHP" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "Max HP"
+
+[node name="HPRegeneration" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "HP Regeneration"
+
+[node name="AttackSpeedPercent" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "% Attack Speed"
+
+[node name="CritChancePercent" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "% Crit Chance"
+
+[node name="CritDamagePercent" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "% Crit Damage"
+
+[node name="Armor" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "Armor"
+
+[node name="MovmentSpeed" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "MovmentSpeed"
+
+[node name="LifeStealPercent" parent="TextureRect/MarginContainer/StatsContainer" instance=ExtResource("3_yef0u")]
+layout_mode = 2
+icon = ExtResource("3_e8e26")
+stat_name = "% Life Steal"
