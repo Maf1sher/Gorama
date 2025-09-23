@@ -1,22 +1,64 @@
 class_name Stats
 extends Node
 
-@export var physical_damage: int = 10
-@export var magic_damage: int = 10
-@export var physical_damage_percent: int = 0
-@export var magic_damage_percent: int = 0
-@export var hp: int = 100
-@export var max_hp: int = 100
-@export var hp_regeneration: int = 1
-@export var attack_speed_percent: int =  100
-@export var crit_chance_percent: int = 0
-@export var crit_damage_percent: int = 100
-@export var armor: int = 0
-@export var movement_speed: int = 100
-@export var life_steal_percent: int = 0
+signal stats_changed(stat_name: String, value: int)
+
+@export var physical_damage: int = 10: 
+	set(value):
+		physical_damage = value
+		emit_signal("stats_changed", "physical_damage", physical_damage)
+@export var magic_damage: int = 10:
+	set(value):
+		magic_damage = value
+		emit_signal("stats_changed", "magic_damage", magic_damage)
+@export var physical_damage_percent: int = 0:
+	set(value):
+		physical_damage_percent = value
+		emit_signal("stats_changed", "physical_damage_percent", physical_damage_percent)
+@export var magic_damage_percent: int = 0:
+	set(value):
+		magic_damage_percent = value
+		emit_signal("stats_changed", "magic_damage_percent", magic_damage_percent)
+@export var hp: int = 100:
+	set(value):
+		hp = value
+		emit_signal("stats_changed", "hp", hp)
+@export var max_hp: int = 100:
+	set(value):
+		max_hp = value
+		emit_signal("stats_changed", "max_hp", max_hp)
+@export var hp_regeneration: int = 1:
+	set(value):
+		hp_regeneration = value
+		emit_signal("stats_changed", "hp_regeneration", hp_regeneration)
+@export var attack_speed_percent: int =  100:
+	set(value):
+		attack_speed_percent = value
+		emit_signal("stats_changed", "attack_speed_percent", attack_speed_percent)
+@export var crit_chance_percent: int = 0:
+	set(value):
+		crit_chance_percent = value
+		emit_signal("stats_changed", "crit_chance_percent", crit_chance_percent)
+@export var crit_damage_percent: int = 100:
+	set(value):
+		crit_damage_percent = value
+		emit_signal("stats_changed", "crit_damage_percent", crit_damage_percent)
+@export var armor: int = 0:
+	set(value):
+		armor = value
+		emit_signal("stats_changed", "armor", armor)
+@export var movement_speed: int = 100:
+	set(value): 
+		movement_speed = value
+		emit_signal("stats_changed", "movement_speed", movement_speed)
+@export var life_steal_percent: int = 0:
+	set(value):
+		life_steal_percent = value
+		emit_signal("stats_changed", "life_steal_percent", life_steal_percent)
 
 func health_depleted(damage: int) -> int:
 	var taken_dmg = ceil( damage - ( tanh( armor / 70.0 ) * damage ))
 	hp -= taken_dmg
 	hp = max(0, hp)
 	return taken_dmg
+	

@@ -1,8 +1,17 @@
 extends Control
 
+@export var player: Player
+
 @onready var statsContainer = $TextureRect/MarginContainer/StatsContainer
 
 var is_open: bool = false
+
+func _ready() -> void:
+	if not player:
+		push_warning("Player is null")
+		return
+	statsContainer.change_stats(player.stats)
+	player.stats_changed.connect(_on_stats_changed)
 
 func open():
 	visible = true
@@ -26,6 +35,6 @@ func _on_select_card_select_card_is_open(status: bool) -> void:
 func _on_inventory_inventory_is_open(status: bool) -> void:
 	set_open_status(status)
 
-func _on_player_stats_changed(stats: Stats) -> void:
+func _on_stats_changed(stats: Stats) -> void:
 	if statsContainer:
 		statsContainer.change_stats(stats)

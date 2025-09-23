@@ -206,6 +206,7 @@ script = ExtResource("7_dwnhr")
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_tpnvk")
 
+[connection signal="stats_changed" from="Stats" to="." method="_on_stats_stats_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]

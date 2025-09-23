@@ -101,3 +101,7 @@ func _on_item_changed(slot, item: Node) -> void:
 			right_hand.get_parent().remove_child(right_hand)
 			right_hand.queue_free()
 			right_hand = null
+
+
+func _on_stats_stats_changed(stat_name: String, value: int) -> void:
+	emit_signal("stats_changed", stats)
