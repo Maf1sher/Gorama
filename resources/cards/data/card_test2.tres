@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://bidv6y4agmiyb"]
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://bidv6y4agmiyb"]
 
 [ext_resource type="Script" path="res://resources/cards/effects/card_effect.gd" id="1_rbdp8"]
 [ext_resource type="Script" path="res://resources/cards/data/card_data.gd" id="2_60v44"]
@@ -10,8 +10,14 @@ target = "player"
 stat = "physical_damage"
 value = 2
 
+[sub_resource type="Resource" id="Resource_uo8ts"]
+script = ExtResource("1_rbdp8")
+target = "player"
+stat = "physical_damage_percent"
+value = 2
+
 [resource]
 script = ExtResource("2_60v44")
 texture = ExtResource("3_poat7")
 name = "test2"
-effects = Array[ExtResource("1_rbdp8")]([SubResource("Resource_oxrlh")])
+effects = Array[ExtResource("1_rbdp8")]([SubResource("Resource_oxrlh"), SubResource("Resource_uo8ts")])
