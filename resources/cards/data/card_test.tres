@@ -13,7 +13,7 @@ value = 2
 [sub_resource type="Resource" id="Resource_s43ji"]
 script = ExtResource("1_ow0n0")
 target = "player"
-stat = "damage"
+stat = "physical_damage"
 value = -1
 
 [resource]

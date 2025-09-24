@@ -1,7 +1,7 @@
 class_name Card
 extends Control
 
-signal clicked(card)
+signal selected(card: CardData)
 
 @export var data: CardData
 
@@ -17,8 +17,7 @@ func _ready() -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory_left_click"):
-		CardManager.apply_card(data)
-		emit_signal("clicked", self)
+		emit_signal("selected", data)
 		
 func set_card_effects(effects: Array) -> void:
 	for effect in effects:

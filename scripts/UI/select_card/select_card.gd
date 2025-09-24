@@ -2,13 +2,17 @@ extends Control
 
 signal select_card_is_open(status: bool)
 
+@export var player: Player
+
 @onready var cards_container = $TextureRect/MarginContainer/HBoxContainer
 
 var cardScene = preload("res://scenes/UI/select_card/card.tscn")
 
 var is_open: bool = false
 		
-func _on_card_clicked(card):
+func _on_card_selected(card: CardData):
+	if player:
+		player.apply_card(card)
 	close()
 	
 func open():
@@ -30,7 +34,7 @@ func get_random_cards(count: int) -> void:
 	for i in count:
 		var card = cardScene.instantiate()
 		card.data = load(card_path[i])
-		card.clicked.connect(_on_card_clicked)
+		card.selected.connect(_on_card_selected)
 		cards_container.add_child(card)
 		
 func clear_children(node: Node) -> void:

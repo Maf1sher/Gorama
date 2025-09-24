@@ -140,11 +140,10 @@ height = 14.0
 radius = 7.0
 height = 14.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_rxeow")
-stats = NodePath("Stats")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_3ppm0")

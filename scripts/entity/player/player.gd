@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 signal stats_changed(stats: Stats)
 
-@export var stats: Stats
 @export var inventory: Node
 @export var exp: Node
 
@@ -12,6 +11,10 @@ signal stats_changed(stats: Stats)
 @onready var grphics_left_hand = $Graphics/LeftHand
 @onready var grphics_right_hand = $Graphics/RightHand
 @onready var character_sheet = inventory.get_character_sheet()
+
+@onready var stats: Stats = $Stats
+
+var active_cards: Array = []
 
 var left_hand: Node
 var right_hand: Node
@@ -94,7 +97,6 @@ func _on_item_changed(slot, item: Node) -> void:
 			var weapon = item.data.item_sceen.instantiate()
 			weapon.position.x = item.data.sceen_achor_point.x
 			weapon.position.y = item.data.sceen_achor_point.y
-			weapon.z_as_relative = true
 			right_hand = weapon
 			grphics_right_hand.add_child(weapon)
 		else:
@@ -102,6 +104,37 @@ func _on_item_changed(slot, item: Node) -> void:
 			right_hand.queue_free()
 			right_hand = null
 
-
 func _on_stats_stats_changed(stat_name: String, value: int) -> void:
 	emit_signal("stats_changed", stats)
+	
+func apply_card(card: CardData) -> void:
+	active_cards.append(card)
+	for effect in card.effects:
+		if effect.target == "player":
+			match effect.stat:
+				"physical_damage":
+					stats.physical_damage += effect.value
+				"magic_damage":
+					stats.magic_damage += effect.value
+				"physical_damage_percent":
+					stats.physical_damage_percent += effect.value
+				"magic_damage_percent":
+					stats.magic_damage_percent += effect.value
+				"max_hp":
+					stats.max_hp += effect.value
+				"hp_regeneration":
+					stats.hp_regeneration += effect.value
+				"attack_speed_percent":
+					stats.attack_speed_percent += effect.value
+				"crit_chance_percent":
+					stats.crit_chance_percent += effect.value
+				"crit_damage_percent":
+					stats.crit_damage_percent += effect.value
+				"armor":
+					stats.armor += effect.value
+				"movement_speed":
+					stats.movement_speed += effect.value
+				"life_steal_percent":
+					stats.life_steal_percent += effect.value
+	
+	
