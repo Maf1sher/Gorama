@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cruivemipt4f2"]
+[gd_scene load_steps=19 format=4 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="Texture2D" uid="uid://bnraouuojsfjw" path="res://assests/sprites/tilesets/tilemap_packed.png" id="2_7fj5m"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://da4qswnh5a3l1" path="res://scenes/UI/exp_bar/exp_bar.tscn" id="6_3uqqr"]
 [ext_resource type="Script" path="res://scripts/UI/ui.gd" id="6_c3x2e"]
 [ext_resource type="PackedScene" uid="uid://d2khi3ger03ku" path="res://scenes/enemy_generator.tscn" id="6_o1rp0"]
+[ext_resource type="PackedScene" uid="uid://bxistr6r5wo1q" path="res://scenes/UI/hp_bar/hp_bar.tscn" id="7_fjctq"]
 [ext_resource type="PackedScene" uid="uid://le8j3cnqotuj" path="res://scenes/UI/select_card/select_card.tscn" id="7_utq1f"]
 [ext_resource type="PackedScene" uid="uid://brriki1m05fmo" path="res://scenes/UI/currency_hud/currency_hud.tscn" id="9_w02he"]
 [ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/stats_panel/stats_panel.tscn" id="10_0tbwd"]
@@ -214,6 +215,9 @@ visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("6_c3x2e")
+
+[node name="HpBar" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("7_fjctq")]
+player = NodePath("../../Player")
 
 [node name="ExpBar" parent="UI" instance=ExtResource("6_3uqqr")]
 mouse_filter = 2

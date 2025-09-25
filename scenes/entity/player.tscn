@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rbj80erdhio0"]
+[gd_scene load_steps=16 format=3 uid="uid://rbj80erdhio0"]
 
 [ext_resource type="Script" path="res://scripts/entity/player/player.gd" id="1_rxeow"]
 [ext_resource type="Script" path="res://components/stats.gd" id="2_3ppm0"]
@@ -126,12 +126,6 @@ _data = {
 radius = 7.0
 height = 14.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyqma"]
-bg_color = Color(0.478431, 0.478431, 0.478431, 0.345098)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loocs"]
-bg_color = Color(0.82882, 0, 0.0108883, 1)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ao3o"]
 radius = 7.0
 height = 14.0
@@ -173,17 +167,6 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_5anm6")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -10.0
-offset_top = -24.0
-offset_right = 9.0
-offset_bottom = -21.0
-theme_override_styles/background = SubResource("StyleBoxFlat_pyqma")
-theme_override_styles/fill = SubResource("StyleBoxFlat_loocs")
-step = 1.0
-value = 100.0
-show_percentage = false
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("stats")]
 collision_layer = 0

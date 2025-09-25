@@ -3,7 +3,7 @@ extends Control
 signal lvl_up()
 
 @onready var progresBar = $ProgressBar
-@onready var lvl_label = $Label
+@onready var lvl_label = $ProgressBar/Label
 
 var exp: int = 0
 var lvl: int = 1

@@ -2,12 +2,12 @@ class_name Player
 extends CharacterBody2D
 
 signal stats_changed(stats: Stats)
+signal hp_changed(hp: int, max_hp: int)
 
 @export var inventory: Node
 @export var exp: Node
 
 @onready var animated_sprite = $AnimationPlayer
-@onready var health_bar = $ProgressBar
 @onready var grphics_left_hand = $Graphics/LeftHand
 @onready var grphics_right_hand = $Graphics/RightHand
 @onready var character_sheet = inventory.get_character_sheet()
@@ -24,7 +24,6 @@ var alive: bool = true
 
 func _ready() -> void:
 	character_sheet.connect("item_changed", self._on_item_changed)
-	health_bar.max_value = stats.max_hp
 	emit_signal("stats_changed", stats)
 
 func _physics_process(delta: float) -> void:
@@ -63,7 +62,6 @@ func animation():
 
 func take_hit(damage: int) -> void:
 	var taken_hp = stats.take_hit(damage)
-	health_bar.value = stats.hp
 
 func die():
 	velocity = Vector2.ZERO
@@ -72,7 +70,6 @@ func add_exp(amount: int) -> void:
 	exp.add_exp(amount)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
-	health_bar.value = stats.hp
 	if stats.hp <= 0:
 		alive = false
 
@@ -105,6 +102,8 @@ func _on_item_changed(slot, item: Node) -> void:
 			right_hand = null
 
 func _on_stats_stats_changed(stat_name: String, value: int) -> void:
+	if stat_name == "hp" or stat_name == "max_hp":
+		emit_signal("hp_changed", stats.hp, stats.max_hp)
 	emit_signal("stats_changed", stats)
 	
 func apply_card(card: CardData) -> void:

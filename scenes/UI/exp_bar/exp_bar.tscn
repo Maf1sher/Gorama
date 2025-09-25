@@ -18,17 +18,20 @@ grow_vertical = 2
 script = ExtResource("1_ljoip")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 28.0
-offset_right = 149.0
+layout_mode = 1
+offset_right = 121.0
 offset_bottom = 12.0
 theme_override_styles/background = SubResource("StyleBoxFlat_mcuve")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xev25")
 show_percentage = false
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 28.0
-offset_bottom = 12.0
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 8
 text = "LVL 1"
+vertical_alignment = 1
