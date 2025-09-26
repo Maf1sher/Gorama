@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://c33hc2cuk70r" path="res://scenes/item/sword2.tscn" id="1_pgd3f"]
 [ext_resource type="Script" path="res://resources/items/item_data.gd" id="2_p4yvj"]
-[ext_resource type="Texture2D" uid="uid://bmx3c0lah4i2w" path="res://assests/sprites/weapons/fb1713.png" id="3_7a1s7"]
+[ext_resource type="Texture2D" uid="uid://dtifdjk71ylnw" path="res://assests/sprites/weapons/katana.png" id="3_73o37"]
 
 [resource]
 script = ExtResource("2_p4yvj")
 name = ""
-texture = ExtResource("3_7a1s7")
+texture = ExtResource("3_73o37")
 dimentions = Vector2i(2, 3)
 item_sceen = ExtResource("1_pgd3f")
 sceen_achor_point = Vector2i(0, 0)

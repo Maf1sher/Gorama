@@ -11,6 +11,7 @@ func play_attack_animation(attack_speed: int):
 	if can_attack:
 		can_attack = false
 		self.attack_speed = attack_speed
+		animation.speed_scale = attack_speed / 100.0
 		animation.play("slash")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
