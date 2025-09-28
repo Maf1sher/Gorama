@@ -3,17 +3,18 @@ extends Node2D
 
 @export var animation: AnimationPlayer
 @export var hitbox: HitBox
+@export var stats: WeaponStats
 
 var can_attack: bool = true
-var damage: int = 10
 
 var playerStats: Stats
 	
 func play_attack_animation():
 	if can_attack:
 		can_attack = false
-		hitbox.set_damage(self.damage + playerStats.calculate_physical_damage())
-		animation.speed_scale = playerStats.attack_speed_percent / 100.0
+		set_hitbox_damage()
+		animation.speed_scale = \
+		 (stats.attack_speed_percent + playerStats.attack_speed_percent) / 200.0
 		animation.play("attack")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -23,4 +24,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_hit_box_hit_registered(damage: int) -> void:
 	playerStats.apply_life_steal(damage)
+	
+func set_hitbox_damage() -> void:
+	match stats.type:
+		WeaponTypes.Type.PHYSICAL:
+			hitbox.set_damage(stats.calculate_damage() + playerStats.calculate_physical_damage())
+		WeaponTypes.Type.MAGICAL:
+			hitbox.set_damage(stats.calculate_damage() + playerStats.calculate_magic_damage())
 		

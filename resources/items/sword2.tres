@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://berthunsd3jyo"]
 
-[ext_resource type="PackedScene" uid="uid://c33hc2cuk70r" path="res://scenes/item/sword2.tscn" id="1_pgd3f"]
+[ext_resource type="PackedScene" uid="uid://c33hc2cuk70r" path="res://scenes/item/katana.tscn" id="1_pgd3f"]
 [ext_resource type="Script" path="res://resources/items/item_data.gd" id="2_p4yvj"]
 [ext_resource type="Texture2D" uid="uid://dtifdjk71ylnw" path="res://assests/sprites/weapons/katana.png" id="3_73o37"]
 

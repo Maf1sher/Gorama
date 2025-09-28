@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cft2ma5kps054"]
+[gd_scene load_steps=9 format=3 uid="uid://cft2ma5kps054"]
 
 [ext_resource type="Script" path="res://scripts/items/sword.gd" id="1_07cgf"]
 [ext_resource type="Texture2D" uid="uid://b8of02pcjx1ak" path="res://assests/sprites/weapons/fa1608.png" id="1_gr1kk"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="2_hmv8i"]
+[ext_resource type="Script" path="res://components/weapon_stats.gd" id="2_ouiem"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_warfp"]
 radius = 4.24258
@@ -108,10 +109,15 @@ _data = {
 "attack": SubResource("Animation_wey5q")
 }
 
-[node name="Sword" type="Node2D" node_paths=PackedStringArray("animation", "hitbox")]
+[node name="Sword" type="Node2D" node_paths=PackedStringArray("animation", "hitbox", "stats")]
 script = ExtResource("1_07cgf")
 animation = NodePath("AnimationPlayer")
 hitbox = NodePath("Sprite2D/HitBox")
+stats = NodePath("WeaponStats")
+
+[node name="WeaponStats" type="Node" parent="."]
+script = ExtResource("2_ouiem")
+damage = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, -8)
