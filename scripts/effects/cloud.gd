@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var weapon: Node
 @export var speed: float = 200.0
 @export var lifetime: float = 3
 
@@ -15,7 +16,8 @@ func _physics_process(delta: float) -> void:
 	if velocity != Vector2.ZERO:
 		position += velocity * delta
 
-func _on_hit_box_hit_registered() -> void:
+func _on_hit_box_hit_registered(damage: int) -> void:
+	weapon._on_hit_box_hit_registered(damage)
 	queue_free()
 	
 func set_damage(damage: int) -> void:

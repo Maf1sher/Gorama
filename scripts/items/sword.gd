@@ -33,6 +33,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 func spawn_cloud():
 	var cloud = cloud_sceen.instantiate()
+	cloud.weapon = self
 	cloud.global_position = global_position
 
 	var mouse_pos = get_global_mouse_position()

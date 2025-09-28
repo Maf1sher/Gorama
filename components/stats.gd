@@ -97,6 +97,7 @@ func apply_life_steal(damage: int) -> void:
 		var calculated_life_steal = int(life_steal_counter)
 		print(calculated_life_steal)
 		hp += calculated_life_steal
+		life_steal_counter -= calculated_life_steal
 		
 	
 	
