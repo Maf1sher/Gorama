@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c33hc2cuk70r"]
 
-[ext_resource type="Script" path="res://scripts/items/sword.gd" id="1_qaqkf"]
+[ext_resource type="Script" path="res://scripts/items/katana.gd" id="1_q5wbj"]
 [ext_resource type="Texture2D" uid="uid://dtifdjk71ylnw" path="res://assests/sprites/weapons/katana.png" id="2_l8mef"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="3_7nurd"]
 
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [0.523599]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -71,59 +71,6 @@ tracks/4/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_wey5q"]
-resource_name = "slash"
-length = 0.5
-step = 0.005
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.075, 0.1501, 0.27, 0.3),
-"transitions": PackedFloat32Array(0.5, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.401426, 0.785398, 1.8326, 1.8326, 3.92699, 4.71239]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/HitBox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.195, 0.495),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.075, 0.15, 0.27),
-"transitions": PackedFloat32Array(0.5, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.2, 1), Vector2(0.2, 0), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:skew")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.075, 0.15, 0.27),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -0.261799, 0.0, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_ip8pm"]
 resource_name = "sword_return"
 length = 0.65
@@ -165,15 +112,83 @@ tracks/2/keys = {
 "values": [0.0, 1.60919, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_wey5q"]
+resource_name = "slash"
+length = 1.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.075, 0.1501, 0.27, 0.3, 0.5, 0.75, 1.1),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1, 1, 1, 1, -2, 0.5),
+"update": 0,
+"values": [0.523599, 0.785398, 1.8326, 1.8326, 3.92699, 4.71239, 4.71239, 1.60919, 0.523599]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.195, 0.495),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.075, 0.15, 0.27, 0.85),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1, 1, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.2, 1), Vector2(0.2, 0), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.075, 0.15, 0.27),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.261799, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 0.85, 1.1),
+"transitions": PackedFloat32Array(0.5, -2, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-26, -22), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_maa3u"]
 _data = {
 "RESET": SubResource("Animation_0qxq3"),
-"slash": SubResource("Animation_wey5q"),
+"attack": SubResource("Animation_wey5q"),
 "sword_return": SubResource("Animation_ip8pm")
 }
 
-[node name="Sword" type="Node2D"]
-script = ExtResource("1_qaqkf")
+[node name="Sword" type="Node2D" node_paths=PackedStringArray("animation", "hitbox")]
+rotation = 0.523599
+script = ExtResource("1_q5wbj")
+animation = NodePath("AnimationPlayer")
+hitbox = NodePath("Sprite2D/HitBox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -16)

@@ -89,15 +89,10 @@ func health_depleted(damage: int) -> int:
 	if hp == 0:
 		timer.stop()
 	return taken_dmg
-	
+
 func apply_life_steal(damage: int) -> void:
 	life_steal_counter += damage * (life_steal_percent/100.0)
-	print(life_steal_counter)
 	if life_steal_counter >= 1:
 		var calculated_life_steal = int(life_steal_counter)
-		print(calculated_life_steal)
 		hp += calculated_life_steal
 		life_steal_counter -= calculated_life_steal
-		
-	
-	

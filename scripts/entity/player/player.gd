@@ -45,10 +45,10 @@ func _input(event: InputEvent) -> void:
 			return
 
 		if Input.is_action_pressed("letf_hand_attack") and left_hand:
-			left_hand.play_attack_animation(stats)
+			left_hand.play_attack_animation()
 			
 		if Input.is_action_pressed("right_hand_attack") and right_hand:
-			right_hand.play_attack_animation(stats)
+			right_hand.play_attack_animation()
 
 func animation():
 	if !alive:
@@ -84,6 +84,7 @@ func _on_item_changed(slot, item: Node) -> void:
 			weapon.position.x = item.data.sceen_achor_point.x
 			weapon.position.y = item.data.sceen_achor_point.y
 			left_hand = weapon
+			left_hand.playerStats = stats
 			grphics_left_hand.add_child(weapon)
 		else:
 			left_hand.get_parent().remove_child(left_hand)
@@ -95,6 +96,7 @@ func _on_item_changed(slot, item: Node) -> void:
 			weapon.position.x = item.data.sceen_achor_point.x
 			weapon.position.y = item.data.sceen_achor_point.y
 			right_hand = weapon
+			right_hand.playerStats = stats
 			grphics_right_hand.add_child(weapon)
 		else:
 			right_hand.get_parent().remove_child(right_hand)
