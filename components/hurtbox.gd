@@ -12,4 +12,4 @@ func _on_area_entered(hitbox: HitBox) -> void:
 	if hitbox != null:
 		var taken_damage = stats.health_depleted(hitbox.damage)
 		received_damage.emit(taken_damage)
-		hitbox.hit_registered.emit()
+		hitbox.hit_registered.emit(taken_damage)

@@ -45,10 +45,10 @@ func _input(event: InputEvent) -> void:
 			return
 
 		if Input.is_action_pressed("letf_hand_attack") and left_hand:
-			left_hand.play_attack_animation(stats.attack_speed_percent)
+			left_hand.play_attack_animation(stats)
 			
 		if Input.is_action_pressed("right_hand_attack") and right_hand:
-			right_hand.play_attack_animation(stats.attack_speed_percent)
+			right_hand.play_attack_animation(stats)
 
 func animation():
 	if !alive:
@@ -100,7 +100,7 @@ func _on_item_changed(slot, item: Node) -> void:
 			right_hand.get_parent().remove_child(right_hand)
 			right_hand.queue_free()
 			right_hand = null
-
+	
 func _on_stats_stats_changed(stat_name: String, value: int) -> void:
 	if stat_name == "hp" or stat_name == "max_hp":
 		emit_signal("hp_changed", stats.hp, stats.max_hp)
@@ -135,5 +135,3 @@ func apply_card(card: CardData) -> void:
 					stats.movement_speed += effect.value
 				"life_steal_percent":
 					stats.life_steal_percent += effect.value
-	
-	

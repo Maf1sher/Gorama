@@ -141,6 +141,7 @@ script = ExtResource("1_rxeow")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_3ppm0")
+life_steal_percent = 10
 
 [node name="Graphics" type="Node2D" parent="."]
 script = ExtResource("3_513h3")
