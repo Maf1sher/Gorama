@@ -11,13 +11,14 @@ signal hp_changed(hp: int, max_hp: int)
 @onready var grphics_left_hand = $Graphics/LeftHand
 @onready var grphics_right_hand = $Graphics/RightHand
 @onready var character_sheet = inventory.get_character_sheet()
+@onready var hit_popup_spawner: HitPopupSpawner = $HitPopupSpawner
 
 @onready var stats: Stats = $Stats
 
 var active_cards: Array = []
 
-var left_hand: Node
-var right_hand: Node
+var left_hand: Weapon
+var right_hand: Weapon
 
 var current_look_dir: String = "left"
 var alive: bool = true
@@ -70,6 +71,7 @@ func add_exp(amount: int) -> void:
 	exp.add_exp(amount)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
+	hit_popup_spawner.spawn_hit_popup(damage, global_position)
 	if stats.hp <= 0:
 		alive = false
 

@@ -12,6 +12,8 @@ signal died(exp_reward: int)
 @onready var health_bar = $ProgressBar
 @onready var collision_shape = $CollisionShape2D
 
+@onready var hit_popup_spawner = $HitPopupSpawner
+
 var player_in_area: bool = false
 var attack_is_ready: bool = true
 var direction := Vector2.ZERO
@@ -66,6 +68,7 @@ func set_stunned(value: bool):
 	collision_shape.set_deferred("disabled", value)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
+	hit_popup_spawner.spawn_hit_popup(damage, global_position)
 	is_hurt = true
 	health_bar.value = stats.hp
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dip0t5cixw72i"]
+[gd_scene load_steps=20 format=3 uid="uid://dip0t5cixw72i"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/orc.gd" id="1_ji0vp"]
 [ext_resource type="Script" path="res://components/stats.gd" id="2_dsf7i"]
 [ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/orc/Orc.png" id="3_f00c8"]
+[ext_resource type="Script" path="res://components/hit_popup_spawner.gd" id="3_yyrdk"]
 [ext_resource type="Script" path="res://components/player_detector.gd" id="4_4jv7i"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="5_qyqbv"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="6_cgjki"]
@@ -202,6 +203,9 @@ stats = NodePath("../Stats")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_f4jp8")
+
+[node name="HitPopupSpawner" type="Node2D" parent="."]
+script = ExtResource("3_yyrdk")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -8.0

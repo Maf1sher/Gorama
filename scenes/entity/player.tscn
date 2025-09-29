@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://rbj80erdhio0"]
+[gd_scene load_steps=17 format=3 uid="uid://rbj80erdhio0"]
 
 [ext_resource type="Script" path="res://scripts/entity/player/player.gd" id="1_rxeow"]
 [ext_resource type="Script" path="res://components/stats.gd" id="2_3ppm0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cov7wcfpuohaa" path="res://scenes/player/hand.tscn" id="5_q4th5"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="5_qpnn2"]
 [ext_resource type="Script" path="res://scripts/entity/player/item_detector.gd" id="7_dwnhr"]
+[ext_resource type="Script" path="res://components/hit_popup_spawner.gd" id="7_fm06x"]
 
 [sub_resource type="Animation" id="Animation_tlyoj"]
 length = 0.001
@@ -126,11 +127,11 @@ _data = {
 radius = 7.0
 height = 14.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ao3o"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tpnvk"]
 radius = 7.0
 height = 14.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tpnvk"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ao3o"]
 radius = 7.0
 height = 14.0
 
@@ -170,6 +171,15 @@ libraries = {
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_5anm6")
 
+[node name="ItemDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("7_dwnhr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDetector"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_tpnvk")
+
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("stats")]
 collision_layer = 0
 collision_mask = 512
@@ -181,17 +191,11 @@ stats = NodePath("../Stats")
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_7ao3o")
 
-[node name="ItemDetector" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("7_dwnhr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDetector"]
-position = Vector2(0, -7)
-shape = SubResource("CapsuleShape2D_tpnvk")
+[node name="HitPopupSpawner" type="Node2D" parent="."]
+script = ExtResource("7_fm06x")
 
 [connection signal="stats_changed" from="Stats" to="." method="_on_stats_stats_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="ItemDetector" to="ItemDetector" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
-[connection signal="area_entered" from="ItemDetector" to="ItemDetector" method="_on_area_entered"]

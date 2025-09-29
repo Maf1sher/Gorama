@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxgfgmmp8xb0a"]
+
+[ext_resource type="Script" path="res://scripts/components/hit_popup.gd" id="1_0h2qb"]
+
+[node name="HitPopup" type="Label"]
+offset_right = 10.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.787542, 4.16331e-06, 5.77569e-07, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 6
+text = "22
+"
+script = ExtResource("1_0h2qb")
