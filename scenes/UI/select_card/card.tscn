@@ -1,7 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhfat6yecmjsk"]
+[gd_scene load_steps=7 format=3 uid="uid://bhfat6yecmjsk"]
 
 [ext_resource type="Script" path="res://scripts/UI/select_card/card.gd" id="1_rhdaw"]
 [ext_resource type="PackedScene" uid="uid://cicc5vdhnt832" path="res://scenes/UI/select_card/effect.tscn" id="2_qrxco"]
+
+[sub_resource type="Animation" id="Animation_4sf47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_4uayt"]
 resource_name = "show"
@@ -32,8 +59,9 @@ tracks/1/keys = {
 "values": [0.261799, 0.261799, -0.174533, 0.0698132, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_4sf47"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ab40u"]
+resource_name = "focus"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,27 +69,16 @@ tracks/0/path = NodePath("Texture:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 2),
 "update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Texture:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [Vector2(0, 0), Vector2(0, -10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a3v5r"]
 _data = {
 "RESET": SubResource("Animation_4sf47"),
+"focus": SubResource("Animation_ab40u"),
 "show": SubResource("Animation_4uayt")
 }
 
@@ -107,4 +124,6 @@ libraries = {
 "": SubResource("AnimationLibrary_a3v5r")
 }
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

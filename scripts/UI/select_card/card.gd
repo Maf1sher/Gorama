@@ -32,3 +32,10 @@ func play_show_animation() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "show":
 		mouse_filter = MOUSE_FILTER_STOP
+
+
+func _on_mouse_entered() -> void:
+	animation.play("focus")
+
+func _on_mouse_exited() -> void:
+	animation.play("RESET")
