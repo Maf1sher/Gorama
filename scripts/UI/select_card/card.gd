@@ -8,7 +8,8 @@ signal selected(card: CardData)
 @onready var effect_sceen = preload("res://scenes/UI/select_card/effect.tscn")
 
 @onready var textureRect = $Texture
-@onready var effects_container = $MarginContainer/VBoxContainer
+@onready var effects_container = $Texture/MarginContainer/EffectsContainer
+@onready var animation = $AnimationPlayer
 
 func _ready() -> void:
 	if data:
@@ -24,3 +25,10 @@ func set_card_effects(effects: Array) -> void:
 		var new_effect = effect_sceen.instantiate()
 		new_effect.set_effect_text(effect.stat, effect.value)
 		effects_container.add_child(new_effect)
+		
+func play_show_animation() -> void:
+	animation.play("show")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "show":
+		mouse_filter = MOUSE_FILTER_STOP

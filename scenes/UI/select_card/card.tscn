@@ -1,12 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhfat6yecmjsk"]
+[gd_scene load_steps=6 format=3 uid="uid://bhfat6yecmjsk"]
 
 [ext_resource type="Script" path="res://scripts/UI/select_card/card.gd" id="1_rhdaw"]
 [ext_resource type="PackedScene" uid="uid://cicc5vdhnt832" path="res://scenes/UI/select_card/effect.tscn" id="2_qrxco"]
+
+[sub_resource type="Animation" id="Animation_4uayt"]
+resource_name = "show"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(-400, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.45, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 0.5, -2, 2),
+"update": 0,
+"values": [0.261799, 0.261799, -0.174533, 0.0698132, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4sf47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a3v5r"]
+_data = {
+"RESET": SubResource("Animation_4sf47"),
+"show": SubResource("Animation_4uayt")
+}
 
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(64, 96)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 96.0
+mouse_filter = 2
 script = ExtResource("1_rhdaw")
 
 [node name="Texture" type="TextureRect" parent="."]
@@ -17,7 +82,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,11 +93,18 @@ theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="EffectsContainer" type="VBoxContainer" parent="Texture/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 
-[node name="Effect" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_qrxco")]
+[node name="Effect" parent="Texture/MarginContainer/EffectsContainer" instance=ExtResource("2_qrxco")]
 layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a3v5r")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
