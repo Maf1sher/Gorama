@@ -7,7 +7,10 @@ extends Node2D
 
 var can_attack: bool = true
 
-var playerStats: Stats
+var playerStats: PlayerStats
+
+func _ready() -> void:
+	hitbox.connect("hit_registered", _on_hit_box_hit_registered)
 	
 func play_attack_animation():
 	if can_attack:

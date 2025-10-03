@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://dip0t5cixw72i"]
+[gd_scene load_steps=21 format=3 uid="uid://dip0t5cixw72i"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/orc.gd" id="1_ji0vp"]
-[ext_resource type="Script" path="res://components/stats.gd" id="2_dsf7i"]
+[ext_resource type="Script" path="res://scripts/entity/enemy/enemy_stats.gd" id="2_2onpk"]
 [ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/orc/Orc.png" id="3_f00c8"]
 [ext_resource type="Script" path="res://components/hit_popup_spawner.gd" id="3_yyrdk"]
 [ext_resource type="Script" path="res://components/player_detector.gd" id="4_4jv7i"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="5_qyqbv"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="6_cgjki"]
+[ext_resource type="Script" path="res://scripts/components/health_bar.gd" id="8_038n3"]
 
 [sub_resource type="Animation" id="Animation_vvv1s"]
 length = 0.001
@@ -151,11 +152,11 @@ bg_color = Color(0.780491, 0, 0.0207087, 1)
 collision_layer = 256
 collision_mask = 256
 script = ExtResource("1_ji0vp")
-stats = NodePath("Stats")
+stats = NodePath("EnemyStats")
 
-[node name="Stats" type="Node" parent="."]
-script = ExtResource("2_dsf7i")
-movement_speed = 50
+[node name="EnemyStats" type="Node" parent="."]
+script = ExtResource("2_2onpk")
+movement_speed = 60
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -7)
@@ -198,7 +199,7 @@ collision_layer = 0
 collision_mask = 4
 monitorable = false
 script = ExtResource("6_cgjki")
-stats = NodePath("../Stats")
+stats = NodePath("../EnemyStats")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -7)
@@ -207,7 +208,7 @@ shape = SubResource("CapsuleShape2D_f4jp8")
 [node name="HitPopupSpawner" type="Node2D" parent="."]
 script = ExtResource("3_yyrdk")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("stats")]
 offset_left = -8.0
 offset_top = -19.0
 offset_right = 9.0
@@ -216,6 +217,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_0o1mc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_q7ocm")
 value = 100.0
 show_percentage = false
+script = ExtResource("8_038n3")
+stats = NodePath("../EnemyStats")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="player_detection" from="PlayerDetector" to="." method="_on_player_detector_player_detection"]

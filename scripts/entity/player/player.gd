@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-signal stats_changed(stats: Stats)
+signal stats_changed(stats: PlayerStats)
 signal hp_changed(hp: int, max_hp: int)
 
 @export var inventory: Node
@@ -13,7 +13,7 @@ signal hp_changed(hp: int, max_hp: int)
 @onready var character_sheet = inventory.get_character_sheet()
 @onready var hit_popup_spawner: HitPopupSpawner = $HitPopupSpawner
 
-@onready var stats: Stats = $Stats
+@onready var stats: PlayerStats = $Stats
 
 var active_cards: Array = []
 

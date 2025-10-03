@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 signal died(exp_reward: int)
 
-@export var stats: Stats
+@export var stats: EnemyStats
 @export var target: Player
 
 @onready var crystal: PackedScene = preload("res://scenes/liftable_item/crystal.tscn")
 @onready var animated_sprite = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var hitbox = $HitBox
-@onready var health_bar = $ProgressBar
+@onready var health_bar = $HealthBar
 @onready var collision_shape = $CollisionShape2D
 
 @onready var hit_popup_spawner = $HitPopupSpawner
@@ -21,7 +21,7 @@ var can_move = true
 var is_hurt = false
 
 func _ready() -> void:
-	health_bar.max_value = stats.max_hp
+	health_bar.stats = stats
 
 func _physics_process(delta: float) -> void:
 	var enemy_to_player = (target.global_position - global_position)
@@ -70,7 +70,7 @@ func set_stunned(value: bool):
 func _on_hurt_box_received_damage(damage: int) -> void:
 	hit_popup_spawner.spawn_hit_popup(damage, global_position)
 	is_hurt = true
-	health_bar.value = stats.hp
+	#health_bar.value = stats.hp
 
 func _on_player_detector_player_detection(in_area: bool) -> void:
 	player_in_area = in_area
