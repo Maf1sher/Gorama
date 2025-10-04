@@ -141,11 +141,19 @@ height = 92.0
 radius = 21.0
 height = 68.0
 
-[node name="Golem" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
+[node name="Golem" type="CharacterBody2D" node_paths=PackedStringArray("stats", "animated_sprite", "sprite", "hitbox", "hurtbox", "health_bar", "collision_shape", "player_detector", "hit_popup_spawner")]
 collision_layer = 256
 collision_mask = 256
 script = ExtResource("1_qsi3s")
 stats = NodePath("Stats")
+animated_sprite = NodePath("AnimationPlayer")
+sprite = NodePath("Sprite2D")
+hitbox = NodePath("HitBox")
+hurtbox = NodePath("HurtBox")
+health_bar = NodePath("HealthBar")
+collision_shape = NodePath("CollisionShape2D")
+player_detector = NodePath("PlayerDetector")
+hit_popup_spawner = NodePath("HitPopupSpawner")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_hsw8r")
