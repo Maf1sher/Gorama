@@ -21,7 +21,7 @@ var can_move = true
 var is_hurt = false
 
 func _ready() -> void:
-	health_bar.stats = stats
+	health_bar.max_value = stats.max_hp
 
 func _physics_process(delta: float) -> void:
 	var enemy_to_player = (target.global_position - global_position)
@@ -50,6 +50,7 @@ func animation() -> void:
 	elif is_hurt:
 		hurt()
 	elif player_in_area:
+		hitbox.damage = stats.calculate_damage()
 		animated_sprite.play("attack")
 	else:
 		animated_sprite.play("walk")
@@ -70,7 +71,6 @@ func set_stunned(value: bool):
 func _on_hurt_box_received_damage(damage: int) -> void:
 	hit_popup_spawner.spawn_hit_popup(damage, global_position)
 	is_hurt = true
-	#health_bar.value = stats.hp
 
 func _on_player_detector_player_detection(in_area: bool) -> void:
 	player_in_area = in_area
@@ -88,3 +88,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		"hurt":
 			is_hurt = false
 			set_stunned(false)
+
+func _on_stats_stats_changed(stat_name: String, value: int) -> void:
+	if stat_name == "hp":
+		health_bar.set_hp(value)

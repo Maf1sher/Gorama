@@ -3,10 +3,11 @@ extends Node
 
 @export var player: Player
 
-@onready var orc: PackedScene = preload("res://scenes/entity/Orc.tscn")
+#@onready var orc: PackedScene = preload("res://scenes/entity/Orc.tscn")
+@onready var orc: PackedScene = preload("res://scenes/entity/golem.tscn")
 
 func _ready() -> void:
-	for i in 1:
+	for i in 5:
 		await get_tree().create_timer(2).timeout
 		var orc = orc.instantiate()
 		orc.position = Vector2(randi_range(-80,400),randi_range(-80,400))

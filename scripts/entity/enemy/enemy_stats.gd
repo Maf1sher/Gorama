@@ -10,7 +10,7 @@ extends Stats
 		damage_percent = value
 		emit_signal("stats_changed", "damage_percent", damage_percent)
 		
-func calculate_magic_damage() -> int:
+func calculate_damage() -> int:
 	var roll = randi() % 100
 	
 	return (damage + (damage * damage_percent/100.0)) \

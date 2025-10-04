@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dip0t5cixw72i"]
+[gd_scene load_steps=19 format=3 uid="uid://dip0t5cixw72i"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/orc.gd" id="1_ji0vp"]
 [ext_resource type="Script" path="res://scripts/entity/enemy/enemy_stats.gd" id="2_2onpk"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://components/player_detector.gd" id="4_4jv7i"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="5_qyqbv"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="6_cgjki"]
-[ext_resource type="Script" path="res://scripts/components/health_bar.gd" id="8_038n3"]
+[ext_resource type="PackedScene" uid="uid://dsqdw1s0083t4" path="res://scenes/components/health_bar.tscn" id="8_dbl6s"]
 
 [sub_resource type="Animation" id="Animation_vvv1s"]
 length = 0.001
@@ -142,19 +142,13 @@ height = 24.0
 radius = 3.0
 height = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o1mc"]
-bg_color = Color(0.31802, 0.31802, 0.31802, 0.435294)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7ocm"]
-bg_color = Color(0.780491, 0, 0.0207087, 1)
-
 [node name="Orc" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
 collision_layer = 256
 collision_mask = 256
 script = ExtResource("1_ji0vp")
-stats = NodePath("EnemyStats")
+stats = NodePath("Stats")
 
-[node name="EnemyStats" type="Node" parent="."]
+[node name="Stats" type="Node" parent="."]
 script = ExtResource("2_2onpk")
 movement_speed = 60
 
@@ -199,7 +193,7 @@ collision_layer = 0
 collision_mask = 4
 monitorable = false
 script = ExtResource("6_cgjki")
-stats = NodePath("../EnemyStats")
+stats = NodePath("../Stats")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -7)
@@ -208,18 +202,9 @@ shape = SubResource("CapsuleShape2D_f4jp8")
 [node name="HitPopupSpawner" type="Node2D" parent="."]
 script = ExtResource("3_yyrdk")
 
-[node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("stats")]
-offset_left = -8.0
-offset_top = -19.0
-offset_right = 9.0
-offset_bottom = -17.0
-theme_override_styles/background = SubResource("StyleBoxFlat_0o1mc")
-theme_override_styles/fill = SubResource("StyleBoxFlat_q7ocm")
-value = 100.0
-show_percentage = false
-script = ExtResource("8_038n3")
-stats = NodePath("../EnemyStats")
+[node name="HealthBar" parent="." instance=ExtResource("8_dbl6s")]
 
+[connection signal="stats_changed" from="Stats" to="." method="_on_stats_stats_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="player_detection" from="PlayerDetector" to="." method="_on_player_detector_player_detection"]
 [connection signal="hit_registered" from="HitBox" to="." method="_on_hit_box_hit_registered"]

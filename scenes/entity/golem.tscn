@@ -1,38 +1,207 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm76p8tlql2i6"]
+[gd_scene load_steps=19 format=3 uid="uid://bm76p8tlql2i6"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/golem.gd" id="1_qsi3s"]
-[ext_resource type="Script" path="res://components/stats.gd" id="2_u034p"]
+[ext_resource type="Script" path="res://scripts/entity/enemy/enemy_stats.gd" id="2_hsw8r"]
+[ext_resource type="Texture2D" uid="uid://cv3wg7snj8j4u" path="res://assests/sprites/enemy/golem/golem.png" id="3_3iwn7"]
 [ext_resource type="Script" path="res://components/player_detector.gd" id="3_agum6"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="4_d0g3o"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="5_sgtfo"]
 [ext_resource type="Script" path="res://components/hit_popup_spawner.gd" id="6_wuf1t"]
+[ext_resource type="PackedScene" uid="uid://dsqdw1s0083t4" path="res://scenes/components/health_bar.tscn" id="8_pfeci"]
 
-[node name="Golem" type="Node2D"]
+[sub_resource type="Animation" id="Animation_5bx6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_f2s7j"]
+resource_name = "attack"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_xyj3m"]
+resource_name = "death"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_3yrwl"]
+resource_name = "hurt"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [21, 22, 23, 24]
+}
+
+[sub_resource type="Animation" id="Animation_6b5fm"]
+resource_name = "attack"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_45vep"]
+_data = {
+"RESET": SubResource("Animation_5bx6m"),
+"attack": SubResource("Animation_f2s7j"),
+"death": SubResource("Animation_xyj3m"),
+"hurt": SubResource("Animation_3yrwl"),
+"walk": SubResource("Animation_6b5fm")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wp1hb"]
+radius = 9.0
+height = 44.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1gqdq"]
+radius = 43.0
+height = 92.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_31km4"]
+radius = 43.0
+height = 92.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_df3gm"]
+radius = 21.0
+height = 68.0
+
+[node name="Golem" type="CharacterBody2D" node_paths=PackedStringArray("stats")]
+collision_layer = 256
+collision_mask = 256
 script = ExtResource("1_qsi3s")
+stats = NodePath("Stats")
 
 [node name="Stats" type="Node" parent="."]
-script = ExtResource("2_u034p")
+script = ExtResource("2_hsw8r")
+damage = 60
+movement_speed = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -46)
+texture = ExtResource("3_3iwn7")
+hframes = 7
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_45vep")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("CapsuleShape2D_wp1hb")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(0, -30)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("3_agum6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CapsuleShape2D_1gqdq")
 
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, -30)
+collision_layer = 512
+collision_mask = 0
+monitoring = false
+monitorable = false
 script = ExtResource("4_d0g3o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_31km4")
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("stats")]
+position = Vector2(0, -28)
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("5_sgtfo")
+stats = NodePath("../Stats")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_df3gm")
 
 [node name="HitPopupSpawner" type="Node2D" parent="."]
 script = ExtResource("6_wuf1t")
+
+[node name="HealthBar" parent="." instance=ExtResource("8_pfeci")]
+offset_left = -20.0
+offset_top = -66.0
+offset_right = 20.0
+offset_bottom = -62.0
