@@ -3,14 +3,14 @@ extends Node
 
 signal stats_changed(stat_name: String, value: int)
 
-@export var hp: int = 100:
-	set(value):
-		hp = min(value, max_hp)
-		emit_signal("stats_changed", "hp", hp)
 @export var max_hp: int = 100:
 	set(value):
 		max_hp = value
 		emit_signal("stats_changed", "max_hp", max_hp)
+@export var hp: int = 100:
+	set(value):
+		hp = min(value, max_hp)
+		emit_signal("stats_changed", "hp", hp)
 @export var hp_regeneration: int = 0:
 	set(value):
 		hp_regeneration = value

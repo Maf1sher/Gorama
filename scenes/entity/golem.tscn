@@ -154,11 +154,14 @@ health_bar = NodePath("HealthBar")
 collision_shape = NodePath("CollisionShape2D")
 player_detector = NodePath("PlayerDetector")
 hit_popup_spawner = NodePath("HitPopupSpawner")
+exp = 100
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_hsw8r")
 damage = 60
-movement_speed = 50
+max_hp = 500
+hp = 500
+movement_speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -46)

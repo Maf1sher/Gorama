@@ -6,9 +6,9 @@ extends Node
 @onready var orc: PackedScene = preload("res://scenes/entity/Orc.tscn")
 @onready var golem: PackedScene = preload("res://scenes/entity/golem.tscn")
 
-#func _ready() -> void:
-	#await summon_enemy(3, orc)
-	#await summon_enemy(1, golem)
+func _ready() -> void:
+	await summon_enemy(3, orc)
+	await summon_enemy(1, golem)
 	
 
 func summon_enemy(amount: int, enemy: PackedScene) -> void:

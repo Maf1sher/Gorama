@@ -27,6 +27,7 @@ var is_hurt = false
 
 func _ready() -> void:
 	health_bar.max_value = stats.max_hp
+	health_bar.set_hp(stats.hp)
 	animated_sprite.animation_finished.connect(_on_animation_player_animation_finished)
 	hurtbox.received_damage.connect(_on_hurt_box_received_damage)
 	player_detector.player_detection.connect(_on_player_detector_player_detection)
