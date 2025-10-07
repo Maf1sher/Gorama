@@ -38,11 +38,16 @@ var is_hurt = false
 func _ready() -> void:
 	health_bar.max_value = stats.max_hp
 	health_bar.set_hp(stats.hp)
-	animated_sprite.animation_finished.connect(_on_animation_player_animation_finished)
-	hurtbox.received_damage.connect(_on_hurt_box_received_damage)
-	player_detector.player_detection.connect(_on_player_detector_player_detection)
-	hitbox.hit_registered.connect(_on_hit_box_hit_registered)
-	stats.stats_changed.connect(_on_stats_stats_changed)
+	if not animated_sprite.animation_finished.is_connected(_on_animation_player_animation_finished):
+		animated_sprite.animation_finished.connect(_on_animation_player_animation_finished)
+	if not hurtbox.received_damage.is_connected(_on_hurt_box_received_damage):
+		hurtbox.received_damage.connect(_on_hurt_box_received_damage)
+	if not player_detector.player_detection.is_connected(_on_player_detector_player_detection):
+		player_detector.player_detection.connect(_on_player_detector_player_detection)
+	if not hitbox.hit_registered.is_connected(_on_hit_box_hit_registered):
+		hitbox.hit_registered.connect(_on_hit_box_hit_registered)
+	if not stats.stats_changed.is_connected(_on_stats_stats_changed):
+		stats.stats_changed.connect(_on_stats_stats_changed)
 
 func _physics_process(delta: float) -> void:
 	var enemy_to_player = (target.global_position - global_position)
@@ -112,7 +117,7 @@ func _on_hurt_box_received_damage(damage: int) -> void:
 func _on_player_detector_player_detection(in_area: bool) -> void:
 	player_in_area = in_area
 	
-func _on_hit_box_hit_registered() -> void:
+func _on_hit_box_hit_registered(damage: int) -> void:
 	hitbox.set_deferred("disabled", false)
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

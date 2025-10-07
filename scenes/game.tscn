@@ -231,6 +231,7 @@ player = NodePath("../../Player")
 mouse_filter = 2
 
 [node name="StatsPanel" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("10_0tbwd")]
+visible = false
 mouse_filter = 2
 player = NodePath("../../Player")
 
