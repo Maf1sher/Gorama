@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckq1wu7kvt3oy"]
 
-[ext_resource type="Texture2D" uid="uid://bmotxy2ngek8f" path="res://assests/sprites/inventory/slot.png" id="1_5awew"]
+[ext_resource type="Texture2D" uid="uid://bmotxy2ngek8f" path="res://assests/sprites/inventory/equipment/slot.png" id="1_5awew"]
 
 [node name="InventorySlot" type="TextureRect"]
 anchors_preset = 15

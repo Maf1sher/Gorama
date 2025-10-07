@@ -5,12 +5,18 @@ signal item_changed(item)
 @export var dimentions: Vector2i
 @export var type: ItemTypes.Type
 @export var inventory_path: NodePath
+
+@export var fill_texture: Texture2D
+
+@onready var fill = $Fill
+
 var inventory: Node
 
 var item: Node = null
 
 func _ready() -> void:
 	inventory = get_node(inventory_path)
+	fill.texture = fill_texture
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory_left_click"):
@@ -21,8 +27,6 @@ func _gui_input(event: InputEvent) -> void:
 					place_item(held_item)
 				else:
 					swap_items(held_item)
-					#place_item(held_item)
-					#pick_up_item()
 					
 		else:
 			if item:
@@ -34,12 +38,14 @@ func place_item(held_item: Node) -> void:
 	item = held_item
 	inventory.place_item(held_item, self)
 	held_item.get_placed(global_position + size / 2 - held_item.size / 2)
+	fill.visible = false
 	emit_signal("item_changed", item)
 	
 func pick_up_item() -> void:
 	inventory.pick_up_item(item)
 	item.get_picked_up()
 	item = null
+	fill.visible = true
 	emit_signal("item_changed", item)
 	
 func swap_items(held_item: Node) -> void:

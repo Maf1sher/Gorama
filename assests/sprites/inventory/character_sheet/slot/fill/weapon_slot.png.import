@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7xiihp46dkmd"
-path="res://.godot/imported/character_sheet.png-83503faa72627f587fb1de7ff1a44499.ctex"
+uid="uid://yfgjjowhkf25"
+path="res://.godot/imported/weapon_slot.png-1845e18ae5306609bde609e08b25e4f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/inventory/character_sheet.png"
-dest_files=["res://.godot/imported/character_sheet.png-83503faa72627f587fb1de7ff1a44499.ctex"]
+source_file="res://assests/sprites/inventory/character_sheet/slot/fill/weapon_slot.png"
+dest_files=["res://.godot/imported/weapon_slot.png-1845e18ae5306609bde609e08b25e4f1.ctex"]
 
 [params]
 

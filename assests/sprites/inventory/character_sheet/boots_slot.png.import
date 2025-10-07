@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3f75fg28xaib"
-path="res://.godot/imported/ring_slot.png-e712bc27051a56069fb5e3df0e39a720.ctex"
+uid="uid://cikl7hsya46ms"
+path="res://.godot/imported/boots_slot.png-ca460847f301492576bc00b4cef209fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/inventory/ring_slot.png"
-dest_files=["res://.godot/imported/ring_slot.png-e712bc27051a56069fb5e3df0e39a720.ctex"]
+source_file="res://assests/sprites/inventory/character_sheet/boots_slot.png"
+dest_files=["res://.godot/imported/boots_slot.png-ca460847f301492576bc00b4cef209fc.ctex"]
 
 [params]
 

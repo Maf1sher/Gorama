@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq0bl0moltd4t"]
+[gd_scene load_steps=20 format=3 uid="uid://cq0bl0moltd4t"]
 
 [ext_resource type="Script" path="res://scripts/UI/inventory/inventory.gd" id="1_rgsww"]
 [ext_resource type="Script" path="res://scripts/UI/inventory/item_grid.gd" id="1_t33lg"]
@@ -8,14 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://bdhifj2wsy1jx" path="res://scenes/UI/inventory/inventory_item.tscn" id="4_ruclq"]
 [ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/sword.tres" id="7_mi44v"]
 [ext_resource type="Resource" uid="uid://berthunsd3jyo" path="res://resources/items/sword2.tres" id="8_oq3rt"]
-[ext_resource type="Texture2D" uid="uid://c7xiihp46dkmd" path="res://assests/sprites/inventory/character_sheet.png" id="9_wc4px"]
+[ext_resource type="Texture2D" uid="uid://c7xiihp46dkmd" path="res://assests/sprites/inventory/character_sheet/character_sheet.png" id="9_wc4px"]
 [ext_resource type="PackedScene" uid="uid://co8eb2bac67yh" path="res://scenes/UI/inventory/character_sheet_slot.tscn" id="10_6h8rt"]
 [ext_resource type="Script" path="res://scripts/UI/inventory/character_sheet.gd" id="10_u1iq6"]
-[ext_resource type="Texture2D" uid="uid://b4ic42y8375d6" path="res://assests/sprites/inventory/head_slot.png" id="11_hlqqx"]
-[ext_resource type="Texture2D" uid="uid://d1judwc0d6eqs" path="res://assests/sprites/inventory/weapon_slot.png" id="11_px6va"]
-[ext_resource type="Texture2D" uid="uid://t3a40ph314ml" path="res://assests/sprites/inventory/chest_slot.png" id="12_rehx7"]
-[ext_resource type="Texture2D" uid="uid://cikl7hsya46ms" path="res://assests/sprites/inventory/boots_slot.png" id="13_e37mo"]
-[ext_resource type="Texture2D" uid="uid://b3f75fg28xaib" path="res://assests/sprites/inventory/ring_slot.png" id="15_hv04l"]
+[ext_resource type="Texture2D" uid="uid://c0osaoy07l1ew" path="res://assests/sprites/inventory/character_sheet/slot/empty/head_slot.png" id="11_hlqqx"]
+[ext_resource type="Texture2D" uid="uid://c6aeqlpirfbqe" path="res://assests/sprites/inventory/character_sheet/slot/empty/weapon_slot.png" id="11_px6va"]
+[ext_resource type="Texture2D" uid="uid://cw4rgowtw3ihw" path="res://assests/sprites/inventory/character_sheet/slot/empty/chest_slot.png" id="12_rehx7"]
+[ext_resource type="Texture2D" uid="uid://4p86kj57sgdc" path="res://assests/sprites/inventory/character_sheet/slot/empty/boots_slot.png" id="13_e37mo"]
+[ext_resource type="Texture2D" uid="uid://yfgjjowhkf25" path="res://assests/sprites/inventory/character_sheet/slot/fill/weapon_slot.png" id="15_4kb17"]
+[ext_resource type="Texture2D" uid="uid://r64diiinwm4e" path="res://assests/sprites/inventory/character_sheet/slot/fill/head_slot.png" id="17_25b8k"]
+[ext_resource type="Texture2D" uid="uid://d4h2kex18gr7" path="res://assests/sprites/inventory/character_sheet/slot/fill/chest_slot.png" id="19_app6k"]
+[ext_resource type="Texture2D" uid="uid://dyx6wl2uho58h" path="res://assests/sprites/inventory/character_sheet/slot/fill/boots_slot.png" id="21_l31dc"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -71,7 +74,6 @@ offset_left = 15.0
 offset_top = 108.0
 offset_right = -89.0
 offset_bottom = -26.0
-texture = ExtResource("15_hv04l")
 type = 4
 inventory_path = NodePath("../../..")
 
@@ -81,7 +83,6 @@ offset_left = 88.0
 offset_top = 108.0
 offset_right = -16.0
 offset_bottom = -26.0
-texture = ExtResource("15_hv04l")
 type = 4
 inventory_path = NodePath("../../..")
 
@@ -96,6 +97,7 @@ offset_right = 39.0
 offset_bottom = 99.0
 texture = ExtResource("11_px6va")
 inventory_path = NodePath("../../..")
+fill_texture = ExtResource("15_4kb17")
 
 [node name="RightHand" parent="CharacterSheet/TextureRect" instance=ExtResource("10_6h8rt")]
 layout_mode = 2
@@ -108,6 +110,7 @@ offset_right = 114.0
 offset_bottom = 99.0
 texture = ExtResource("11_px6va")
 inventory_path = NodePath("../../..")
+fill_texture = ExtResource("15_4kb17")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="CharacterSheet/TextureRect"]
 layout_mode = 2
@@ -122,18 +125,21 @@ layout_mode = 2
 texture = ExtResource("11_hlqqx")
 type = 1
 inventory_path = NodePath("../../../..")
+fill_texture = ExtResource("17_25b8k")
 
 [node name="Chest" parent="CharacterSheet/TextureRect/HBoxContainer" instance=ExtResource("10_6h8rt")]
 layout_mode = 2
 texture = ExtResource("12_rehx7")
 type = 2
 inventory_path = NodePath("../../../..")
+fill_texture = ExtResource("19_app6k")
 
 [node name="Boots" parent="CharacterSheet/TextureRect/HBoxContainer" instance=ExtResource("10_6h8rt")]
 layout_mode = 2
 texture = ExtResource("13_e37mo")
 type = 3
 inventory_path = NodePath("../../../..")
+fill_texture = ExtResource("21_l31dc")
 
 [connection signal="item_changed" from="CharacterSheet/TextureRect/LeftRing" to="CharacterSheet" method="_on_left_ring_item_changed"]
 [connection signal="item_changed" from="CharacterSheet/TextureRect/RightRing" to="CharacterSheet" method="_on_right_ring_item_changed"]

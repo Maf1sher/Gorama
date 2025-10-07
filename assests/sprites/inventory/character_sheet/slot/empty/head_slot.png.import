@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwa5i48x5i51w"
-path="res://.godot/imported/example_L.png-08bbc99100df71b13b0e791d1a3861bc.ctex"
+uid="uid://c0osaoy07l1ew"
+path="res://.godot/imported/head_slot.png-4c94faae92f2e39a82272044fa360636.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/inventory/example_L.png"
-dest_files=["res://.godot/imported/example_L.png-08bbc99100df71b13b0e791d1a3861bc.ctex"]
+source_file="res://assests/sprites/inventory/character_sheet/slot/empty/head_slot.png"
+dest_files=["res://.godot/imported/head_slot.png-4c94faae92f2e39a82272044fa360636.ctex"]
 
 [params]
 

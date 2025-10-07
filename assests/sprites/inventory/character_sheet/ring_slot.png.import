@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1judwc0d6eqs"
-path="res://.godot/imported/weapon_slot.png-d481858ce319ded87bdf0e60a23f001e.ctex"
+uid="uid://b3f75fg28xaib"
+path="res://.godot/imported/ring_slot.png-d84f76ac50067d20bda2e534c6f1c967.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/inventory/weapon_slot.png"
-dest_files=["res://.godot/imported/weapon_slot.png-d481858ce319ded87bdf0e60a23f001e.ctex"]
+source_file="res://assests/sprites/inventory/character_sheet/ring_slot.png"
+dest_files=["res://.godot/imported/ring_slot.png-d84f76ac50067d20bda2e534c6f1c967.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ic42y8375d6"
-path="res://.godot/imported/head_slot.png-c324ebf5395226bb1f4e0d83b677fc94.ctex"
+uid="uid://t3a40ph314ml"
+path="res://.godot/imported/chest_slot.png-5128f42c0b4eb57af65e027d94cdf2bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/inventory/head_slot.png"
-dest_files=["res://.godot/imported/head_slot.png-c324ebf5395226bb1f4e0d83b677fc94.ctex"]
+source_file="res://assests/sprites/inventory/character_sheet/chest_slot.png"
+dest_files=["res://.godot/imported/chest_slot.png-5128f42c0b4eb57af65e027d94cdf2bd.ctex"]
 
 [params]
 
