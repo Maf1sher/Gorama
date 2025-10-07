@@ -1,13 +1,22 @@
-[gd_scene load_steps=19 format=3 uid="uid://bm76p8tlql2i6"]
+[gd_scene load_steps=22 format=3 uid="uid://bm76p8tlql2i6"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/golem.gd" id="1_qsi3s"]
 [ext_resource type="Script" path="res://scripts/entity/enemy/enemy_stats.gd" id="2_hsw8r"]
+[ext_resource type="Script" path="res://resources/special_attacks/special_attack.gd" id="2_p7ecp"]
 [ext_resource type="Texture2D" uid="uid://cv3wg7snj8j4u" path="res://assests/sprites/enemy/golem/golem.png" id="3_3iwn7"]
 [ext_resource type="Script" path="res://components/player_detector.gd" id="3_agum6"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="4_d0g3o"]
+[ext_resource type="Script" path="res://resources/special_attacks/around_red_ball.gd" id="4_mgb50"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="5_sgtfo"]
 [ext_resource type="Script" path="res://components/hit_popup_spawner.gd" id="6_wuf1t"]
 [ext_resource type="PackedScene" uid="uid://dsqdw1s0083t4" path="res://scenes/components/health_bar.tscn" id="8_pfeci"]
+
+[sub_resource type="Resource" id="Resource_c7fq6"]
+script = ExtResource("4_mgb50")
+projectile_count = 8
+chance = 0.8
+cooldown = 2.0
+damage = 10
 
 [sub_resource type="Animation" id="Animation_5bx6m"]
 length = 0.001
@@ -155,6 +164,7 @@ collision_shape = NodePath("CollisionShape2D")
 player_detector = NodePath("PlayerDetector")
 hit_popup_spawner = NodePath("HitPopupSpawner")
 exp = 100
+special_attacks = Array[ExtResource("2_p7ecp")]([SubResource("Resource_c7fq6")])
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_hsw8r")

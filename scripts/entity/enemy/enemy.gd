@@ -3,8 +3,9 @@ extends CharacterBody2D
 
 signal died(exp_reward: int)
 
-@onready var crystal: PackedScene = preload("res://scenes/liftable_item/crystal.tscn")
+@onready var crystal_screen: PackedScene = preload("res://scenes/liftable_item/crystal.tscn")
 
+@export_group("Componets")
 @export var stats: EnemyStats
 @export var animated_sprite: AnimationPlayer
 @export var sprite: Sprite2D
@@ -15,7 +16,16 @@ signal died(exp_reward: int)
 @export var player_detector: PlayerDetector
 @export var hit_popup_spawner: HitPopupSpawner
 
+@export_group("Enemy drops")
 @export var exp: int = 10
+@export var crystal: int = 1
+
+@export_group("special attacks")
+@export var min_attack_interval: float = 3.0
+@export var max_attack_interval: float = 6.0
+@export var special_attacks: Array[SpecialAttack] = []
+
+var attack_timer := 0.0
 
 var target: Player
 
@@ -49,6 +59,11 @@ func _physics_process(delta: float) -> void:
 	
 	animation()
 	move_and_slide()
+	
+	attack_timer -= delta
+	if attack_timer <= 0:
+		_try_special_attack()
+		_reset_attack_timer()
 
 func animation() -> void:
 	if direction.x < 0:
@@ -78,6 +93,17 @@ func hurt():
 func set_stunned(value: bool):
 	can_move = !value
 	collision_shape.set_deferred("disabled", value)
+	
+func _try_special_attack():
+	if special_attacks.is_empty():
+		return
+
+	var attack: SpecialAttack = special_attacks.pick_random()
+	if randf() < attack.chance:
+		attack.execute(self, target)
+
+func _reset_attack_timer():
+	attack_timer = randf_range(min_attack_interval, max_attack_interval)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	hit_popup_spawner.spawn_hit_popup(damage, global_position)
@@ -92,9 +118,9 @@ func _on_hit_box_hit_registered() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"death":
-			var new_crystal = crystal.instantiate()
-			new_crystal.global_position = global_position
-			get_parent().add_child(new_crystal)
+			var new_crystal_screen = crystal_screen.instantiate()
+			new_crystal_screen.global_position = global_position
+			get_parent().add_child(new_crystal_screen)
 			queue_free()
 		"hurt":
 			is_hurt = false
