@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://co8eb2bac67yh"]
+[gd_scene load_steps=2 format=3 uid="uid://co8eb2bac67yh"]
 
 [ext_resource type="Script" path="res://scripts/UI/inventory/character_sheet_slot.gd" id="1_acwjv"]
-[ext_resource type="Texture2D" uid="uid://co1m4wkuxld6f" path="res://assests/sprites/inventory/character_sheet/slot/empty/ring_slot.png" id="1_uxbjw"]
-[ext_resource type="Texture2D" uid="uid://jgf64kpkaqbl" path="res://assests/sprites/inventory/character_sheet/slot/fill/ring_slot.png" id="3_l3v5u"]
 
 [node name="CharacterSheetSlot" type="TextureRect"]
 anchors_preset = 15
@@ -11,9 +9,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-texture = ExtResource("1_uxbjw")
 script = ExtResource("1_acwjv")
-fill_texture = ExtResource("3_l3v5u")
 metadata/_edit_use_anchors_ = true
 
 [node name="Fill" type="TextureRect" parent="."]

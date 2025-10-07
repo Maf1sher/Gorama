@@ -36,3 +36,16 @@ func _on_chest_item_changed(item: Variant) -> void:
 
 func _on_boots_item_changed(item: Variant) -> void:
 	emit_signal("item_changed", "boots", item)
+	
+func fast_move(item: Node) -> bool:
+	match item.data.type:
+		ItemTypes.Type.WEAPON:
+			if leftHand.is_empty():
+				leftHand.place_item(item)
+				return true
+			elif rightHand.is_empty():
+				rightHand.place_item(item)
+				return true
+			else:
+				return false
+	return false

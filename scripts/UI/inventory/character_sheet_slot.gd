@@ -59,3 +59,6 @@ func swap_items(held_item: Node) -> void:
 	item = held_item
 	held_item.get_placed(global_position + size / 2 - held_item.size / 2)
 	emit_signal("item_changed", item)
+	
+func is_empty() -> bool:
+	return !item

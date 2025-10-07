@@ -27,32 +27,40 @@ func init_slot_data() -> void:
 	slot_data.resize(dimentions.x * dimentions.y)
 	slot_data.fill(null)
 	
-func _gui_input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:	
 	if event.is_action_pressed("inventory_left_click"):
-		var held_item = inventory.get_held_item()
-		if !held_item:
-			var index = get_slot_index_from_coords(get_global_mouse_position())
+		if Input.is_key_pressed(KEY_SHIFT):
 			var slot_index = get_slot_index_from_coords(get_global_mouse_position())
 			var item = slot_data[slot_index]
 			if !item:
 				return
 			pick_up_item(item)
 			remove_item_from_slot_data(item)
+			inventory.fast_move("character_sheet")
 		else:
-			if !held_item_intersects:
-				return
-			var offset = Vector2(SLOT_SIZE, SLOT_SIZE) / 2
-			var index = get_slot_index_from_coords(held_item.anchor_point + offset)
-			var items = items_in_area(index, held_item.data.dimentions)
-			if items.size():
-				if items.size() == 1:
-					place_item(held_item, index)
-					remove_item_from_slot_data(items[0])
-					add_item_to_slot_data(index, held_item)
-					pick_up_item(items[0])
-				return
-			place_item(held_item, index)
-			add_item_to_slot_data(index, held_item)
+			var held_item = inventory.get_held_item()
+			if !held_item:
+				var slot_index = get_slot_index_from_coords(get_global_mouse_position())
+				var item = slot_data[slot_index]
+				if !item:
+					return
+				pick_up_item(item)
+				remove_item_from_slot_data(item)
+			else:
+				if !held_item_intersects:
+					return
+				var offset = Vector2(SLOT_SIZE, SLOT_SIZE) / 2
+				var index = get_slot_index_from_coords(held_item.anchor_point + offset)
+				var items = items_in_area(index, held_item.data.dimentions)
+				if items.size():
+					if items.size() == 1:
+						place_item(held_item, index)
+						remove_item_from_slot_data(items[0])
+						add_item_to_slot_data(index, held_item)
+						pick_up_item(items[0])
+					return
+				place_item(held_item, index)
+				add_item_to_slot_data(index, held_item)
 			
 	if event is InputEventMouseMotion:
 		var held_item = inventory.get_held_item()

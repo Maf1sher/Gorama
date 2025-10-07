@@ -37,6 +37,12 @@ func swap_items(item: Node, destination: Node) -> void:
 	add_child(item)
 	remove_child(tmp)
 	destination.add_child(tmp)
+	
+func fast_move(destination: String) -> bool:
+	if destination == "character_sheet":
+		return character_sheet.fast_move(held_item)
+	return false
+		
 		
 func get_held_item() -> Node:
 	return held_item
