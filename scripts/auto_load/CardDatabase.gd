@@ -3,19 +3,20 @@ extends Node
 var card_pools = {
 	"Common": [
 		"res://resources/cards/data/card_test.tres",
-		"res://resources/cards/data/card_test2.tres"
+		"res://resources/cards/data/card_test2.tres",
+		"res://resources/cards/data/card_test3.tres",
 	],
 	"Rare": [
-		"res://resources/cards/data/card_test.tres",
+		"res://resources/cards/data/card_test3.tres",
 	],
 	"Epic": [
-		"res://resources/cards/data/card_test.tres",
+		"res://resources/cards/data/card_test3.tres",
 	],
 	"Legendary": [
-		"res://resources/cards/data/card_test.tres",
+		"res://resources/cards/data/card_test3.tres",
 	],
 	"Mythic": [
-		"res://resources/cards/data/card_test.tres",
+		"res://resources/cards/data/card_test3.tres",
 	]
 }
 

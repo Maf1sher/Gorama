@@ -7,8 +7,8 @@ signal selected(card: CardData)
 
 @onready var effect_sceen = preload("res://scenes/UI/select_card/effect.tscn")
 
-@onready var textureRect = $Texture
-@onready var effects_container = $Texture/MarginContainer/EffectsContainer
+@onready var textureRect = $Control/Texture
+@onready var effects_container = $Control/Texture/MarginContainer/EffectsContainer
 @onready var animation = $AnimationPlayer
 
 func _ready() -> void:
