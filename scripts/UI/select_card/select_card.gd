@@ -10,9 +10,6 @@ var cardScene = preload("res://scenes/UI/select_card/card.tscn")
 
 var is_open: bool = false
 
-func _ready() -> void:
-	show_cards(3)
-
 func _on_card_selected(card: CardData):
 	if player:
 		player.apply_card(card)
