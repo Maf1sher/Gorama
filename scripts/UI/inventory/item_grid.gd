@@ -143,3 +143,13 @@ func item_fits(index: int, dimentions: Vector2i) -> bool:
 			if split:
 				return false
 	return true
+
+func fast_move_in(item: Node) -> bool:
+    # Try to find a free slot and place the held item quickly
+    var placed := attempt_to_add_item_data(item)
+    if !placed:
+        return false
+    ItemDragManager.place_item(item, self)
+    var top_left := Vector2i(item.global_position - item.size / 2)
+    item.get_placed(top_left)
+    return true
