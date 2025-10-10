@@ -19,18 +19,27 @@ func _ready() -> void:
 	fill.texture = fill_texture
 
 func _gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("inventory_left_click"):
-		var held_item = inventory.get_held_item()
-		if held_item:
-			if held_item.data.type == type:
-				if !item:
-					place_item(held_item)
-				else:
-					swap_items(held_item)
-					
-		else:
-			if item:
-				pick_up_item()
+    if event.is_action_pressed("inventory_left_click"):
+        if Input.is_key_pressed(KEY_SHIFT):
+            # Fast move: if nothing held and there is an item in slot, move to equipment
+            if item and !inventory.get_held_item():
+                inventory.pick_up_item(item)
+                item = null
+                fill.visible = true
+                emit_signal("item_changed", item)
+                inventory.fast_move("equipment")
+                return
+        var held_item = inventory.get_held_item()
+        if held_item:
+            if held_item.data.type == type:
+                if !item:
+                    place_item(held_item)
+                else:
+                    swap_items(held_item)
+                    
+        else:
+            if item:
+                pick_up_item()
 
 func place_item(held_item: Node) -> void:
 	if held_item.data.is_rotated:

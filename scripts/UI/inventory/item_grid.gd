@@ -143,3 +143,16 @@ func item_fits(index: int, dimentions: Vector2i) -> bool:
 			if split:
 				return false
 	return true
+
+func fast_move_place_item(item: Node) -> bool:
+	var slot_index: int = 0
+	while slot_index < slot_data.size():
+		if item_fits(slot_index, item.data.dimentions):
+			break
+		slot_index += 1
+	if slot_index >= slot_data.size():
+		return false
+	inventory.place_item(item, self)
+	item.get_placed(get_coords_from_slot_index(slot_index))
+	add_item_to_slot_data(slot_index, item)
+	return true
