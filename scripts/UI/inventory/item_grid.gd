@@ -5,6 +5,7 @@ const SLOT_SIZE: int = 16
 @export var inventory_slot_scene: PackedScene
 @export var dimentions: Vector2i
 @export var inventory_path: NodePath
+@export var fast_move_target: String = "character_sheet"
 var inventory: Node
 
 var slot_data: Array[Node] = []
@@ -36,7 +37,7 @@ func _gui_input(event: InputEvent) -> void:
 				return
 			pick_up_item(item)
 			remove_item_from_slot_data(item)
-			inventory.fast_move("character_sheet")
+            inventory.fast_move(fast_move_target)
 		else:
 			var held_item = inventory.get_held_item()
 			if !held_item:

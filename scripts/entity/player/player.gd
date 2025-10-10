@@ -24,7 +24,12 @@ var current_look_dir: String = "left"
 var alive: bool = true
 
 func _ready() -> void:
-	character_sheet.connect("item_changed", self._on_item_changed)
+    # Prefer inventory-level equipment_changed to decouple from CharacterSheet
+    if inventory.has_signal("equipment_changed"):
+        inventory.connect("equipment_changed", Callable(self, "_on_item_changed"))
+    else:
+        # Fallback for older inventories
+        character_sheet.connect("item_changed", self._on_item_changed)
 	emit_signal("stats_changed", stats)
 
 func _physics_process(delta: float) -> void:
