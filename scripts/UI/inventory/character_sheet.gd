@@ -49,3 +49,10 @@ func fast_move(item: Node) -> bool:
 			else:
 				return false
 	return false
+
+func _ready() -> void:
+    # Register as a fast-move target globally
+    ItemDragManager.register_fast_move_target("character_sheet", Callable(self, "fast_move"))
+
+func _exit_tree() -> void:
+    ItemDragManager.unregister_fast_move_target("character_sheet")
