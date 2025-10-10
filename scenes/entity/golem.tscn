@@ -168,7 +168,7 @@ special_attacks = Array[ExtResource("2_p7ecp")]([SubResource("Resource_c7fq6")])
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_hsw8r")
-damage = 60
+damage = 50
 max_hp = 500
 hp = 500
 movement_speed = 30
@@ -219,6 +219,7 @@ stats = NodePath("../Stats")
 shape = SubResource("CapsuleShape2D_df3gm")
 
 [node name="HitPopupSpawner" type="Node2D" parent="."]
+position = Vector2(0, -30)
 script = ExtResource("6_wuf1t")
 
 [node name="HealthBar" parent="." instance=ExtResource("8_pfeci")]

@@ -111,7 +111,7 @@ func _reset_attack_timer():
 	attack_timer = randf_range(min_attack_interval, max_attack_interval)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
-	hit_popup_spawner.spawn_hit_popup(damage, global_position)
+	hit_popup_spawner.spawn_hit_popup(damage)
 	is_hurt = true
 
 func _on_player_detector_player_detection(in_area: bool) -> void:
