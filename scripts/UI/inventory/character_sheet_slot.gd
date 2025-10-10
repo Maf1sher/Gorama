@@ -11,15 +11,28 @@ signal item_changed(item)
 @onready var fill = $Fill
 
 var inventory: Node
+var equipment_grid: Node = null
 
 var item: Node = null
 
 func _ready() -> void:
 	inventory = get_node(inventory_path)
 	fill.texture = fill_texture
+	# Locate equipment grid for fast-move operations
+	if inventory and inventory.has_node("Equipment/ItemGrid"):
+		equipment_grid = inventory.get_node("Equipment/ItemGrid")
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory_left_click"):
+		# Shift-click: move item from this slot to Equipment grid if it fits
+		if Input.is_key_pressed(KEY_SHIFT):
+			if item and equipment_grid and inventory.get_held_item() == null:
+				var to_move := item
+				pick_up_item()
+				if !equipment_grid.fast_move_in(to_move):
+					# Restore back if cannot place
+					place_item(to_move)
+				return
 		var held_item = inventory.get_held_item()
 		if held_item:
 			if held_item.data.type == type:

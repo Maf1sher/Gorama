@@ -9,7 +9,6 @@ signal item_changed(slot, item)
 @onready var head = $TextureRect/HBoxContainer/Head
 @onready var chest = $TextureRect/HBoxContainer/Chest
 @onready var boots = $TextureRect/HBoxContainer/Boots
-@onready var equipment_grid = $"../Equipment/ItemGrid"
 
 func _on_left_ring_item_changed(item: Variant) -> void:
 	emit_signal("item_changed", "left_ring", item)
@@ -47,9 +46,8 @@ func fast_move(item: Node) -> bool:
             elif rightHand.is_empty():
                 rightHand.place_item(item)
                 return true
-    # Fallback: move to Equipment grid if there is space and the item fits
-    if is_instance_valid(equipment_grid):
-        return equipment_grid.fast_move_in(item)
+            else:
+                return false
     return false
 
 func _ready() -> void:
