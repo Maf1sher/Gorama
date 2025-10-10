@@ -10,6 +10,12 @@ signal item_changed(slot, item)
 @onready var chest = $TextureRect/HBoxContainer/Chest
 @onready var boots = $TextureRect/HBoxContainer/Boots
 
+func _ready() -> void:
+	ItemDragManager.register_fast_move_target("character_sheet", Callable(self, "fast_move"))
+
+func _exit_tree() -> void:
+	ItemDragManager.unregister_fast_move_target("character_sheet")
+
 func _on_left_ring_item_changed(item: Variant) -> void:
 	emit_signal("item_changed", "left_ring", item)
 

@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 InputManager="*res://scripts/auto_load/InputManager.gd"
 CurrencyManager="*res://scripts/auto_load/CurrencyManager.gd"
-CardManager="res://scripts/auto_load/CardManager.gd"
 CardDatabase="*res://scripts/auto_load/CardDatabase.gd"
+ItemDragManager="*res://scripts/auto_load/ItemDragManager.gd"
 
 [display]
 

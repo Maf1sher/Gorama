@@ -21,31 +21,22 @@ func close():
 	InputManager.unblock_input()
 	
 func pick_up_item(item: Node) -> void:
-	held_item = item
-	item.get_parent().remove_child(item)
-	add_child(item)
+	ItemDragManager.pick_up_item(item)
+	held_item = ItemDragManager.get_held_item()
 	
 func place_item(item: Node, destination: Node) -> void:
-	held_item = null
-	remove_child(item)
-	destination.add_child(item)
+	ItemDragManager.place_item(item, destination)
+	held_item = ItemDragManager.get_held_item()
 	
 func swap_items(item: Node, destination: Node) -> void:
-	var tmp = held_item
-	held_item = item
-	item.get_parent().remove_child(item)
-	add_child(item)
-	remove_child(tmp)
-	destination.add_child(tmp)
+	ItemDragManager.swap_items(item, destination)
+	held_item = ItemDragManager.get_held_item()
 	
 func fast_move(destination: String) -> bool:
-	if destination == "character_sheet":
-		return character_sheet.fast_move(held_item)
-	return false
-		
+	return ItemDragManager.fast_move(destination)
 		
 func get_held_item() -> Node:
-	return held_item
+	return ItemDragManager.get_held_item()
 	
 func get_character_sheet():
 	return $CharacterSheet
