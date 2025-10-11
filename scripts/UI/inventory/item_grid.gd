@@ -34,11 +34,11 @@ func _gui_input(event: InputEvent) -> void:
 			var item = slot_data[slot_index]
 			if !item:
 				return
-			pick_up_item(item)
-			remove_item_from_slot_data(item)
-			inventory.fast_move("character_sheet")
+			if ItemDragManager.can_fast_move(item, "character_sheet"):
+				remove_item_from_slot_data(item)
+				ItemDragManager.fast_move(item, "character_sheet")
 		else:
-			var held_item = inventory.get_held_item()
+			var held_item = ItemDragManager.get_held_item()
 			if !held_item:
 				var slot_index = get_slot_index_from_coords(get_global_mouse_position())
 				var item = slot_data[slot_index]
@@ -63,16 +63,16 @@ func _gui_input(event: InputEvent) -> void:
 				add_item_to_slot_data(index, held_item)
 			
 	if event is InputEventMouseMotion:
-		var held_item = inventory.get_held_item()
+		var held_item = ItemDragManager.get_held_item()
 		if held_item:
 			detect_held_item_intersection(held_item)
 
 func pick_up_item(item: Node) -> void:
-	inventory.pick_up_item(item)
+	ItemDragManager.pick_up_item(item)
 	item.get_picked_up()
 	
 func place_item(item: Node, index: int) -> void:
-	inventory.place_item(item, self)
+	ItemDragManager.place_item(item, self)
 	item.get_placed(get_coords_from_slot_index(index))
 
 func detect_held_item_intersection(held_item: Node) -> void:
@@ -117,12 +117,8 @@ func get_coords_from_slot_index(index: int) -> Vector2i:
 	return Vector2i(global_position) + Vector2i(column * SLOT_SIZE, row * SLOT_SIZE)
 	
 func attempt_to_add_item_data(item: Node) -> bool:
-	var slot_index: int = 0
-	while slot_index < slot_data.size():
-		if item_fits(slot_index, item.data.dimentions):
-			break
-		slot_index += 1
-	if slot_index >= slot_data.size():
+	var slot_index:= find_first_matching_field(item)
+	if slot_index == -1:
 		return false
 		
 	for y in item.data.dimentions.y:
@@ -130,6 +126,26 @@ func attempt_to_add_item_data(item: Node) -> bool:
 			slot_data[slot_index + x + y * columns] = item
 	item.set_init_position(get_coords_from_slot_index(slot_index))
 	return true
+	
+	
+func fast_move_place_item(item: Node) -> bool:
+	var slot_index:= find_first_matching_field(item)
+	if slot_index == -1:
+		return false
+	
+	ItemDragManager.place_item(item, self)
+	item.get_placed(get_coords_from_slot_index(slot_index))
+	add_item_to_slot_data(slot_index, item)
+	return true
+	
+func find_first_matching_field(item: Node) -> int:
+	var slot_index: int = 0
+	while slot_index < slot_data.size():
+		if item_fits(slot_index, item.data.dimentions):
+			return slot_index
+		slot_index += 1
+	return -1
+	
 		
 func item_fits(index: int, dimentions: Vector2i) -> bool:
 	for y in dimentions.y:

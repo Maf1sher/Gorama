@@ -47,17 +47,29 @@ func get_held_item() -> Node:
 func is_holding() -> bool:
 	return held_item != null
 
-func register_fast_move_target(id: String, receiver: Callable) -> void:
+func register_fast_move_target(id: String, receiver: Node) -> void:
 	fast_move_targets[id] = receiver
 
 func unregister_fast_move_target(id: String) -> void:
 	if fast_move_targets.has(id):
 		fast_move_targets.erase(id)
 
-func fast_move(destination_id: String) -> bool:
-	if held_item == null:
+func can_fast_move(item: Node, destination_id: String) -> bool:
+	if held_item:
 		return false
-	var receiver: Callable = fast_move_targets.get(destination_id, null)
-	if receiver and receiver.is_valid():
-		return receiver.call(held_item)
+	if item == null:
+		return false
+	var receiver: Node = fast_move_targets.get(destination_id, null)
+	if receiver:
+		return receiver.can_fast_move(item)
+	return false
+	
+func fast_move(item: Node, destination_id: String) -> bool:
+	if item == null:
+		return false
+	var receiver: Node = fast_move_targets.get(destination_id, null)
+	if receiver:
+		if receiver.can_fast_move(item):
+			pick_up_item(item)
+			receiver.fast_move(item)
 	return false

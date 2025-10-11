@@ -11,7 +11,7 @@ signal item_changed(slot, item)
 @onready var boots = $TextureRect/HBoxContainer/Boots
 
 func _ready() -> void:
-	ItemDragManager.register_fast_move_target("character_sheet", Callable(self, "fast_move"))
+	ItemDragManager.register_fast_move_target("character_sheet", self)
 
 func _exit_tree() -> void:
 	ItemDragManager.unregister_fast_move_target("character_sheet")
@@ -42,6 +42,17 @@ func _on_chest_item_changed(item: Variant) -> void:
 
 func _on_boots_item_changed(item: Variant) -> void:
 	emit_signal("item_changed", "boots", item)
+	
+func can_fast_move(item: Node) -> bool:
+	match item.data.type:
+		ItemTypes.Type.WEAPON:
+			if leftHand.is_empty():
+				return true
+			elif rightHand.is_empty():
+				return true
+			else:
+				return false
+	return false
 	
 func fast_move(item: Node) -> bool:
 	match item.data.type:

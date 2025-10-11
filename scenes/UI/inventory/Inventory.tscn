@@ -36,7 +36,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
 script = ExtResource("2_rmjkk")
-items = Array[ExtResource("2_byc5t")]([ExtResource("7_mi44v"), ExtResource("7_mi44v"), ExtResource("8_oq3rt")])
+items = Array[ExtResource("2_byc5t")]([ExtResource("7_mi44v"), ExtResource("7_mi44v"), ExtResource("8_oq3rt"), ExtResource("7_mi44v"), ExtResource("7_mi44v")])
 inventory_item_scene = ExtResource("4_ruclq")
 
 [node name="ItemGrid" type="GridContainer" parent="Equipment"]
