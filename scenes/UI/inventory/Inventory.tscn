@@ -1,16 +1,16 @@
 [gd_scene load_steps=20 format=3 uid="uid://cq0bl0moltd4t"]
 
-[ext_resource type="Script" path="res://scripts/UI/inventory/inventory.gd" id="1_rgsww"]
-[ext_resource type="Script" path="res://scripts/UI/inventory/item_grid.gd" id="1_t33lg"]
-[ext_resource type="Script" path="res://resources/items/item_data.gd" id="2_byc5t"]
+[ext_resource type="Script" uid="uid://b7bt4l2w7p787" path="res://scripts/UI/inventory/inventory.gd" id="1_rgsww"]
+[ext_resource type="Script" uid="uid://bdfib72517ckg" path="res://scripts/UI/inventory/item_grid.gd" id="1_t33lg"]
+[ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="2_byc5t"]
 [ext_resource type="PackedScene" uid="uid://ckq1wu7kvt3oy" path="res://scenes/UI/inventory/inventory_slot.tscn" id="2_cfbhn"]
-[ext_resource type="Script" path="res://scripts/UI/inventory/equipment.gd" id="2_rmjkk"]
+[ext_resource type="Script" uid="uid://brcdwhnxevwcq" path="res://scripts/UI/inventory/equipment.gd" id="2_rmjkk"]
 [ext_resource type="PackedScene" uid="uid://bdhifj2wsy1jx" path="res://scenes/UI/inventory/inventory_item.tscn" id="4_ruclq"]
 [ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/sword.tres" id="7_mi44v"]
 [ext_resource type="Resource" uid="uid://berthunsd3jyo" path="res://resources/items/sword2.tres" id="8_oq3rt"]
 [ext_resource type="Texture2D" uid="uid://c7xiihp46dkmd" path="res://assests/sprites/inventory/character_sheet/character_sheet.png" id="9_wc4px"]
 [ext_resource type="PackedScene" uid="uid://co8eb2bac67yh" path="res://scenes/UI/inventory/character_sheet_slot.tscn" id="10_6h8rt"]
-[ext_resource type="Script" path="res://scripts/UI/inventory/character_sheet.gd" id="10_u1iq6"]
+[ext_resource type="Script" uid="uid://cjwxngo0ifm0e" path="res://scripts/UI/inventory/character_sheet.gd" id="10_u1iq6"]
 [ext_resource type="Texture2D" uid="uid://c0osaoy07l1ew" path="res://assests/sprites/inventory/character_sheet/slot/empty/head_slot.png" id="11_hlqqx"]
 [ext_resource type="Texture2D" uid="uid://c6aeqlpirfbqe" path="res://assests/sprites/inventory/character_sheet/slot/empty/weapon_slot.png" id="11_px6va"]
 [ext_resource type="Texture2D" uid="uid://cw4rgowtw3ihw" path="res://assests/sprites/inventory/character_sheet/slot/empty/chest_slot.png" id="12_rehx7"]
@@ -87,7 +87,7 @@ type = 4
 inventory_path = NodePath("../../..")
 
 [node name="LeftHand" parent="CharacterSheet/TextureRect" instance=ExtResource("10_6h8rt")]
-layout_mode = 2
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -100,7 +100,7 @@ inventory_path = NodePath("../../..")
 fill_texture = ExtResource("15_4kb17")
 
 [node name="RightHand" parent="CharacterSheet/TextureRect" instance=ExtResource("10_6h8rt")]
-layout_mode = 2
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -113,7 +113,7 @@ inventory_path = NodePath("../../..")
 fill_texture = ExtResource("15_4kb17")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="CharacterSheet/TextureRect"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 44.0
 offset_top = 15.0
 offset_right = 76.0
