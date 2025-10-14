@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5asid5qsqq8n"
-path="res://.godot/imported/example2.png-e789828375e85f9ca28d8f02b4eb83d7.ctex"
+uid="uid://clkw07nrufms7"
+path="res://.godot/imported/Ground_rocks.png-a598550cb10248174ecabec77a68f7b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/cards/example2.png"
-dest_files=["res://.godot/imported/example2.png-e789828375e85f9ca28d8f02b4eb83d7.ctex"]
+source_file="res://assests/sprites/tilesets/Ground_rocks.png"
+dest_files=["res://.godot/imported/Ground_rocks.png-a598550cb10248174ecabec77a68f7b6.ctex"]
 
 [params]
 
