@@ -80,6 +80,13 @@ texture = ExtResource("2_4uymr")
 hframes = 6
 vframes = 3
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Building"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building/StaticBody2D"]
+position = Vector2(-26, 41)
+polygon = PackedVector2Array(6, 4, 6, -36, 46, -36, 45, 3, 62, 3, 62, -85, -10, -86, -10, 4)
+
 [node name="Portal" type="Sprite2D" parent="."]
 texture = ExtResource("2_rjaus")
 hframes = 4
@@ -92,6 +99,7 @@ libraries = {
 autoplay = "portal"
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_p5u2c")
