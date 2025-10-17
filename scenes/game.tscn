@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cruivemipt4f2"]
+[gd_scene load_steps=17 format=3 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" uid="uid://bxxr0a2cuvyeo" path="res://scripts/game.gd" id="1_h7oay"]
+[ext_resource type="PackedScene" uid="uid://dtpeejkmh0uwu" path="res://scenes/maps/SaveZone.tscn" id="2_trtic"]
 [ext_resource type="Script" uid="uid://julv7uybn0pc" path="res://scripts/map/map.gd" id="3_kvuet"]
 [ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/entity/player.tscn" id="4_t34ol"]
 [ext_resource type="Script" uid="uid://cdjxtar2qfuv8" path="res://scripts/UI/inventory_layer.gd" id="4_v0md5"]
@@ -12,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://le8j3cnqotuj" path="res://scenes/UI/select_card/select_card.tscn" id="7_utq1f"]
 [ext_resource type="PackedScene" uid="uid://brriki1m05fmo" path="res://scenes/UI/currency_hud/currency_hud.tscn" id="9_w02he"]
 [ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/stats_panel/stats_panel.tscn" id="10_0tbwd"]
-[ext_resource type="Texture2D" uid="uid://bs7v0nodsx568" path="res://assests/sprites/tilesets/Ground_rocks.png" id="13_kvuet"]
+[ext_resource type="Texture2D" uid="uid://bs7v0nodsx568" path="res://assests/sprites/map/tilesets/Ground_rocks.png" id="13_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
 texture = ExtResource("13_kvuet")
@@ -172,7 +173,10 @@ sources/0 = SubResource("TileSetAtlasSource_dinhu")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_h7oay")
 
+[node name="Node2D" parent="." instance=ExtResource("2_trtic")]
+
 [node name="Map" type="TileMapLayer" parent="."]
+visible = false
 position = Vector2(241, 141)
 tile_set = SubResource("TileSet_dinhu")
 script = ExtResource("3_kvuet")
@@ -217,6 +221,7 @@ player = NodePath("../../Player")
 [node name="EnemyGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_o1rp0")]
 position = Vector2(241, 141)
 player = NodePath("../Player")
+enabled = false
 
 [connection signal="inventory_is_open" from="InvetoryLayer/Inventory" to="UI/StatsPanel" method="_on_inventory_inventory_is_open"]
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]

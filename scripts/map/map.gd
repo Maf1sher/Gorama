@@ -5,8 +5,8 @@ extends TileMapLayer
 @export var terrain_id: int = 0
 @export var terrain_source_id: int = 0
 
-func _ready():
-	generate_rect_terrain(Vector2i(0,0), map_width, map_height, terrain_source_id, terrain_id)
+#func _ready():
+	#generate_rect_terrain(Vector2i(0,0), map_width, map_height, terrain_source_id, terrain_id)
 
 func generate_rect_terrain(center: Vector2i, width: int, height: int, src_id: int, terr_id: int) -> void:
 	clear()

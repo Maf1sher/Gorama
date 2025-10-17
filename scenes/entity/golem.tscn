@@ -1,22 +1,20 @@
 [gd_scene load_steps=22 format=3 uid="uid://bm76p8tlql2i6"]
 
-[ext_resource type="Script" path="res://scripts/entity/enemy/golem.gd" id="1_qsi3s"]
-[ext_resource type="Script" path="res://scripts/entity/enemy/enemy_stats.gd" id="2_hsw8r"]
-[ext_resource type="Script" path="res://resources/special_attacks/special_attack.gd" id="2_p7ecp"]
-[ext_resource type="Texture2D" uid="uid://cv3wg7snj8j4u" path="res://assests/sprites/enemy/golem/golem.png" id="3_3iwn7"]
-[ext_resource type="Script" path="res://components/player_detector.gd" id="3_agum6"]
-[ext_resource type="Script" path="res://components/hitbox.gd" id="4_d0g3o"]
-[ext_resource type="Script" path="res://resources/special_attacks/around_red_ball.gd" id="4_mgb50"]
-[ext_resource type="Script" path="res://components/hurtbox.gd" id="5_sgtfo"]
-[ext_resource type="Script" path="res://components/hit_popup_spawner.gd" id="6_wuf1t"]
+[ext_resource type="Script" uid="uid://dausc8m1fsx3p" path="res://scripts/entity/enemy/golem.gd" id="1_qsi3s"]
+[ext_resource type="Script" uid="uid://1q37vrdh48ae" path="res://scripts/entity/enemy/enemy_stats.gd" id="2_hsw8r"]
+[ext_resource type="Script" uid="uid://cecrxxvtjbuty" path="res://resources/special_attacks/special_attack.gd" id="2_p7ecp"]
+[ext_resource type="Texture2D" uid="uid://cv3wg7snj8j4u" path="res://assests/sprites/enemys/golem/golem.png" id="3_3iwn7"]
+[ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://components/player_detector.gd" id="3_agum6"]
+[ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://components/hitbox.gd" id="4_d0g3o"]
+[ext_resource type="Script" uid="uid://cl8oo8fht7pn" path="res://resources/special_attacks/around_red_ball.gd" id="4_mgb50"]
+[ext_resource type="Script" uid="uid://h1l4xvgb1igq" path="res://components/hurtbox.gd" id="5_sgtfo"]
+[ext_resource type="Script" uid="uid://c873jx0bhbj56" path="res://components/hit_popup_spawner.gd" id="6_wuf1t"]
 [ext_resource type="PackedScene" uid="uid://dsqdw1s0083t4" path="res://scenes/components/health_bar.tscn" id="8_pfeci"]
 
 [sub_resource type="Resource" id="Resource_c7fq6"]
 script = ExtResource("4_mgb50")
 projectile_count = 8
 chance = 0.8
-cooldown = 2.0
-damage = 10
 
 [sub_resource type="Animation" id="Animation_5bx6m"]
 length = 0.001
@@ -127,11 +125,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_45vep"]
 _data = {
-"RESET": SubResource("Animation_5bx6m"),
-"attack": SubResource("Animation_f2s7j"),
-"death": SubResource("Animation_xyj3m"),
-"hurt": SubResource("Animation_3yrwl"),
-"walk": SubResource("Animation_6b5fm")
+&"RESET": SubResource("Animation_5bx6m"),
+&"attack": SubResource("Animation_f2s7j"),
+&"death": SubResource("Animation_xyj3m"),
+&"hurt": SubResource("Animation_3yrwl"),
+&"walk": SubResource("Animation_6b5fm")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wp1hb"]
@@ -181,7 +179,7 @@ vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_45vep")
+&"": SubResource("AnimationLibrary_45vep")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -2,14 +2,15 @@ class_name EnemyGenerator
 extends Node
 
 @export var player: Player
+@export var enabled: bool = true
 
 @onready var orc: PackedScene = preload("res://scenes/entity/Orc.tscn")
 @onready var golem: PackedScene = preload("res://scenes/entity/golem.tscn")
 
 func _ready() -> void:
-	await summon_enemy(3, orc)
-	await summon_enemy(1, golem)
-	pass
+	if enabled:
+		await summon_enemy(3, orc)
+		await summon_enemy(1, golem)
 	
 
 func summon_enemy(amount: int, enemy: PackedScene) -> void:
