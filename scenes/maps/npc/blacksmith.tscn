@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqucb7l0e2awe"]
+
+[ext_resource type="Script" uid="uid://b70h6y21mfq03" path="res://scripts/map/npc/blacksmith.gd" id="1_3j6hi"]
+[ext_resource type="Texture2D" uid="uid://30n4aasd8yb2" path="res://assests/sprites/map/npc/blacksmith.png" id="2_1skma"]
+
+[sub_resource type="Animation" id="Animation_mvs2y"]
+resource_name = "working"
+length = 1.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_xttc4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wo0e2"]
+_data = {
+&"RESET": SubResource("Animation_xttc4"),
+&"working": SubResource("Animation_mvs2y")
+}
+
+[node name="Blacksmith" type="Node2D"]
+script = ExtResource("1_3j6hi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1skma")
+hframes = 8
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wo0e2")
+}
+autoplay = "working"

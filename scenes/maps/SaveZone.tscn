@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://dtpeejkmh0uwu"]
+[gd_scene load_steps=11 format=4 uid="uid://dtpeejkmh0uwu"]
 
 [ext_resource type="Texture2D" uid="uid://umnf3m6a1qbs" path="res://assests/sprites/map/tilesets/Water_coasts.png" id="1_mq81c"]
 [ext_resource type="Texture2D" uid="uid://mta4nd07453f" path="res://assests/sprites/map/tilesets/water_detilazation_v2.png" id="2_necp2"]
 [ext_resource type="PackedScene" uid="uid://cmsjyrs7c210q" path="res://scenes/maps/environment/portal.tscn" id="3_necp2"]
+[ext_resource type="PackedScene" uid="uid://cqucb7l0e2awe" path="res://scenes/maps/npc/blacksmith.tscn" id="4_i8wx0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqltl"]
 texture = ExtResource("1_mq81c")
@@ -457,7 +458,7 @@ terrain_set_0/terrain_0/name = "rock"
 terrain_set_0/terrain_0/color = Color(0, 0.7764706, 0.10980392, 1)
 sources/0 = SubResource("TileSetAtlasSource_i8wx0")
 
-[node name="Node2D" type="Node2D"]
+[node name="SaveZone" type="Node2D"]
 
 [node name="Water" type="TileMapLayer" parent="."]
 position = Vector2(-46, 9)
@@ -475,3 +476,6 @@ tile_set = SubResource("TileSet_adhyh")
 
 [node name="Portal" parent="." instance=ExtResource("3_necp2")]
 position = Vector2(245, 47)
+
+[node name="Blacksmith" parent="." instance=ExtResource("4_i8wx0")]
+position = Vector2(112, 122)
