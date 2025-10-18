@@ -199,9 +199,11 @@ visible = false
 script = ExtResource("6_c3x2e")
 
 [node name="HpBar" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("7_fjctq")]
+visible = false
 player = NodePath("../../Player")
 
 [node name="ExpBar" parent="UI" instance=ExtResource("6_3uqqr")]
+visible = false
 mouse_filter = 2
 
 [node name="SelectCard" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("7_utq1f")]
@@ -211,6 +213,7 @@ offset_right = -120.0
 player = NodePath("../../Player")
 
 [node name="CrystalHUD" parent="UI" instance=ExtResource("9_w02he")]
+visible = false
 mouse_filter = 2
 
 [node name="StatsPanel" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("10_0tbwd")]
