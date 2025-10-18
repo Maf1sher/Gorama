@@ -7,7 +7,6 @@ var mouse_over: bool = false
 
 func _border_visibility_update():
 	border.visible = player_in_area and mouse_over
-	print(player_in_area, " ", mouse_over)
 
 func _on_player_detector_player_detection(in_area: bool) -> void:
 	player_in_area = in_area
