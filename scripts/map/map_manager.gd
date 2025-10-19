@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var save_zone_sceen: PackedScene = load("res://scenes/maps/SaveZone.tscn")
 
-var current_map: Node
+var current_map: Map
 
 func _ready() -> void:
 	if save_zone_sceen:
@@ -21,5 +21,12 @@ func change_map(map_path: String) -> void:
 		current_map = map_scene.instantiate()
 		current_map.connect("change_map", change_map)
 		current_map.player = player
-		add_child(current_map)
+		call_deferred("_setup_new_map")
+
+func _setup_new_map() -> void:
+	if not current_map or not is_instance_valid(current_map):
+		return
+		
+	add_child(current_map)
+	if player:
 		player.position = current_map.get_starting_position()
