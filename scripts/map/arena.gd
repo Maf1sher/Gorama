@@ -6,7 +6,7 @@ extends Map
 @export var terrain_source_id: int = 0
 
 @onready var map = $Map
-@onready var enemy_generator = $EnemyGenerator
+@onready var enemy_generator = $EnnemyGenetaor
 
 var next_map_path: String = "res://scenes/maps/SaveZone.tscn"
 
