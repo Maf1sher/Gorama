@@ -11,7 +11,8 @@ signal item_changed(slot, item)
 @onready var chest = $TextureRect/HBoxContainer/Chest
 @onready var boots = $TextureRect/HBoxContainer/Boots
 
-func _ready() -> void:
+
+func _enter_tree() -> void:
 	ItemDragManager.register_fast_move_target("character_sheet", self)
 
 func _exit_tree() -> void:

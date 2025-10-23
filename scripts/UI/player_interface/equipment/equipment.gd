@@ -8,6 +8,8 @@ extends PanelContainer
 func _ready() -> void:
 	for i in items:
 		add_item(i)
+
+func _enter_tree() -> void:
 	ItemDragManager.register_fast_move_target("equipment", self)
 
 func _exit_tree() -> void:

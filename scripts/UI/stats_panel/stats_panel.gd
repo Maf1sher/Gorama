@@ -13,6 +13,8 @@ func _ready() -> void:
 		return
 	statsContainer.change_stats(player.stats)
 	player.stats_changed.connect(_on_stats_changed)
+	
+
 
 func open():
 	visible = true

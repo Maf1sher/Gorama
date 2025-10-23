@@ -94,6 +94,7 @@ metadata/_custom_type_script = "uid://c01f5hr4ai7oq"
 position = Vector2(15.5, 0)
 shape = SubResource("RectangleShape2D_1skma")
 
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
 [connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]
 [connection signal="player_detection" from="PlayerDetector" to="." method="_on_player_detector_player_detection"]
