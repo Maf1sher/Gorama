@@ -1,3 +1,4 @@
+class_name CharacterSheet
 extends Control
 
 signal item_changed(slot, item)

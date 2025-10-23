@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://bf13jv0o4f3ra"]
+
+[ext_resource type="Script" uid="uid://cjwxngo0ifm0e" path="res://scripts/UI/player_interface/character_sheet/character_sheet.gd" id="1_jcwub"]
+[ext_resource type="Texture2D" uid="uid://c7xiihp46dkmd" path="res://assests/sprites/inventory/character_sheet/character_sheet.png" id="2_71lp6"]
+[ext_resource type="PackedScene" uid="uid://co8eb2bac67yh" path="res://scenes/UI/player_interface/character_sheet/character_sheet_slot.tscn" id="3_5hfor"]
+[ext_resource type="Texture2D" uid="uid://c6aeqlpirfbqe" path="res://assests/sprites/inventory/character_sheet/slot/empty/weapon_slot.png" id="4_y6g2o"]
+[ext_resource type="Texture2D" uid="uid://yfgjjowhkf25" path="res://assests/sprites/inventory/character_sheet/slot/fill/weapon_slot.png" id="5_d8m00"]
+[ext_resource type="Texture2D" uid="uid://c0osaoy07l1ew" path="res://assests/sprites/inventory/character_sheet/slot/empty/head_slot.png" id="6_degeg"]
+[ext_resource type="Texture2D" uid="uid://r64diiinwm4e" path="res://assests/sprites/inventory/character_sheet/slot/fill/head_slot.png" id="7_e6y6k"]
+[ext_resource type="Texture2D" uid="uid://cw4rgowtw3ihw" path="res://assests/sprites/inventory/character_sheet/slot/empty/chest_slot.png" id="8_t8dwi"]
+[ext_resource type="Texture2D" uid="uid://d4h2kex18gr7" path="res://assests/sprites/inventory/character_sheet/slot/fill/chest_slot.png" id="9_mln10"]
+[ext_resource type="Texture2D" uid="uid://4p86kj57sgdc" path="res://assests/sprites/inventory/character_sheet/slot/empty/boots_slot.png" id="10_0hu2j"]
+[ext_resource type="Texture2D" uid="uid://dyx6wl2uho58h" path="res://assests/sprites/inventory/character_sheet/slot/fill/boots_slot.png" id="11_r36bv"]
+
+[node name="CharacterSheet" type="Control"]
+custom_minimum_size = Vector2(120, 150)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -135.0
+offset_right = -120.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jcwub")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_71lp6")
+
+[node name="LeftRing" parent="TextureRect" instance=ExtResource("3_5hfor")]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 108.0
+offset_right = -89.0
+offset_bottom = -26.0
+type = 4
+inventory_path = NodePath("../../..")
+
+[node name="RightRing" parent="TextureRect" instance=ExtResource("3_5hfor")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 108.0
+offset_right = -16.0
+offset_bottom = -26.0
+type = 4
+inventory_path = NodePath("../../..")
+
+[node name="LeftHand" parent="TextureRect" instance=ExtResource("3_5hfor")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.0
+offset_top = 51.0
+offset_right = 39.0
+offset_bottom = 99.0
+grow_horizontal = 1
+grow_vertical = 1
+texture = ExtResource("4_y6g2o")
+inventory_path = NodePath("../../..")
+fill_texture = ExtResource("5_d8m00")
+
+[node name="RightHand" parent="TextureRect" instance=ExtResource("3_5hfor")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 82.0
+offset_top = 51.0
+offset_right = 114.0
+offset_bottom = 99.0
+grow_horizontal = 1
+grow_vertical = 1
+texture = ExtResource("4_y6g2o")
+inventory_path = NodePath("../../..")
+fill_texture = ExtResource("5_d8m00")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 15.0
+offset_right = 76.0
+offset_bottom = 135.0
+size_flags_horizontal = 4
+
+[node name="Head" parent="TextureRect/HBoxContainer" instance=ExtResource("3_5hfor")]
+layout_mode = 2
+texture = ExtResource("6_degeg")
+type = 1
+inventory_path = NodePath("../../../..")
+fill_texture = ExtResource("7_e6y6k")
+
+[node name="Chest" parent="TextureRect/HBoxContainer" instance=ExtResource("3_5hfor")]
+layout_mode = 2
+texture = ExtResource("8_t8dwi")
+type = 2
+inventory_path = NodePath("../../../..")
+fill_texture = ExtResource("9_mln10")
+
+[node name="Boots" parent="TextureRect/HBoxContainer" instance=ExtResource("3_5hfor")]
+layout_mode = 2
+texture = ExtResource("10_0hu2j")
+type = 3
+inventory_path = NodePath("../../../..")
+fill_texture = ExtResource("11_r36bv")
+
+[connection signal="item_changed" from="TextureRect/LeftRing" to="." method="_on_left_ring_item_changed"]
+[connection signal="item_changed" from="TextureRect/RightRing" to="." method="_on_right_ring_item_changed"]
+[connection signal="item_changed" from="TextureRect/LeftHand" to="." method="_on_left_hand_item_changed"]
+[connection signal="item_changed" from="TextureRect/RightHand" to="." method="_on_right_hand_item_changed"]
+[connection signal="item_changed" from="TextureRect/HBoxContainer/Head" to="." method="_on_head_item_changed"]
+[connection signal="item_changed" from="TextureRect/HBoxContainer/Chest" to="." method="_on_chest_item_changed"]
+[connection signal="item_changed" from="TextureRect/HBoxContainer/Boots" to="." method="_on_boots_item_changed"]

@@ -1,3 +1,4 @@
+class_name StatsPanel
 extends Control
 
 @export var player: Player

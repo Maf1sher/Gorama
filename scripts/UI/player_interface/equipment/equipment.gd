@@ -1,3 +1,4 @@
+class_name Equipment
 extends PanelContainer
 
 @export var items: Array[ItemData] = []

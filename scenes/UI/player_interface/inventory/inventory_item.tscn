@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdhifj2wsy1jx"]
 
-[ext_resource type="Script" path="res://scripts/UI/inventory/inventory_item.gd" id="1_hsmp6"]
+[ext_resource type="Script" uid="uid://civcmu2vwsb8v" path="res://scripts/UI/player_interface/inventory/inventory_item.gd" id="1_hsmp6"]
 
 [node name="InventoryItem" type="Sprite2D"]
 script = ExtResource("1_hsmp6")

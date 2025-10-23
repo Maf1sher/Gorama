@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://d1amtmrswyst8"]
 
 [ext_resource type="Texture2D" uid="uid://bvr66egjbbr8t" path="res://assests/sprites/stats_panel/stats_panel.png" id="1_gapge"]
-[ext_resource type="Script" path="res://scripts/UI/stats_panel/stats_panel.gd" id="1_v44mb"]
-[ext_resource type="Script" path="res://scripts/UI/stats_panel/stats_container.gd" id="3_1e8s1"]
-[ext_resource type="PackedScene" uid="uid://bgs8senkw3dvk" path="res://scenes/UI/stats_panel/stat.tscn" id="3_yef0u"]
+[ext_resource type="Script" uid="uid://nkcvb5wdil2i" path="res://scripts/UI/stats_panel/stats_panel.gd" id="1_v44mb"]
+[ext_resource type="Script" uid="uid://dd35u1htxpcik" path="res://scripts/UI/stats_panel/stats_container.gd" id="3_1e8s1"]
+[ext_resource type="PackedScene" uid="uid://bgs8senkw3dvk" path="res://scenes/UI/player_interface/stats_panel/stat.tscn" id="3_yef0u"]
 [ext_resource type="Texture2D" uid="uid://boupqe8imqd4u" path="res://assests/sprites/stats_panel/stat icons/physical_damage.png" id="5_sqxuw"]
 [ext_resource type="Texture2D" uid="uid://bxuprdy5tut3o" path="res://assests/sprites/stats_panel/stat icons/magic_damage.png" id="6_ilffo"]
 [ext_resource type="Texture2D" uid="uid://bb3qfyijhoq33" path="res://assests/sprites/stats_panel/stat icons/physical_damage_percent.png" id="7_dbeg0"]
@@ -18,13 +18,16 @@
 [ext_resource type="Texture2D" uid="uid://drrvwbtgs7gpx" path="res://assests/sprites/stats_panel/stat icons/life_steal.png" id="16_fq76k"]
 
 [node name="StatsPanel" type="Control"]
-custom_minimum_size = Vector2(120, 270)
+custom_minimum_size = Vector2(120, 250)
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -135.0
+offset_bottom = 135.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_v44mb")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://3huutkecev2r"]
+
+[ext_resource type="Script" uid="uid://bqui2v8amgf57" path="res://scripts/UI/player_interface/player_interface.gd" id="1_6o75j"]
+[ext_resource type="PackedScene" uid="uid://derfvwc5yjuf8" path="res://scenes/UI/player_interface/equipment/equipment.tscn" id="1_k3yh5"]
+[ext_resource type="PackedScene" uid="uid://bf13jv0o4f3ra" path="res://scenes/UI/player_interface/character_sheet/character_sheet.tscn" id="2_6o75j"]
+[ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/player_interface/stats_panel/stats_panel.tscn" id="3_k3yh5"]
+
+[node name="PlayerInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6o75j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftColumn" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Equipment" parent="HBoxContainer/LeftColumn" instance=ExtResource("1_k3yh5")]
+layout_mode = 2
+
+[node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="CharacterSheet" parent="HBoxContainer/CenterColumn" instance=ExtResource("2_6o75j")]
+layout_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="StatsPanel" parent="HBoxContainer/RightColumn" instance=ExtResource("3_k3yh5")]
+layout_mode = 2

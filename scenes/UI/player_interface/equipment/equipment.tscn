@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://derfvwc5yjuf8"]
+
+[ext_resource type="Script" uid="uid://brcdwhnxevwcq" path="res://scripts/UI/player_interface/equipment/equipment.gd" id="1_66pyh"]
+[ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="2_tmea3"]
+[ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/sword.tres" id="3_3eya1"]
+[ext_resource type="Resource" uid="uid://berthunsd3jyo" path="res://resources/items/sword2.tres" id="4_05fj7"]
+[ext_resource type="PackedScene" uid="uid://bdhifj2wsy1jx" path="res://scenes/UI/player_interface/inventory/inventory_item.tscn" id="5_35oy1"]
+[ext_resource type="Script" uid="uid://bdfib72517ckg" path="res://scripts/UI/player_interface/inventory/item_grid.gd" id="6_4e2ep"]
+[ext_resource type="PackedScene" uid="uid://ckq1wu7kvt3oy" path="res://scenes/UI/player_interface/inventory/inventory_slot.tscn" id="7_wg47l"]
+
+[node name="Equipment" type="PanelContainer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+script = ExtResource("1_66pyh")
+items = Array[ExtResource("2_tmea3")]([ExtResource("3_3eya1"), ExtResource("3_3eya1"), ExtResource("4_05fj7"), ExtResource("3_3eya1"), ExtResource("3_3eya1")])
+inventory_item_scene = ExtResource("5_35oy1")
+
+[node name="ItemGrid" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+script = ExtResource("6_4e2ep")
+inventory_slot_scene = ExtResource("7_wg47l")
+dimentions = Vector2i(10, 6)
+inventory_path = NodePath("../..")

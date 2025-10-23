@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://co8eb2bac67yh"]
 
-[ext_resource type="Script" path="res://scripts/UI/inventory/character_sheet_slot.gd" id="1_acwjv"]
+[ext_resource type="Script" uid="uid://cqreutb82atf" path="res://scripts/UI/player_interface/character_sheet/character_sheet_slot.gd" id="1_acwjv"]
 
 [node name="CharacterSheetSlot" type="TextureRect"]
 anchors_preset = 15

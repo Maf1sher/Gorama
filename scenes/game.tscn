@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://bxxr0a2cuvyeo" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="PackedScene" uid="uid://ydacv5x31ia" path="res://scenes/maps/map_manager.tscn" id="2_dinhu"]
 [ext_resource type="PackedScene" uid="uid://rbj80erdhio0" path="res://scenes/entity/player.tscn" id="4_t34ol"]
-[ext_resource type="Script" uid="uid://cdjxtar2qfuv8" path="res://scripts/UI/inventory_layer.gd" id="4_v0md5"]
-[ext_resource type="PackedScene" uid="uid://cq0bl0moltd4t" path="res://scenes/UI/inventory/Inventory.tscn" id="5_lelb7"]
+[ext_resource type="Script" uid="uid://cdjxtar2qfuv8" path="res://scripts/UI/player_interface/player_interface_layer.gd" id="4_v0md5"]
+[ext_resource type="PackedScene" uid="uid://3huutkecev2r" path="res://scenes/UI/player_interface/player_interface.tscn" id="5_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://da4qswnh5a3l1" path="res://scenes/UI/exp_bar/exp_bar.tscn" id="6_3uqqr"]
 [ext_resource type="Script" uid="uid://422xyhxvdffb" path="res://scripts/UI/ui.gd" id="6_c3x2e"]
 [ext_resource type="PackedScene" uid="uid://bxistr6r5wo1q" path="res://scenes/UI/hp_bar/hp_bar.tscn" id="7_fjctq"]
 [ext_resource type="PackedScene" uid="uid://le8j3cnqotuj" path="res://scenes/UI/select_card/select_card.tscn" id="7_utq1f"]
 [ext_resource type="PackedScene" uid="uid://brriki1m05fmo" path="res://scenes/UI/currency_hud/currency_hud.tscn" id="9_w02he"]
-[ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/stats_panel/stats_panel.tscn" id="10_0tbwd"]
+[ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/player_interface/stats_panel/stats_panel.tscn" id="10_0tbwd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_h7oay")
@@ -18,21 +18,22 @@ script = ExtResource("1_h7oay")
 [node name="MapManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_dinhu")]
 player = NodePath("../Player")
 
-[node name="Player" parent="." node_paths=PackedStringArray("inventory", "exp") instance=ExtResource("4_t34ol")]
+[node name="Player" parent="." node_paths=PackedStringArray("exp") instance=ExtResource("4_t34ol")]
 position = Vector2(241, 141)
-inventory = NodePath("../InvetoryLayer/Inventory")
 exp = NodePath("../UI/ExpBar")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1, -6)
 
-[node name="InvetoryLayer" type="CanvasLayer" parent="."]
+[node name="PlayerInterfaceLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_v0md5")
 
-[node name="Inventory" parent="InvetoryLayer" instance=ExtResource("5_lelb7")]
+[node name="PlayerInterface" parent="PlayerInterfaceLayer" node_paths=PackedStringArray("player") instance=ExtResource("5_kvpfn")]
 visible = false
+player = NodePath("../../Player")
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 0
 script = ExtResource("6_c3x2e")
 
 [node name="HpBar" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("7_fjctq")]
@@ -55,7 +56,6 @@ visible = false
 mouse_filter = 2
 player = NodePath("../../Player")
 
-[connection signal="inventory_is_open" from="InvetoryLayer/Inventory" to="UI/StatsPanel" method="_on_inventory_inventory_is_open"]
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
 [connection signal="select_card_is_open" from="UI/SelectCard" to="." method="_on_select_card_select_card_is_open"]
 [connection signal="select_card_is_open" from="UI/SelectCard" to="UI/StatsPanel" method="_on_select_card_select_card_is_open"]

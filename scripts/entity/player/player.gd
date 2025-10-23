@@ -4,13 +4,13 @@ extends CharacterBody2D
 signal stats_changed(stats: PlayerStats)
 signal hp_changed(hp: int, max_hp: int)
 
-@export var inventory: Node
+#@export var inventory: Node
 @export var exp: Node
 
 @onready var animated_sprite = $AnimationPlayer
 @onready var grphics_left_hand = $Graphics/LeftHand
 @onready var grphics_right_hand = $Graphics/RightHand
-@onready var character_sheet = inventory.get_character_sheet()
+#@onready var character_sheet = inventory.get_character_sheet()
 @onready var hit_popup_spawner: HitPopupSpawner = $HitPopupSpawner
 
 @onready var stats: PlayerStats = $Stats
@@ -24,7 +24,7 @@ var current_look_dir: String = "left"
 var alive: bool = true
 
 func _ready() -> void:
-	character_sheet.connect("item_changed", self._on_item_changed)
+	#character_sheet.connect("item_changed", self._on_item_changed)
 	emit_signal("stats_changed", stats)
 
 func _physics_process(delta: float) -> void:
