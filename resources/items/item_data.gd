@@ -7,5 +7,6 @@ class_name ItemData extends Resource
 @export var item_sceen: PackedScene
 @export var sceen_achor_point: Vector2i
 @export var type: ItemTypes.Type
+@export var price: int
 
 var is_rotated: bool = false
