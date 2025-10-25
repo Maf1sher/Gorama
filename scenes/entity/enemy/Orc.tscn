@@ -155,6 +155,7 @@ health_bar = NodePath("HealthBar")
 collision_shape = NodePath("CollisionShape2D")
 player_detector = NodePath("PlayerDetector")
 hit_popup_spawner = NodePath("HitPopupSpawner")
+enemy_name = "Orc"
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_2onpk")

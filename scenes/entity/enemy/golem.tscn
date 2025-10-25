@@ -161,6 +161,7 @@ health_bar = NodePath("HealthBar")
 collision_shape = NodePath("CollisionShape2D")
 player_detector = NodePath("PlayerDetector")
 hit_popup_spawner = NodePath("HitPopupSpawner")
+enemy_name = "Golem"
 exp = 100
 special_attacks = Array[ExtResource("2_p7ecp")]([SubResource("Resource_c7fq6")])
 

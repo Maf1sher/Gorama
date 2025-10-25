@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqrphsbtpcpe4"]
+
+[ext_resource type="Script" uid="uid://cqdhcuxq1dkrs" path="res://scripts/map/counter.gd" id="1_pieh4"]
+
+[node name="Counter" type="CanvasLayer"]
+script = ExtResource("1_pieh4")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -95.0
+offset_right = 0.5
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

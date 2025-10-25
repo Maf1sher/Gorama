@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
-signal died(exp_reward: int)
+signal died(name: String, exp_reward: int)
 
 @onready var crystal_screen: PackedScene = preload("res://scenes/liftable_item/crystal.tscn")
 
@@ -16,11 +16,14 @@ signal died(exp_reward: int)
 @export var player_detector: PlayerDetector
 @export var hit_popup_spawner: HitPopupSpawner
 
-@export_group("Enemy drops")
+@export_group("Info")
+@export var enemy_name: String
+
+@export_group("Drops")
 @export var exp: int = 10
 @export var crystal: int = 1
 
-@export_group("special attacks")
+@export_group("Special Attacks")
 @export var min_attack_interval: float = 3.0
 @export var max_attack_interval: float = 6.0
 @export var special_attacks: Array[SpecialAttack] = []
@@ -88,7 +91,7 @@ func animation() -> void:
 
 func die():
 	set_physics_process(false)
-	emit_signal("died", exp)
+	emit_signal("died", enemy_name, exp)
 	animated_sprite.play("death")
 
 func hurt():

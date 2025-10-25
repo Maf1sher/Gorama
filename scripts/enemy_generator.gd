@@ -2,7 +2,8 @@ class_name EnemyGenerator
 extends Node2D
 
 signal wave_finished
-signal enemy_spawned(enemy_instance)
+signal enemy_spawned(enemy_instance: Enemy)
+signal enemy_died(name: String)
 
 @export var wave: WaveResource
 @export var spawn_area: Area2D
@@ -106,7 +107,7 @@ func _spawn_group(scene: PackedScene, size: int, is_boss: bool, group_cluster_ra
 			
 			if is_instance_valid(player):
 				enemy.target = player
-				enemy.connect("died", Callable(player, "add_exp"))
+				enemy.connect("died", _enemy_died)
 		
 		enemy.add_to_group("enemies")
 		if is_boss:
@@ -142,3 +143,7 @@ func _remove_spawner(spawner_data: Dictionary):
 		spawner_data.timer.queue_free()
 	if _active_spawners.has(spawner_data):
 		_active_spawners.erase(spawner_data)
+		
+func _enemy_died(name: String, exp_reward: int):
+	enemy_died.emit(name)
+	player.add_exp(exp_reward)
