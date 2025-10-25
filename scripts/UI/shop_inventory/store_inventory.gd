@@ -3,7 +3,7 @@ extends PanelContainer
 
 @export var items: Array[ItemData] = []
 @export var inventory_item_scene: PackedScene
-@onready var item_grid = $ItemGrid
+@onready var item_grid = $ScrollContainer/ItemGrid
 
 func _ready() -> void:
 	for i in items:

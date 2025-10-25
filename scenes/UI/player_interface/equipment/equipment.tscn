@@ -13,6 +13,7 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
+size_flags_horizontal = 0
 script = ExtResource("1_66pyh")
 items = Array[ExtResource("2_tmea3")]([ExtResource("3_3eya1"), ExtResource("3_3eya1"), ExtResource("4_05fj7"), ExtResource("3_3eya1"), ExtResource("3_3eya1")])
 inventory_item_scene = ExtResource("5_35oy1")

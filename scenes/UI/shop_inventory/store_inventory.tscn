@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckq1wu7kvt3oy" path="res://scenes/UI/player_interface/inventory/inventory_slot.tscn" id="7_h5hwg"]
 
 [node name="StoreInventory" type="PanelContainer"]
+custom_minimum_size = Vector2(160, 96)
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -17,10 +18,14 @@ script = ExtResource("1_bwh2d")
 items = Array[ExtResource("2_7hayn")]([ExtResource("3_q2v1i"), ExtResource("4_h5hwg")])
 inventory_item_scene = ExtResource("5_q2v1i")
 
-[node name="ItemGrid" type="GridContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ItemGrid" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 script = ExtResource("2_w2eqf")
 inventory_slot_scene = ExtResource("7_h5hwg")
-dimentions = Vector2i(10, 6)
+dimentions = Vector2i(10, 10)
