@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqdhcuxq1dkrs" path="res://scripts/map/counter.gd" id="1_pieh4"]
 
 [node name="Counter" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_pieh4")
 
 [node name="Label" type="Label" parent="."]
