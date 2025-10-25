@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://c33hc2cuk70r"]
 
-[ext_resource type="Script" path="res://scripts/items/katana.gd" id="1_05mk2"]
+[ext_resource type="Script" uid="uid://bwws3fhuta7pf" path="res://scripts/items/katana.gd" id="1_05mk2"]
 [ext_resource type="Texture2D" uid="uid://dtifdjk71ylnw" path="res://assests/sprites/weapons/katana.png" id="2_u7ibk"]
-[ext_resource type="Script" path="res://components/weapon_stats.gd" id="2_w4bn5"]
-[ext_resource type="Script" path="res://components/hitbox.gd" id="3_rags2"]
+[ext_resource type="Script" uid="uid://v8j5hqe1v1yk" path="res://scripts/components/entity/weapon_stats.gd" id="2_w4bn5"]
+[ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="3_rags2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_warfp"]
 radius = 4.99932

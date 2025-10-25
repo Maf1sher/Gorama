@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bypy1ye0clfc1" path="res://scripts/map/environment/portal.gd" id="1_eu84k"]
 [ext_resource type="Texture2D" uid="uid://dbbhchp3qph5k" path="res://assests/sprites/map/environment/Animation5.png" id="2_4uymr"]
 [ext_resource type="Texture2D" uid="uid://xvyf4ffi6gmp" path="res://assests/sprites/map/environment/portal.png" id="2_rjaus"]
-[ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://components/player_detector.gd" id="4_4uymr"]
+[ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://scripts/components/entity/player_detector.gd" id="4_4uymr"]
 
 [sub_resource type="Animation" id="Animation_fasdk"]
 length = 0.001

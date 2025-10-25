@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxgfgmmp8xb0a"]
 
-[ext_resource type="Script" path="res://scripts/components/hit_popup.gd" id="1_0h2qb"]
+[ext_resource type="Script" uid="uid://7dmtrgtdd8sd" path="res://scripts/components/entity/hit_popup.gd" id="1_0h2qb"]
 
 [node name="HitPopup" type="Label"]
 offset_right = 10.0

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds0jd53u4mgyl"]
 
-[ext_resource type="Script" path="res://scripts/effects/red_ball.gd" id="1_ebi8l"]
+[ext_resource type="Script" uid="uid://dcba62tgt5a77" path="res://scripts/effects/red_ball.gd" id="1_ebi8l"]
 [ext_resource type="Texture2D" uid="uid://wjcuvapk1kaa" path="res://assests/sprites/effects/red_ball.png" id="2_bvxdp"]
-[ext_resource type="Script" path="res://components/hitbox.gd" id="3_0gb6n"]
+[ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="3_0gb6n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np5ni"]
 radius = 3.0

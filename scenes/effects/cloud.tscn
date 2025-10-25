@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c57mo4k2djtrs"]
 
-[ext_resource type="Script" path="res://scripts/effects/cloud.gd" id="1_kvuvv"]
+[ext_resource type="Script" uid="uid://bt7gjknfayxn6" path="res://scripts/effects/cloud.gd" id="1_kvuvv"]
 [ext_resource type="Texture2D" uid="uid://c1x3tdwjnuq8m" path="res://assests/sprites/effects/sword_cloudxcf.png" id="2_7rrsb"]
-[ext_resource type="Script" path="res://components/hitbox.gd" id="3_df45d"]
+[ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="3_df45d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfwh7"]
 radius = 4.0

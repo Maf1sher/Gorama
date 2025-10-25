@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://30n4aasd8yb2" path="res://assests/sprites/map/npc/blacksmith.png" id="2_1skma"]
 [ext_resource type="Texture2D" uid="uid://cyd078ej5nsi1" path="res://assests/sprites/map/environment/blacksmith_house.png" id="2_mvs2y"]
 [ext_resource type="Texture2D" uid="uid://bkqkqal7gggr6" path="res://assests/sprites/map/environment/balacksmith_hourse_border.png" id="2_xttc4"]
-[ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://components/player_detector.gd" id="3_1skma"]
+[ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://scripts/components/entity/player_detector.gd" id="3_1skma"]
 
 [sub_resource type="Animation" id="Animation_xttc4"]
 length = 0.001

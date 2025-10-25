@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cft2ma5kps054"]
 
-[ext_resource type="Script" path="res://scripts/items/sword.gd" id="1_07cgf"]
+[ext_resource type="Script" uid="uid://b0uejc2u0qx25" path="res://scripts/items/sword.gd" id="1_07cgf"]
 [ext_resource type="Texture2D" uid="uid://b8of02pcjx1ak" path="res://assests/sprites/weapons/fa1608.png" id="1_gr1kk"]
-[ext_resource type="Script" path="res://components/hitbox.gd" id="2_hmv8i"]
-[ext_resource type="Script" path="res://components/weapon_stats.gd" id="2_ouiem"]
+[ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="2_hmv8i"]
+[ext_resource type="Script" uid="uid://v8j5hqe1v1yk" path="res://scripts/components/entity/weapon_stats.gd" id="2_ouiem"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_warfp"]
 radius = 4.24258
