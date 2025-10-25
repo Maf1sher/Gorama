@@ -4,14 +4,11 @@ const SLOT_SIZE: int = 16
 
 @export var inventory_slot_scene: PackedScene
 @export var dimentions: Vector2i
-@export var inventory_path: NodePath
-var inventory: Node
 
 var slot_data: Array[Node] = []
 var held_item_intersects: bool = false
 
 func _ready() -> void:
-	inventory = get_node(inventory_path)
 	create_slots()
 	init_slot_data()
 	

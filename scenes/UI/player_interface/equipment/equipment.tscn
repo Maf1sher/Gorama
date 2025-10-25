@@ -24,4 +24,3 @@ theme_override_constants/v_separation = 0
 script = ExtResource("6_4e2ep")
 inventory_slot_scene = ExtResource("7_wg47l")
 dimentions = Vector2i(10, 6)
-inventory_path = NodePath("../..")

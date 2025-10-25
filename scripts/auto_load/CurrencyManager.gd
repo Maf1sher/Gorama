@@ -1,6 +1,6 @@
 extends Node
 
-var currencie: int = 0
+var currencie: int = 100
 
 signal currency_changed(new_value: int)
 

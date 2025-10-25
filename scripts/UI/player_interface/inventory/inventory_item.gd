@@ -1,3 +1,4 @@
+class_name InventoryItem
 extends Sprite2D
 
 @onready var price_control = $Control

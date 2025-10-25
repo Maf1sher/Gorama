@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var border = $Border
 
-@onready var shop_panel_sceen = preload("res://scenes/UI/player_interface/equipment/equipment.tscn")
+@onready var shop_panel_sceen = preload("res://scenes/UI/shop_inventory/store_inventory.tscn")
 
 var shop_panel: Control
 var player_in_area: bool = false

@@ -9,4 +9,4 @@ script = ExtResource("2_xfdhe")
 texture = ExtResource("3_tw7s7")
 dimentions = Vector2i(2, 3)
 item_sceen = ExtResource("1_idbtl")
-price = 10
+price = 11

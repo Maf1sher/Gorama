@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3c08ojf8c3sa"]
+
+[ext_resource type="Script" uid="uid://cqruy27js5ky2" path="res://scripts/UI/shop_inventory/store_inventory.gd" id="1_bwh2d"]
+[ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="2_7hayn"]
+[ext_resource type="Script" uid="uid://biiom4hub7i5i" path="res://scripts/UI/shop_inventory/item_grid.gd" id="2_w2eqf"]
+[ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/sword.tres" id="3_q2v1i"]
+[ext_resource type="Resource" uid="uid://berthunsd3jyo" path="res://resources/items/sword2.tres" id="4_h5hwg"]
+[ext_resource type="PackedScene" uid="uid://bdhifj2wsy1jx" path="res://scenes/UI/player_interface/inventory/inventory_item.tscn" id="5_q2v1i"]
+[ext_resource type="PackedScene" uid="uid://ckq1wu7kvt3oy" path="res://scenes/UI/player_interface/inventory/inventory_slot.tscn" id="7_h5hwg"]
+
+[node name="StoreInventory" type="PanelContainer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+script = ExtResource("1_bwh2d")
+items = Array[ExtResource("2_7hayn")]([ExtResource("3_q2v1i"), ExtResource("4_h5hwg")])
+inventory_item_scene = ExtResource("5_q2v1i")
+
+[node name="ItemGrid" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+script = ExtResource("2_w2eqf")
+inventory_slot_scene = ExtResource("7_h5hwg")
+dimentions = Vector2i(10, 6)
