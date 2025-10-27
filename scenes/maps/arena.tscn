@@ -1,12 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://clpdj4xlxskgm"]
+[gd_scene load_steps=9 format=3 uid="uid://clpdj4xlxskgm"]
 
 [ext_resource type="Texture2D" uid="uid://bs7v0nodsx568" path="res://assests/sprites/map/tilesets/Ground_rocks.png" id="1_ry644"]
 [ext_resource type="Script" uid="uid://julv7uybn0pc" path="res://scripts/map/arena.gd" id="2_ce1uw"]
 [ext_resource type="Script" uid="uid://dkcapw4gb3q8v" path="res://scripts/enemy_generator.gd" id="3_dxv3a"]
-[ext_resource type="Script" uid="uid://bn8ipqcdcg1sw" path="res://resources/enemy_spawner/wave_phase.gd" id="4_dxv3a"]
-[ext_resource type="Script" uid="uid://c5cutsgoeq40t" path="res://resources/enemy_spawner/wave_resource.gd" id="5_7risu"]
-[ext_resource type="Script" uid="uid://5pe6hxflfuo2" path="res://resources/enemy_spawner/enemy_spawn_definition.gd" id="5_lix01"]
-[ext_resource type="PackedScene" uid="uid://dip0t5cixw72i" path="res://scenes/entity/enemy/Orc.tscn" id="6_6bo0k"]
+[ext_resource type="Resource" uid="uid://bnj7tmht5awdd" path="res://resources/wave/wave1.tres" id="4_dxv3a"]
 [ext_resource type="PackedScene" uid="uid://cqrphsbtpcpe4" path="res://scenes/UI/counter.tscn" id="8_lix01"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
@@ -164,22 +161,6 @@ terrain_set_0/terrain_0/name = "ground_rock"
 terrain_set_0/terrain_0/color = Color(0.29889604, 0.84694654, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_dinhu")
 
-[sub_resource type="Resource" id="Resource_iphpr"]
-script = ExtResource("5_lix01")
-enemy_scene = ExtResource("6_6bo0k")
-group_count = 2
-metadata/_custom_type_script = "uid://5pe6hxflfuo2"
-
-[sub_resource type="Resource" id="Resource_lix01"]
-script = ExtResource("4_dxv3a")
-spawn_definitions = Array[ExtResource("5_lix01")]([SubResource("Resource_iphpr")])
-metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
-
-[sub_resource type="Resource" id="Resource_6bo0k"]
-script = ExtResource("5_7risu")
-phases = Array[ExtResource("4_dxv3a")]([SubResource("Resource_lix01")])
-metadata/_custom_type_script = "uid://c5cutsgoeq40t"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi5yi"]
 size = Vector2(541.75, 298.75)
 
@@ -196,7 +177,7 @@ position = Vector2(240, 131)
 
 [node name="EnnemyGenetaor" type="Node2D" parent="." node_paths=PackedStringArray("spawn_area")]
 script = ExtResource("3_dxv3a")
-wave = SubResource("Resource_6bo0k")
+wave = ExtResource("4_dxv3a")
 spawn_area = NodePath("Area2D")
 metadata/_custom_type_script = "uid://dkcapw4gb3q8v"
 

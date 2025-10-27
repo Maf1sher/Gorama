@@ -54,6 +54,24 @@ func can_fast_move(item: Node) -> bool:
 				return true
 			else:
 				return false
+		ItemTypes.Type.HEAD:
+			if head.is_empty():
+				return true
+			return false
+		ItemTypes.Type.CHEST:
+			if chest.is_empty():
+				return true
+			return false
+		ItemTypes.Type.BOOTS:
+			if boots.is_empty():
+				return true
+			return false
+		ItemTypes.Type.RING:
+			if leftRing.is_empty():
+				return true
+			elif rightRing.is_empty():
+				return true
+			return false
 	return false
 	
 func fast_move(item: Node) -> bool:
@@ -67,4 +85,27 @@ func fast_move(item: Node) -> bool:
 				return true
 			else:
 				return false
+		ItemTypes.Type.HEAD:
+			if head.is_empty():
+				head.place_item(item)
+				return true
+			return false
+		ItemTypes.Type.CHEST:
+			if chest.is_empty():
+				chest.place_item(item)
+				return true
+			return false
+		ItemTypes.Type.BOOTS:
+			if boots.is_empty():
+				boots.place_item(item)
+				return true
+			return false
+		ItemTypes.Type.RING:
+			if leftRing.is_empty():
+				leftRing.place_item(item)
+				return true
+			elif rightRing.is_empty():
+				rightRing.place_item(item)
+				return true
+			return false
 	return false

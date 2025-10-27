@@ -4,18 +4,14 @@ signal item_changed(item)
 
 @export var dimentions: Vector2i
 @export var type: ItemTypes.Type
-@export var inventory_path: NodePath
 
 @export var fill_texture: Texture2D
 
 @onready var fill = $Fill
 
-var inventory: Node
-
 var item: Node = null
 
 func _ready() -> void:
-	inventory = get_node(inventory_path)
 	fill.texture = fill_texture
 
 func _gui_input(event: InputEvent) -> void:

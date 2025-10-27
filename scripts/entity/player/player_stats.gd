@@ -29,3 +29,6 @@ func calculate_magic_damage() -> int:
 	
 	return (magic_damage + (magic_damage * magic_damage_percent/100.0)) \
 	  * (crit_damage_percent/100.0 if roll < crit_chance_percent else 1)
+	
+func set_max_hp() -> void:
+	hp = max_hp

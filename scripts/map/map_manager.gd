@@ -30,3 +30,4 @@ func _setup_new_map() -> void:
 	add_child(current_map)
 	if player:
 		player.position = current_map.get_starting_position()
+		player.stats.set_max_hp()
