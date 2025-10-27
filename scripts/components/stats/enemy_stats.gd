@@ -1,5 +1,5 @@
 class_name EnemyStats
-extends Stats
+extends EntityStats
 
 @export var damage: int = 10: 
 	set(value):

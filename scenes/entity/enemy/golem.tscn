@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://bm76p8tlql2i6"]
 
 [ext_resource type="Script" uid="uid://dausc8m1fsx3p" path="res://scripts/entity/enemy/golem.gd" id="1_qsi3s"]
-[ext_resource type="Script" uid="uid://1q37vrdh48ae" path="res://scripts/entity/enemy/enemy_stats.gd" id="2_hsw8r"]
+[ext_resource type="Script" uid="uid://1q37vrdh48ae" path="res://scripts/components/stats/enemy_stats.gd" id="2_hsw8r"]
 [ext_resource type="Script" uid="uid://cecrxxvtjbuty" path="res://resources/special_attacks/special_attack.gd" id="2_p7ecp"]
 [ext_resource type="Texture2D" uid="uid://cv3wg7snj8j4u" path="res://assests/sprites/enemys/golem/golem.png" id="3_3iwn7"]
 [ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://scripts/components/entity/player_detector.gd" id="3_agum6"]
@@ -11,10 +11,9 @@
 [ext_resource type="Script" uid="uid://c873jx0bhbj56" path="res://scripts/components/entity/hit_popup_spawner.gd" id="6_wuf1t"]
 [ext_resource type="PackedScene" uid="uid://dsqdw1s0083t4" path="res://scenes/components/health_bar.tscn" id="8_pfeci"]
 
-[sub_resource type="Resource" id="Resource_c7fq6"]
+[sub_resource type="Resource" id="Resource_omix1"]
 script = ExtResource("4_mgb50")
-projectile_count = 8
-chance = 0.8
+metadata/_custom_type_script = "uid://cl8oo8fht7pn"
 
 [sub_resource type="Animation" id="Animation_5bx6m"]
 length = 0.001
@@ -163,14 +162,16 @@ player_detector = NodePath("PlayerDetector")
 hit_popup_spawner = NodePath("HitPopupSpawner")
 enemy_name = "Golem"
 exp = 100
-special_attacks = Array[ExtResource("2_p7ecp")]([SubResource("Resource_c7fq6")])
+special_attacks = Array[ExtResource("2_p7ecp")]([SubResource("Resource_omix1")])
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("2_hsw8r")
-damage = 50
-max_hp = 500
+damage = 60
 hp = 500
-movement_speed = 30
+max_hp = 500
+attack_speed_percent = 100
+movement_speed = 50
+metadata/_custom_type_script = "uid://1q37vrdh48ae"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -46)
@@ -211,6 +212,7 @@ shape = SubResource("CapsuleShape2D_31km4")
 position = Vector2(0, -28)
 collision_layer = 0
 collision_mask = 4
+monitorable = false
 script = ExtResource("5_sgtfo")
 stats = NodePath("../Stats")
 

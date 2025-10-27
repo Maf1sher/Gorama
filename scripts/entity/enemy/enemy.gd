@@ -39,6 +39,7 @@ var can_move = true
 var is_hurt = false
 
 func _ready() -> void:
+	hurtbox.stats = stats
 	health_bar.max_value = stats.max_hp
 	health_bar.set_hp(stats.hp)
 	if not animated_sprite.animation_finished.is_connected(_on_animation_player_animation_finished):
