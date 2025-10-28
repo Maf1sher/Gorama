@@ -1,11 +1,11 @@
 class_name GearStats
 extends Stats
 
-@export var physical_damage: int = 10: 
+@export var physical_damage: int = 0: 
 	set(value):
 		physical_damage = value
 		emit_signal("stats_changed", "physical_damage", physical_damage)
-@export var magic_damage: int = 10:
+@export var magic_damage: int = 0:
 	set(value):
 		magic_damage = value
 		emit_signal("stats_changed", "magic_damage", magic_damage)

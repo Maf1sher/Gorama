@@ -13,7 +13,7 @@ extends VBoxContainer
 @onready var movement_speed = $MovmentSpeed
 @onready var life_steal_percent = $LifeStealPercent
 
-func change_stats(stats: Stats) -> void:
+func change_stats(stats: PlayerStats) -> void:
 	physical_damage.set_value(stats.physical_damage)
 	magic_damage.set_value(stats.magic_damage)
 	physical_damage_percent.set_value(stats.physical_damage_percent)

@@ -32,3 +32,17 @@ func calculate_magic_damage() -> int:
 	
 func set_max_hp() -> void:
 	hp = max_hp
+	
+func add_gear_stats(stats: GearStats) -> void:
+	super.add_stats(stats)
+	physical_damage += stats.physical_damage
+	magic_damage += stats.magic_damage
+	physical_damage_percent += stats.physical_damage_percent
+	magic_damage_percent += stats.magic_damage_percent
+	
+func remove_gear_stats(stats: GearStats) -> void:
+	super.remove_stats(stats)
+	physical_damage -= stats.physical_damage
+	magic_damage -= stats.magic_damage
+	physical_damage_percent -= stats.physical_damage_percent
+	magic_damage_percent -= stats.magic_damage_percent

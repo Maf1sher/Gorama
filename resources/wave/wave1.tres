@@ -6,28 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bm76p8tlql2i6" path="res://scenes/entity/enemy/golem.tscn" id="4_gipj3"]
 [ext_resource type="Script" uid="uid://c5cutsgoeq40t" path="res://resources/enemy_spawner/wave_resource.gd" id="5_2wk50"]
 
-[sub_resource type="Resource" id="Resource_iphpr"]
-script = ExtResource("2_au2r4")
-enemy_scene = ExtResource("3_dqyxv")
-group_size = 10
-group_count = 3
-cluster_radius = 20.0
-initial_delay = 5.0
-interval = 7.0
-interval_randomness = 1.0
-metadata/_custom_type_script = "uid://5pe6hxflfuo2"
-
-[sub_resource type="Resource" id="Resource_77nds"]
-script = ExtResource("2_au2r4")
-enemy_scene = ExtResource("3_dqyxv")
-group_count = 30
-metadata/_custom_type_script = "uid://5pe6hxflfuo2"
-
-[sub_resource type="Resource" id="Resource_lix01"]
-script = ExtResource("1_lgkcm")
-spawn_definitions = Array[ExtResource("2_au2r4")]([SubResource("Resource_iphpr"), SubResource("Resource_77nds")])
-metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
-
 [sub_resource type="Resource" id="Resource_33ont"]
 script = ExtResource("2_au2r4")
 enemy_scene = ExtResource("3_dqyxv")
@@ -37,6 +15,12 @@ cluster_radius = 20.0
 initial_delay = 2.0
 interval = 7.0
 interval_randomness = 1.0
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_77nds"]
+script = ExtResource("2_au2r4")
+enemy_scene = ExtResource("3_dqyxv")
+group_count = 30
 metadata/_custom_type_script = "uid://5pe6hxflfuo2"
 
 [sub_resource type="Resource" id="Resource_5kqv0"]
@@ -53,7 +37,23 @@ script = ExtResource("1_lgkcm")
 spawn_definitions = Array[ExtResource("2_au2r4")]([SubResource("Resource_33ont"), SubResource("Resource_77nds"), SubResource("Resource_5kqv0")])
 metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
 
+[sub_resource type="Resource" id="Resource_iphpr"]
+script = ExtResource("2_au2r4")
+enemy_scene = ExtResource("3_dqyxv")
+group_size = 10
+group_count = 3
+cluster_radius = 20.0
+initial_delay = 5.0
+interval = 7.0
+interval_randomness = 1.0
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_lix01"]
+script = ExtResource("1_lgkcm")
+spawn_definitions = Array[ExtResource("2_au2r4")]([SubResource("Resource_iphpr"), SubResource("Resource_77nds")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
 [resource]
 script = ExtResource("5_2wk50")
-phases = Array[ExtResource("1_lgkcm")]([SubResource("Resource_lix01"), SubResource("Resource_73b5p")])
+phases = Array[ExtResource("1_lgkcm")]([SubResource("Resource_73b5p"), SubResource("Resource_lix01")])
 metadata/_custom_type_script = "uid://c5cutsgoeq40t"

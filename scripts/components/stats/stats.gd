@@ -35,3 +35,23 @@ signal stats_changed(stat_name: String, value: int)
 	set(value):
 		life_steal_percent = value
 		emit_signal("stats_changed", "life_steal_percent", life_steal_percent)
+
+func add_stats(stats: Stats) -> void:
+	max_hp += stats.max_hp
+	hp_regeneration += stats.hp_regeneration
+	attack_speed_percent += stats.attack_speed_percent
+	crit_chance_percent += stats.crit_chance_percent
+	crit_damage_percent += stats.crit_damage_percent
+	armor += stats.armor
+	movement_speed += stats.movement_speed
+	life_steal_percent += stats.life_steal_percent
+	
+func remove_stats(stats: Stats) -> void:
+	max_hp -= stats.max_hp
+	hp_regeneration -= stats.hp_regeneration
+	attack_speed_percent -= stats.attack_speed_percent
+	crit_chance_percent -= stats.crit_chance_percent
+	crit_damage_percent -= stats.crit_damage_percent
+	armor -= stats.armor
+	movement_speed -= stats.movement_speed
+	life_steal_percent -= stats.life_steal_percent

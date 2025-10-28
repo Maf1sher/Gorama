@@ -13,8 +13,6 @@ func _ready() -> void:
 		return
 	statsContainer.change_stats(player.stats)
 	player.stats_changed.connect(_on_stats_changed)
-	
-
 
 func open():
 	visible = true
@@ -38,6 +36,6 @@ func _on_select_card_select_card_is_open(status: bool) -> void:
 func _on_inventory_inventory_is_open(status: bool) -> void:
 	set_open_status(status)
 
-func _on_stats_changed(stats: Stats) -> void:
+func _on_stats_changed(stats: PlayerStats) -> void:
 	if statsContainer:
 		statsContainer.change_stats(stats)

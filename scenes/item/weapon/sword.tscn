@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cft2ma5kps054"]
 
-[ext_resource type="Script" uid="uid://b0uejc2u0qx25" path="res://scripts/items/sword.gd" id="1_07cgf"]
+[ext_resource type="Script" uid="uid://b0uejc2u0qx25" path="res://scripts/items/weapon/sword.gd" id="1_07cgf"]
 [ext_resource type="Texture2D" uid="uid://b8of02pcjx1ak" path="res://assests/sprites/weapons/fa1608.png" id="1_gr1kk"]
 [ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="2_hmv8i"]
 [ext_resource type="Script" uid="uid://v8j5hqe1v1yk" path="res://scripts/components/stats/weapon_stats.gd" id="2_ouiem"]
@@ -105,8 +105,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_maa3u"]
 _data = {
-"RESET": SubResource("Animation_0qxq3"),
-"attack": SubResource("Animation_wey5q")
+&"RESET": SubResource("Animation_0qxq3"),
+&"attack": SubResource("Animation_wey5q")
 }
 
 [node name="Sword" type="Node2D" node_paths=PackedStringArray("animation", "hitbox", "stats")]
@@ -118,6 +118,7 @@ stats = NodePath("WeaponStats")
 [node name="WeaponStats" type="Node" parent="."]
 script = ExtResource("2_ouiem")
 damage = 10
+attack_speed_percent = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, -8)
@@ -137,7 +138,7 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_maa3u")
+&"": SubResource("AnimationLibrary_maa3u")
 }
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

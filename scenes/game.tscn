@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cruivemipt4f2"]
+[gd_scene load_steps=11 format=3 uid="uid://cruivemipt4f2"]
 
 [ext_resource type="Script" uid="uid://bxxr0a2cuvyeo" path="res://scripts/game.gd" id="1_h7oay"]
 [ext_resource type="PackedScene" uid="uid://ydacv5x31ia" path="res://scenes/maps/map_manager.tscn" id="2_dinhu"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bxistr6r5wo1q" path="res://scenes/UI/hp_bar/hp_bar.tscn" id="7_fjctq"]
 [ext_resource type="PackedScene" uid="uid://le8j3cnqotuj" path="res://scenes/UI/select_card/select_card.tscn" id="7_utq1f"]
 [ext_resource type="PackedScene" uid="uid://brriki1m05fmo" path="res://scenes/UI/currency_hud/currency_hud.tscn" id="9_w02he"]
-[ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/player_interface/stats_panel/stats_panel.tscn" id="10_0tbwd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_h7oay")
@@ -51,11 +50,5 @@ player = NodePath("../../Player")
 [node name="CrystalHUD" parent="UI" instance=ExtResource("9_w02he")]
 mouse_filter = 2
 
-[node name="StatsPanel" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("10_0tbwd")]
-visible = false
-mouse_filter = 2
-player = NodePath("../../Player")
-
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
 [connection signal="select_card_is_open" from="UI/SelectCard" to="." method="_on_select_card_select_card_is_open"]
-[connection signal="select_card_is_open" from="UI/SelectCard" to="UI/StatsPanel" method="_on_select_card_select_card_is_open"]

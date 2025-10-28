@@ -166,6 +166,21 @@ position = Vector2(0, -2)
 z_index = 0
 position = Vector2(-4, -2)
 
+[node name="Head" type="Node2D" parent="Graphics"]
+visible = false
+
+[node name="Chest" type="Node2D" parent="Graphics"]
+visible = false
+
+[node name="Boots" type="Node2D" parent="Graphics"]
+visible = false
+
+[node name="LeftAccessory" type="Node2D" parent="Graphics"]
+visible = false
+
+[node name="RightAccessory" type="Node2D" parent="Graphics"]
+visible = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_n8vjb")

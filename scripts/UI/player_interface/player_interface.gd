@@ -36,6 +36,8 @@ class PanelData:
 func _ready() -> void:
 	add_to_group("player_interface")
 	character_sheet.connect("item_changed", Callable(player, "_on_item_changed"))
+	player.stats_changed.connect(Callable(stats_panel, "_on_stats_changed"))
+	stats_panel._on_stats_changed(player.stats)
 	add_default_panels()
 
 func open():

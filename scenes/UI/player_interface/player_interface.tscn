@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://3huutkecev2r"]
+[gd_scene load_steps=11 format=3 uid="uid://3huutkecev2r"]
 
 [ext_resource type="Script" uid="uid://bqui2v8amgf57" path="res://scripts/UI/player_interface/player_interface.gd" id="1_6o75j"]
 [ext_resource type="PackedScene" uid="uid://derfvwc5yjuf8" path="res://scenes/UI/player_interface/equipment/equipment.tscn" id="1_k3yh5"]
 [ext_resource type="PackedScene" uid="uid://bf13jv0o4f3ra" path="res://scenes/UI/player_interface/character_sheet/character_sheet.tscn" id="2_6o75j"]
+[ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="3_d3ojb"]
 [ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/player_interface/stats_panel/stats_panel.tscn" id="3_k3yh5"]
+[ext_resource type="Resource" uid="uid://berthunsd3jyo" path="res://resources/items/weapon/sword2.tres" id="4_2x0aj"]
+[ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/weapon/sword.tres" id="5_rh4vq"]
+[ext_resource type="Resource" uid="uid://b6jfsyy83k2nf" path="res://resources/items/gear/head/iron_helmet.tres" id="6_28eu6"]
+[ext_resource type="Resource" uid="uid://dg06h07q7pps" path="res://resources/items/gear/chest/iron_chestplate.tres" id="7_2x0aj"]
+[ext_resource type="Resource" uid="uid://c3s043dcoxxjl" path="res://resources/items/gear/boots/iron_boots.tres" id="8_rh4vq"]
 
 [node name="PlayerInterface" type="Control"]
 layout_mode = 3
@@ -29,6 +35,7 @@ size_flags_vertical = 4
 
 [node name="Equipment" parent="HBoxContainer/LeftColumn" instance=ExtResource("1_k3yh5")]
 layout_mode = 2
+items = Array[ExtResource("3_d3ojb")]([ExtResource("4_2x0aj"), ExtResource("5_rh4vq"), ExtResource("6_28eu6"), ExtResource("7_2x0aj"), ExtResource("8_rh4vq")])
 
 [node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
