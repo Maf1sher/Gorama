@@ -7,10 +7,11 @@ extends Control
 
 var is_open: bool = false
 
-func _ready() -> void:
+func set_player(player: Player) -> void:
 	if not player:
 		push_warning("Player is null")
 		return
+	self.player = player
 	statsContainer.change_stats(player.stats)
 	player.stats_changed.connect(_on_stats_changed)
 

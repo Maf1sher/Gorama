@@ -44,7 +44,6 @@ mouse_filter = 2
 [node name="SelectCard" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("7_utq1f")]
 process_mode = 2
 visible = false
-offset_right = -120.0
 player = NodePath("../../Player")
 
 [node name="CrystalHUD" parent="UI" instance=ExtResource("9_w02he")]
@@ -52,3 +51,4 @@ mouse_filter = 2
 
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
 [connection signal="select_card_is_open" from="UI/SelectCard" to="." method="_on_select_card_select_card_is_open"]
+[connection signal="select_card_is_open" from="UI/SelectCard" to="UI" method="_on_select_card_select_card_is_open"]

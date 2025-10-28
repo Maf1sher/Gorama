@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal stats_changed(stats: PlayerStats)
 signal hp_changed(hp: int, max_hp: int)
+signal died
 
 @export var exp: Node
 
@@ -75,6 +76,7 @@ func take_hit(damage: int) -> void:
 
 func die():
 	velocity = Vector2.ZERO
+	emit_signal("died")
 	
 func add_exp(amount: int) -> void:
 	exp.add_exp(amount)
