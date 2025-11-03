@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctcqltdnpso4h"]
+[gd_scene load_steps=11 format=3 uid="uid://ctcqltdnpso4h"]
 
 [ext_resource type="Script" uid="uid://bbuhkb4divhbv" path="res://scripts/UI/menu.gd" id="1_7w07o"]
+[ext_resource type="PackedScene" uid="uid://dtpeejkmh0uwu" path="res://scenes/maps/SaveZone.tscn" id="2_nh0fe"]
+[ext_resource type="Texture2D" uid="uid://b3htmts71574o" path="res://assests/sprites/buttons/Default.png" id="3_4vbaf"]
+[ext_resource type="Texture2D" uid="uid://bkp1sfxjlop3a" path="res://assests/sprites/buttons/Hover.png" id="4_ssd2u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nh0fe"]
+texture = ExtResource("3_4vbaf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vbaf"]
+texture = ExtResource("4_ssd2u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ssd2u"]
+texture = ExtResource("3_4vbaf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_317et"]
+texture = ExtResource("4_ssd2u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pqico"]
+texture = ExtResource("3_4vbaf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rj1u7"]
+texture = ExtResource("4_ssd2u")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,27 +32,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7w07o")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="SaveZone" parent="." instance=ExtResource("2_nh0fe")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -101.0
-offset_right = 70.0
+offset_top = -77.0
+offset_right = 62.0
 grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nh0fe")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4vbaf")
 text = "Start"
 
-[node name="Option" type="Button" parent="VBoxContainer"]
+[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ssd2u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_317et")
 text = "Options"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_pqico")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rj1u7")
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

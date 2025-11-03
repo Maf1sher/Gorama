@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bs7v0nodsx568" path="res://assests/sprites/map/tilesets/Ground_rocks.png" id="1_ry644"]
 [ext_resource type="Script" uid="uid://julv7uybn0pc" path="res://scripts/map/arena.gd" id="2_ce1uw"]
 [ext_resource type="Script" uid="uid://dkcapw4gb3q8v" path="res://scripts/enemy_generator.gd" id="3_dxv3a"]
-[ext_resource type="Resource" uid="uid://ngul3asgwcpg" path="res://resources/wave/test1.tres" id="4_dxv3a"]
+[ext_resource type="Resource" uid="uid://bnj7tmht5awdd" path="res://resources/wave/wave1.tres" id="4_dxv3a"]
 [ext_resource type="PackedScene" uid="uid://cqrphsbtpcpe4" path="res://scenes/UI/counter.tscn" id="8_lix01"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
