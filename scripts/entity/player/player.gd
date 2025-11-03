@@ -79,7 +79,8 @@ func die():
 	emit_signal("died")
 	
 func add_exp(amount: int) -> void:
-	exp.add_exp(amount)
+	if alive:
+		exp.add_exp(amount)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	hit_popup_spawner.spawn_hit_popup(damage)

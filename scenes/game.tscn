@@ -42,15 +42,15 @@ player = NodePath("../../Player")
 [node name="ExpBar" parent="UI" instance=ExtResource("6_3uqqr")]
 mouse_filter = 2
 
-[node name="SelectCard" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("7_utq1f")]
-process_mode = 2
-visible = false
-player = NodePath("../../Player")
-
 [node name="CrystalHUD" parent="UI" instance=ExtResource("9_w02he")]
 mouse_filter = 2
 
 [node name="GameOverScreen" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("11_kvpfn")]
+player = NodePath("../../Player")
+
+[node name="SelectCard" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("7_utq1f")]
+process_mode = 2
+visible = false
 player = NodePath("../../Player")
 
 [connection signal="lvl_up" from="UI/ExpBar" to="UI" method="_on_exp_bar_lvl_up"]
