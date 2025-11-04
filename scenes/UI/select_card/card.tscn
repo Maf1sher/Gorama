@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhfat6yecmjsk"]
 
-[ext_resource type="Script" path="res://scripts/UI/select_card/card.gd" id="1_rhdaw"]
+[ext_resource type="Script" uid="uid://bhl5xrdo8jaob" path="res://scripts/UI/select_card/card.gd" id="1_rhdaw"]
 
 [sub_resource type="Animation" id="Animation_4sf47"]
 length = 0.001
@@ -76,9 +76,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a3v5r"]
 _data = {
-"RESET": SubResource("Animation_4sf47"),
-"focus": SubResource("Animation_ab40u"),
-"show": SubResource("Animation_4uayt")
+&"RESET": SubResource("Animation_4sf47"),
+&"focus": SubResource("Animation_ab40u"),
+&"show": SubResource("Animation_4uayt")
 }
 
 [node name="Card" type="Control"]
@@ -107,7 +107,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Texture"]
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,7 +118,7 @@ theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 8
 
-[node name="EffectsContainer" type="VBoxContainer" parent="Control/Texture/MarginContainer"]
+[node name="EffectsContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -126,7 +126,7 @@ theme_override_constants/separation = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a3v5r")
+&"": SubResource("AnimationLibrary_a3v5r")
 }
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3i280ad0mejg" path="res://resources/cards/effects/card_effect.gd" id="1_rbdp8"]
 [ext_resource type="Script" uid="uid://fnw5woysl4jq" path="res://resources/cards/data/card_data.gd" id="2_60v44"]
-[ext_resource type="Texture2D" uid="uid://5asid5qsqq8n" path="res://assests/sprites/cards/example2.png" id="3_poat7"]
+[ext_resource type="Texture2D" uid="uid://1frrhlb71qa7" path="res://assests/sprites/cards/samurai.png" id="3_xrvgy"]
 
 [sub_resource type="Resource" id="Resource_oxrlh"]
 script = ExtResource("1_rbdp8")
@@ -18,6 +18,6 @@ value = 2
 
 [resource]
 script = ExtResource("2_60v44")
-texture = ExtResource("3_poat7")
+texture = ExtResource("3_xrvgy")
 name = "test2"
 effects = Array[ExtResource("1_rbdp8")]([SubResource("Resource_oxrlh"), SubResource("Resource_uo8ts")])

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://d3i280ad0mejg" path="res://resources/cards/effects/card_effect.gd" id="1_ow0n0"]
 [ext_resource type="Script" uid="uid://fnw5woysl4jq" path="res://resources/cards/data/card_data.gd" id="2_meqk8"]
-[ext_resource type="Texture2D" uid="uid://bpvluxmqpfjee" path="res://assests/sprites/cards/example1.png" id="3_xwyat"]
+[ext_resource type="Texture2D" uid="uid://bxn7d32s4hmxu" path="res://assests/sprites/cards/golem.png" id="3_j7awi"]
 
 [sub_resource type="Resource" id="Resource_jsyrv"]
 script = ExtResource("1_ow0n0")
 target = "player"
 stat = "armor"
-value = 10
+value = 20
 
 [sub_resource type="Resource" id="Resource_s43ji"]
 script = ExtResource("1_ow0n0")
@@ -18,6 +18,6 @@ value = -1
 
 [resource]
 script = ExtResource("2_meqk8")
-texture = ExtResource("3_xwyat")
+texture = ExtResource("3_j7awi")
 name = "test1"
 effects = Array[ExtResource("1_ow0n0")]([SubResource("Resource_jsyrv"), SubResource("Resource_s43ji")])
