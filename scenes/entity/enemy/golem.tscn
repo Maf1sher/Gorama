@@ -13,6 +13,8 @@
 
 [sub_resource type="Resource" id="Resource_omix1"]
 script = ExtResource("4_mgb50")
+chance = 0.8
+cooldown = 0.5
 metadata/_custom_type_script = "uid://cl8oo8fht7pn"
 
 [sub_resource type="Animation" id="Animation_5bx6m"]
@@ -170,7 +172,7 @@ damage = 60
 hp = 500
 max_hp = 500
 attack_speed_percent = 100
-movement_speed = 50
+movement_speed = 20
 metadata/_custom_type_script = "uid://1q37vrdh48ae"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

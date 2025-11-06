@@ -9,8 +9,11 @@ func add(amount: int):
 	emit_signal("currency_changed", currencie)
 
 func spend(amount: int) -> bool:
-	if currencie >= amount:
+	if currencie >= amount: 
 		currencie -= amount
 		emit_signal("currency_changed", currencie)
 		return true
 	return false
+	
+func reset() -> void:
+	currencie = 100

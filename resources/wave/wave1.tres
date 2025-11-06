@@ -9,18 +9,19 @@
 [sub_resource type="Resource" id="Resource_iphpr"]
 script = ExtResource("2_au2r4")
 enemy_scene = ExtResource("3_dqyxv")
-group_size = 10
-group_count = 3
+group_size = 3
+group_count = 2
 cluster_radius = 20.0
-initial_delay = 5.0
-interval = 7.0
+initial_delay = 3.0
+interval = 5.0
 interval_randomness = 1.0
 metadata/_custom_type_script = "uid://5pe6hxflfuo2"
 
 [sub_resource type="Resource" id="Resource_77nds"]
 script = ExtResource("2_au2r4")
 enemy_scene = ExtResource("3_dqyxv")
-group_count = 30
+group_count = 5
+interval = 4.0
 metadata/_custom_type_script = "uid://5pe6hxflfuo2"
 
 [sub_resource type="Resource" id="Resource_lix01"]
@@ -31,20 +32,20 @@ metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
 [sub_resource type="Resource" id="Resource_33ont"]
 script = ExtResource("2_au2r4")
 enemy_scene = ExtResource("3_dqyxv")
-group_size = 10
-group_count = 3
+group_size = 6
+group_count = 2
 cluster_radius = 20.0
 initial_delay = 2.0
-interval = 7.0
+interval = 5.0
 interval_randomness = 1.0
 metadata/_custom_type_script = "uid://5pe6hxflfuo2"
 
 [sub_resource type="Resource" id="Resource_5kqv0"]
 script = ExtResource("2_au2r4")
 enemy_scene = ExtResource("4_gipj3")
-group_count = 3
-initial_delay = 4.0
-interval = 9.0
+group_count = 2
+initial_delay = 2.0
+interval = 5.0
 interval_randomness = 1.0
 metadata/_custom_type_script = "uid://5pe6hxflfuo2"
 
