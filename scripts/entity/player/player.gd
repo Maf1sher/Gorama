@@ -107,61 +107,56 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_item_changed(slot, item: Node) -> void:
 	match slot:
 		"left_hand":
-			if item:
-				var weapon = item.data.item_sceen.instantiate()
-				weapon.position.x = item.data.sceen_achor_point.x
-				weapon.position.y = item.data.sceen_achor_point.y
-				weapon.stats = item.data.stats
-				_left_hand = weapon
-				_left_hand.playerStats = stats
-				graphics_left_hand.add_child(weapon)
-			else:
-				_left_hand.get_parent().remove_child(_left_hand)
-				_left_hand.queue_free()
-				_left_hand = null
+			var result = _change_weapon(item, _right_hand, graphics_right_hand, _right_hand_data)
+			_right_hand = result.instance
+			_right_hand_data = result.data
 		"right_hand":
-			if item:
-				var weapon = item.data.item_sceen.instantiate()
-				weapon.position.x = item.data.sceen_achor_point.x
-				weapon.position.y = item.data.sceen_achor_point.y
-				weapon.stats = item.data.stats
-				_right_hand = weapon
-				_right_hand.playerStats = stats
-				graphics_right_hand.add_child(weapon)
-			else:
-				_right_hand.get_parent().remove_child(_right_hand)
-				_right_hand.queue_free()
-				_right_hand = null
+			var result = _change_weapon(item, _left_hand, graphics_left_hand, _left_hand_data)
+			_left_hand = result.instance
+			_left_hand_data = result.data
 		"head":
-			var result = _change_item(item, _head, graphics_head, _head_data)
+			var result = _change_gear(item, _head, graphics_head, _head_data)
 			_head = result.instance
 			_head_data = result.data
 		"chest":
-			var result = _change_item(item, _chest, graphics_chest, _chest_data)
+			var result = _change_gear(item, _chest, graphics_chest, _chest_data)
 			_chest = result.instance
 			_chest_data = result.data
 		"boots":
-			var result = _change_item(item, _boots, graphics_boots, _boots_data)
+			var result = _change_gear(item, _boots, graphics_boots, _boots_data)
 			_boots = result.instance
 			_boots_data = result.data
 		"left_ring":
-			var result = _change_item(item, _left_accessory, graphics_left_accessory, _left_accessory_data)
+			var result = _change_gear(item, _left_accessory, graphics_left_accessory, _left_accessory_data)
 			_left_accessory = result.instance
 			_left_accessory_data = result.data
 		"right_ring":
-			var result = _change_item(item, _right_accessory, graphics_right_accessory, _right_accessory_data)
+			var result = _change_gear(item, _right_accessory, graphics_right_accessory, _right_accessory_data)
 			_right_accessory = result.instance
 			_right_accessory_data = result.data
 
-func _change_item(item: Node, slot: Node, graphics: Node2D, data: ItemData) -> Dictionary:
+func _change_weapon(item: Node, hand: Node, graphics: Node2D, data: ItemData) -> Dictionary:
+	if item:
+		var instance = item.data.item_sceen.instantiate()
+		instance.position.x = item.data.sceen_achor_point.x
+		instance.position.y = item.data.sceen_achor_point.y
+		instance.stats = item.data.stats
+		instance.playerStats = stats
+		graphics.add_child(instance)
+		return {"instance": instance, "data": data}
+	else:
+		hand.get_parent().remove_child(hand)
+		hand.queue_free()
+		return {"instance": null, "data": null}
+
+func _change_gear(item: Node, slot: Node, graphics: Node2D, data: ItemData) -> Dictionary:
 	if item:
 		var instance = item.data.item_sceen.instantiate()
 		instance.position.x = item.data.sceen_achor_point.x
 		instance.position.y = item.data.sceen_achor_point.y
 		graphics.add_child(instance)
-		data = item.data
 		stats.add_gear_stats(item.data.stats)
-		return {"instance": instance, "data": data}
+		return {"instance": instance, "data": item.data}
 	else:
 		stats.remove_gear_stats(data.stats)
 		slot.get_parent().remove_child(slot)
