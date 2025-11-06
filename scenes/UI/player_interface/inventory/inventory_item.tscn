@@ -43,3 +43,9 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 5
 vertical_alignment = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

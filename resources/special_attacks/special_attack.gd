@@ -1,3 +1,4 @@
+@abstract
 class_name SpecialAttack
 extends Resource
 
@@ -5,5 +6,5 @@ extends Resource
 @export var cooldown: float = 2.0
 @export var damage: int = 10
 
-func execute(user: Enemy, target: Player) -> void:
-	pass
+@abstract
+func execute(user: Enemy, target: Player) -> void
