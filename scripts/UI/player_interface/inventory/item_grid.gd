@@ -49,6 +49,8 @@ func items_in_area(index: int, item_dimentions: Vector2i) -> Array:
 	for y in item_dimentions.y:
 		for x in item_dimentions.x:
 			var slot_index = index + x + y * columns
+			if slot_index >= slot_data.size():
+				return [1,2]
 			var item = slot_data[slot_index]
 			if !item:
 				continue
