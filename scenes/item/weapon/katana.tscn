@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c33hc2cuk70r"]
+[gd_scene load_steps=8 format=3 uid="uid://c33hc2cuk70r"]
 
 [ext_resource type="Script" uid="uid://bwws3fhuta7pf" path="res://scripts/items/weapon/katana.gd" id="1_1abm0"]
-[ext_resource type="Script" uid="uid://v8j5hqe1v1yk" path="res://scripts/components/stats/weapon_stats.gd" id="2_b1udy"]
 [ext_resource type="Texture2D" uid="uid://dtifdjk71ylnw" path="res://assests/sprites/weapons/katana.png" id="3_gq0rn"]
 [ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="4_woa0a"]
 
@@ -143,17 +142,11 @@ _data = {
 &"attack": SubResource("Animation_wey5q")
 }
 
-[node name="Katana" type="Node2D" node_paths=PackedStringArray("animation", "hitbox", "stats")]
+[node name="Katana" type="Node2D" node_paths=PackedStringArray("animation", "hitbox")]
 rotation = 0.523599
 script = ExtResource("1_1abm0")
 animation = NodePath("AnimationPlayer")
 hitbox = NodePath("Sprite2D/HitBox")
-stats = NodePath("WeaponStats")
-
-[node name="WeaponStats" type="Node" parent="."]
-script = ExtResource("2_b1udy")
-damage = 40
-attack_speed_percent = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -16)

@@ -1,14 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://byudrloxcqkwg"]
+[gd_scene load_steps=2 format=3 uid="uid://byudrloxcqkwg"]
 
-[ext_resource type="Script" uid="uid://cdjl45ydlav2o" path="res://scripts/components/stats/gear_stats.gd" id="1_56lh5"]
 [ext_resource type="Script" uid="uid://b282caaha7kpn" path="res://scripts/items/gear/boots/iron_boots.gd" id="1_av6lt"]
 
 [node name="IronBoots" type="Node2D"]
 script = ExtResource("1_av6lt")
-
-[node name="GearStats" type="Node" parent="."]
-script = ExtResource("1_56lh5")
-max_hp = 10
-armor = 10
-movement_speed = -10
-metadata/_custom_type_script = "uid://cdjl45ydlav2o"

@@ -1,3 +1,3 @@
 extends Node2D
 
-@onready var stats: GearStats = $GearStats
+#@onready var stats: GearStats = $GearStats

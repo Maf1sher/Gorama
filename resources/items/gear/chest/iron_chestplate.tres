@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dg06h07q7pps"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://dg06h07q7pps"]
 
 [ext_resource type="PackedScene" uid="uid://n6fvuk2u71wx" path="res://scenes/item/gear/chest/iron_chestplate.tscn" id="1_ldy1n"]
 [ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="1_sqstp"]
 [ext_resource type="Texture2D" uid="uid://dvivwleabwqtm" path="res://assests/sprites/gear/chest/fb1921.png" id="3_m62ff"]
+[ext_resource type="Script" uid="uid://cdjl45ydlav2o" path="res://scripts/components/stats/gear_stats.gd" id="3_w4pp3"]
+
+[sub_resource type="Resource" id="Resource_wneno"]
+script = ExtResource("3_w4pp3")
+armor = 20
+movement_speed = -10
+metadata/_custom_type_script = "uid://cdjl45ydlav2o"
 
 [resource]
 script = ExtResource("1_sqstp")
@@ -12,4 +19,5 @@ dimentions = Vector2i(2, 3)
 item_sceen = ExtResource("1_ldy1n")
 type = 2
 price = 20
+stats = SubResource("Resource_wneno")
 metadata/_custom_type_script = "uid://crqw0yekhotaw"

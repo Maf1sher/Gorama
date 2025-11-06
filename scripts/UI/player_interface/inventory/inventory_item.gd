@@ -1,8 +1,8 @@
 class_name InventoryItem
 extends Sprite2D
 
-@onready var price_control = $Control
-@onready var price_label = $Control/MarginContainer/HBoxContainer/Price
+@onready var price_control = $PriceControl
+@onready var price_label = $PriceControl/MarginContainer/HBoxContainer/Price
 
 const SLOT_SIZE = 16
 

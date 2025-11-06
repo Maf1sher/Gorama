@@ -6,7 +6,7 @@
 [node name="InventoryItem" type="Sprite2D"]
 script = ExtResource("1_hsmp6")
 
-[node name="Control" type="Control" parent="."]
+[node name="PriceControl" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="PriceControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,18 +27,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PriceControl/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="Texture" type="TextureRect" parent="Control/MarginContainer/HBoxContainer"]
+[node name="Texture" type="TextureRect" parent="PriceControl/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 texture = ExtResource("3_hkgny")
 stretch_mode = 2
 
-[node name="Price" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+[node name="Price" type="Label" parent="PriceControl/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 5

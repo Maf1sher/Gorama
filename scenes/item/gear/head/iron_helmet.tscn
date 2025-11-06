@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1d1k5i3pybs3"]
+[gd_scene load_steps=2 format=3 uid="uid://b1d1k5i3pybs3"]
 
-[ext_resource type="Script" uid="uid://cdjl45ydlav2o" path="res://scripts/components/stats/gear_stats.gd" id="1_88oo0"]
 [ext_resource type="Script" uid="uid://bo4bt0v8oej37" path="res://scripts/items/gear/head/iron_helmet.gd" id="1_qy7jy"]
 
 [node name="IronHelmet" type="Node2D"]
 script = ExtResource("1_qy7jy")
-
-[node name="GearStats" type="Node" parent="."]
-script = ExtResource("1_88oo0")
-armor = 10
-metadata/_custom_type_script = "uid://cdjl45ydlav2o"

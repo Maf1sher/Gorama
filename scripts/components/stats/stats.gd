@@ -1,5 +1,5 @@
 class_name Stats
-extends Node
+extends Resource
 
 signal stats_changed(stat_name: String, value: int)
 

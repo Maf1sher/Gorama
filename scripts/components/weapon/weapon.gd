@@ -3,8 +3,8 @@ extends Node2D
 
 @export var animation: AnimationPlayer
 @export var hitbox: HitBox
-@export var stats: WeaponStats
 
+var stats: WeaponStats
 var can_attack: bool = true
 
 var playerStats: PlayerStats

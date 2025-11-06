@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rbj80erdhio0"]
+[gd_scene load_steps=19 format=3 uid="uid://rbj80erdhio0"]
 
 [ext_resource type="Script" uid="uid://dvnlesq27crhi" path="res://scripts/entity/player/player.gd" id="1_rxeow"]
 [ext_resource type="Script" uid="uid://c1xg1rlrg1oi8" path="res://scripts/components/stats/player_stats.gd" id="2_7rkla"]
@@ -8,6 +8,16 @@
 [ext_resource type="Script" uid="uid://h1l4xvgb1igq" path="res://scripts/components/entity/hurtbox.gd" id="5_qpnn2"]
 [ext_resource type="Script" uid="uid://bj0y7lufclwdk" path="res://scripts/entity/player/item_detector.gd" id="7_dwnhr"]
 [ext_resource type="Script" uid="uid://c873jx0bhbj56" path="res://scripts/components/entity/hit_popup_spawner.gd" id="7_fm06x"]
+[ext_resource type="Script" uid="uid://brnbdwuanqafv" path="res://scripts/components/entity/regeneration_counter.gd" id="9_jo4e4"]
+
+[sub_resource type="Resource" id="Resource_jo4e4"]
+script = ExtResource("2_7rkla")
+hp = 90
+max_hp = 100
+hp_regeneration = 2
+attack_speed_percent = 100
+movement_speed = 100
+metadata/_custom_type_script = "uid://c1xg1rlrg1oi8"
 
 [sub_resource type="Animation" id="Animation_tlyoj"]
 length = 0.001
@@ -141,13 +151,7 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_rxeow")
-
-[node name="Stats" type="Node" parent="."]
-script = ExtResource("2_7rkla")
-max_hp = 100
-hp_regeneration = 5
-attack_speed_percent = 100
-movement_speed = 100
+stats = SubResource("Resource_jo4e4")
 
 [node name="Graphics" type="Node2D" parent="."]
 script = ExtResource("3_513h3")
@@ -205,7 +209,7 @@ collision_layer = 0
 collision_mask = 512
 monitorable = false
 script = ExtResource("5_qpnn2")
-stats = NodePath("../Stats")
+stats = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -7)
@@ -214,7 +218,10 @@ shape = SubResource("CapsuleShape2D_7ao3o")
 [node name="HitPopupSpawner" type="Node2D" parent="."]
 script = ExtResource("7_fm06x")
 
-[connection signal="stats_changed" from="Stats" to="." method="_on_stats_stats_changed"]
+[node name="RegenerationCounter" type="Node" parent="."]
+script = ExtResource("9_jo4e4")
+metadata/_custom_type_script = "uid://brnbdwuanqafv"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="ItemDetector" to="ItemDetector" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

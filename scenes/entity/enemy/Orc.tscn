@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dip0t5cixw72i"]
+[gd_scene load_steps=20 format=3 uid="uid://dip0t5cixw72i"]
 
 [ext_resource type="Script" uid="uid://b046cc3jnev11" path="res://scripts/entity/enemy/orc.gd" id="1_ji0vp"]
 [ext_resource type="Script" uid="uid://1q37vrdh48ae" path="res://scripts/components/stats/enemy_stats.gd" id="2_2onpk"]
@@ -8,6 +8,13 @@
 [ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="5_qyqbv"]
 [ext_resource type="Script" uid="uid://h1l4xvgb1igq" path="res://scripts/components/entity/hurtbox.gd" id="6_cgjki"]
 [ext_resource type="PackedScene" uid="uid://dsqdw1s0083t4" path="res://scenes/components/health_bar.tscn" id="8_dbl6s"]
+
+[sub_resource type="Resource" id="Resource_xn18f"]
+script = ExtResource("2_2onpk")
+max_hp = 100
+attack_speed_percent = 100
+movement_speed = 70
+metadata/_custom_type_script = "uid://1q37vrdh48ae"
 
 [sub_resource type="Animation" id="Animation_vvv1s"]
 length = 0.001
@@ -142,11 +149,10 @@ height = 24.0
 radius = 3.0
 height = 10.0
 
-[node name="Orc" type="CharacterBody2D" node_paths=PackedStringArray("stats", "animated_sprite", "sprite", "hitbox", "hurtbox", "health_bar", "collision_shape", "player_detector", "hit_popup_spawner")]
+[node name="Orc" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite", "sprite", "hitbox", "hurtbox", "health_bar", "collision_shape", "player_detector", "hit_popup_spawner")]
 collision_layer = 256
 collision_mask = 256
 script = ExtResource("1_ji0vp")
-stats = NodePath("Stats")
 animated_sprite = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 hitbox = NodePath("HitBox")
@@ -155,13 +161,8 @@ health_bar = NodePath("HealthBar")
 collision_shape = NodePath("CollisionShape2D")
 player_detector = NodePath("PlayerDetector")
 hit_popup_spawner = NodePath("HitPopupSpawner")
+stats = SubResource("Resource_xn18f")
 enemy_name = "Orc"
-
-[node name="Stats" type="Node" parent="."]
-script = ExtResource("2_2onpk")
-max_hp = 100
-attack_speed_percent = 100
-movement_speed = 60
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -7)
@@ -204,7 +205,7 @@ collision_layer = 0
 collision_mask = 4
 monitorable = false
 script = ExtResource("6_cgjki")
-stats = NodePath("../Stats")
+stats = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -7)
@@ -215,7 +216,6 @@ script = ExtResource("3_yyrdk")
 
 [node name="HealthBar" parent="." instance=ExtResource("8_dbl6s")]
 
-[connection signal="stats_changed" from="Stats" to="." method="_on_stats_stats_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="player_detection" from="PlayerDetector" to="." method="_on_player_detector_player_detection"]
 [connection signal="hit_registered" from="HitBox" to="." method="_on_hit_box_hit_registered"]

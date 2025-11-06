@@ -6,7 +6,6 @@ signal died(name: String, exp_reward: int)
 @onready var crystal_screen: PackedScene = preload("res://scenes/liftable_item/crystal.tscn")
 
 @export_group("Componets")
-@export var stats: EnemyStats
 @export var animated_sprite: AnimationPlayer
 @export var sprite: Sprite2D
 @export var hitbox: HitBox
@@ -15,6 +14,9 @@ signal died(name: String, exp_reward: int)
 @export var collision_shape: CollisionShape2D
 @export var player_detector: PlayerDetector
 @export var hit_popup_spawner: HitPopupSpawner
+
+@export_group("Stats")
+@export var stats: EnemyStats
 
 @export_group("Info")
 @export var enemy_name: String
@@ -28,6 +30,8 @@ signal died(name: String, exp_reward: int)
 @export var max_attack_interval: float = 6.0
 @export var special_attacks: Array[SpecialAttack] = []
 
+@onready var regeneration_counter: RegenerationCounter
+
 var attack_timer := 0.0
 
 var target: Player
@@ -39,6 +43,10 @@ var can_move = true
 var is_hurt = false
 
 func _ready() -> void:
+	stats = stats.duplicate()
+	regeneration_counter = RegenerationCounter.new()
+	add_child(regeneration_counter)
+	regeneration_counter.stats = stats
 	hurtbox.stats = stats
 	health_bar.max_value = stats.max_hp
 	health_bar.set_hp(stats.hp)
