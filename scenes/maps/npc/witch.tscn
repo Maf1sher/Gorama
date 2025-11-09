@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxvyuwt7xp7ul"]
+
+[ext_resource type="Script" uid="uid://dqsa18vs5nyat" path="res://scripts/map/npc/witch.gd" id="1_3y0ux"]
+[ext_resource type="Texture2D" uid="uid://c4258fdklerhn" path="res://assests/sprites/map/npc/witch.png" id="1_ibvks"]
+[ext_resource type="Texture2D" uid="uid://d343wkppnhw4c" path="res://assests/sprites/map/environment/witch_house.png" id="1_r7tso"]
+[ext_resource type="Texture2D" uid="uid://hl0665i0bhxt" path="res://assests/sprites/map/environment/witch_house_border.png" id="2_fdwyi"]
+[ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://scripts/components/entity/player_detector.gd" id="5_io0so"]
+
+[sub_resource type="Animation" id="Animation_r7tso"]
+resource_name = "idle"
+length = 1.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Witch:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_fdwyi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Witch:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjj4e"]
+_data = {
+&"RESET": SubResource("Animation_fdwyi"),
+&"idle": SubResource("Animation_r7tso")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y0ux"]
+size = Vector2(93.33333, 35.000004)
+
+[node name="Witch" type="Node2D"]
+script = ExtResource("1_3y0ux")
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(2, -39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_r7tso")
+
+[node name="Border" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_fdwyi")
+
+[node name="Witch" type="Sprite2D" parent="."]
+position = Vector2(3, -22)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_ibvks")
+flip_h = true
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xjj4e")
+}
+autoplay = "idle"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-25, -3, -13, -3, -13, 1, 17, 1, 17, -3, 29, -3, 32, -45, 41, -45, 41, -76, 32, -81, 32, -93, 20, -93, 2, -113, -16, -93, -36, -93, -36, -46, -28, -46)
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(3, -22)
+scale = Vector2(0.6, 0.6)
+collision_mask = 2
+script = ExtResource("5_io0so")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-1.6666672, 44.166664)
+shape = SubResource("RectangleShape2D_3y0ux")
+
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]
+[connection signal="player_detection" from="PlayerDetector" to="." method="_on_player_detector_player_detection"]

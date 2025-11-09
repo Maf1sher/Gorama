@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cqucb7l0e2awe"]
 
-[ext_resource type="Script" uid="uid://b70h6y21mfq03" path="res://scripts/map/npc/blacksmith/blacksmith.gd" id="1_xttc4"]
+[ext_resource type="Script" uid="uid://b70h6y21mfq03" path="res://scripts/map/npc/blacksmith.gd" id="1_xttc4"]
 [ext_resource type="Texture2D" uid="uid://30n4aasd8yb2" path="res://assests/sprites/map/npc/blacksmith.png" id="2_1skma"]
 [ext_resource type="Texture2D" uid="uid://cyd078ej5nsi1" path="res://assests/sprites/map/environment/blacksmith_house.png" id="2_mvs2y"]
 [ext_resource type="Texture2D" uid="uid://bkqkqal7gggr6" path="res://assests/sprites/map/environment/balacksmith_hourse_border.png" id="2_xttc4"]
