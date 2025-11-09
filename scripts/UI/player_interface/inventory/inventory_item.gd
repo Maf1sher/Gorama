@@ -3,11 +3,15 @@ extends Sprite2D
 
 @onready var price_control = $PriceControl
 @onready var price_label = $PriceControl/MarginContainer/HBoxContainer/Price
+@onready var item_info_panel = $ItemInfoPanel
+@onready var mouse_detector = $MouseDetector
+@onready var timer: Timer = $Timer
 
 const SLOT_SIZE = 16
 
 var data: ItemData = null
 var is_picked: bool = false
+var show_info_panel: bool = false
 var size: Vector2:
 	get():
 		return Vector2(data.dimentions.x, data.dimentions.y) * SLOT_SIZE
@@ -25,6 +29,12 @@ func _ready() -> void:
 			price_control.position.x - ((size.x - control_size.x) / 2),
 			price_control.position.y - ((size.y - control_size.y) / 2)))
 		price_label.text = str(data.price)
+		
+		item_info_panel.data = data
+		item_info_panel.set_data()
+		
+		mouse_detector.set_size(size)
+		mouse_detector.set_position(mouse_detector.size / -2)
 		
 func _process(delta: float) -> void:
 	if is_picked:
@@ -60,3 +70,28 @@ func do_rotation() -> void:
 	
 func set_price_visibility(visible: bool) -> void:
 	price_control.visible = visible
+
+func _on_mouse_detector_mouse_entered() -> void:
+	if ItemDragManager.get_held_item() == null:
+		show_info_panel = true
+		timer.start()
+
+func _on_mouse_detector_mouse_exited() -> void:
+	if !timer.is_stopped():
+		timer.stop()
+	show_info_panel = false
+	item_info_panel.visible = false
+	item_info_panel.hide()
+
+func _on_timer_timeout() -> void:
+	if show_info_panel:
+		item_info_panel.set_position(
+			Vector2i(
+				get_global_position().x + (size.x / 2),
+				get_global_position().y - 48
+			)
+		)
+		item_info_panel.visible = true
+		item_info_panel.popup()
+	
+	
