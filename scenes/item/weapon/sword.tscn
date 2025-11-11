@@ -108,11 +108,10 @@ _data = {
 &"attack": SubResource("Animation_wey5q")
 }
 
-[node name="Sword" type="Node2D" node_paths=PackedStringArray("animation", "hitbox", "stats")]
+[node name="Sword" type="Node2D" node_paths=PackedStringArray("animation", "hitbox")]
 script = ExtResource("1_07cgf")
 animation = NodePath("AnimationPlayer")
 hitbox = NodePath("Sprite2D/HitBox")
-stats = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, -8)

@@ -22,6 +22,7 @@ var anchor_point: Vector2:
 		
 func _ready() -> void:
 	if data:
+		data.generate_socket_tree()
 		texture = data.texture
 		var control_size = price_control.size
 		price_control.set_size(size)
@@ -30,8 +31,7 @@ func _ready() -> void:
 			price_control.position.y - ((size.y - control_size.y) / 2)))
 		price_label.text = str(data.price)
 		
-		item_info_panel.data = data
-		item_info_panel.set_data()
+		item_info_panel.set_data(data)
 		
 		mouse_detector.set_size(size)
 		mouse_detector.set_position(mouse_detector.size / -2)

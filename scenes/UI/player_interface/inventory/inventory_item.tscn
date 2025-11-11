@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdhifj2wsy1jx"]
+[gd_scene load_steps=7 format=3 uid="uid://bdhifj2wsy1jx"]
 
 [ext_resource type="Script" uid="uid://civcmu2vwsb8v" path="res://scripts/UI/player_interface/inventory/inventory_item.gd" id="1_hsmp6"]
 [ext_resource type="Script" uid="uid://dbdmfdytrxq5t" path="res://scripts/UI/player_interface/inventory/item_info_panel.gd" id="3_8jjbs"]
 [ext_resource type="Texture2D" uid="uid://blu5r8ykg1yoi" path="res://assests/sprites/crystal_hud.png" id="3_hkgny"]
 [ext_resource type="Texture2D" uid="uid://b7o52rb378ntj" path="res://assests/sprites/inventory/item_info_panel.png" id="4_8jjbs"]
+[ext_resource type="Script" uid="uid://ddrw1mj42u82f" path="res://scripts/UI/player_interface/item_info_panel/socket_container.gd" id="5_gps3u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jjbs"]
 
@@ -78,11 +79,19 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
+[node name="SocketContainer" type="VBoxContainer" parent="ItemInfoPanel/Control/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+script = ExtResource("5_gps3u")
+
 [node name="EffectsContainer" type="VBoxContainer" parent="ItemInfoPanel/Control/TextureRect/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 alignment = 1
+
+[node name="LineDrawer" type="Control" parent="ItemInfoPanel/Control/TextureRect/MarginContainer"]
+layout_mode = 2
 
 [node name="MouseDetector" type="Control" parent="."]
 layout_mode = 3

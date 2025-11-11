@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://hx81pwkpgjv1"]
+
+[ext_resource type="Script" uid="uid://bsxjtg1nucef8" path="res://scripts/UI/player_interface/item_info_panel/socket_layer_panel.gd" id="1_8xqla"]
+
+[node name="SocketLayerPanel" type="HBoxContainer"]
+size_flags_horizontal = 4
+script = ExtResource("1_8xqla")
