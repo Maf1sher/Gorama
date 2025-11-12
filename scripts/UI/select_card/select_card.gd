@@ -4,7 +4,7 @@ signal select_card_is_open(status: bool)
 
 @export var player: Player
 
-@onready var cards_container = $TextureRect/MarginContainer/HBoxContainer
+@onready var cards_container = $MarginContainer/HBoxContainer
 @onready var stats_panel: StatsPanel = $StatsPanel
 
 var cardScene = preload("res://scenes/UI/select_card/card.tscn")

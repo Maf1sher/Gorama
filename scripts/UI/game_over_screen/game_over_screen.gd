@@ -6,9 +6,11 @@ signal animation_finished()
 @export var player: Player
 
 @onready var animation = $AnimationPlayer
+@onready var sprite = $Sprite2D
 
 func _ready() -> void:
 	player.connect("died", _player_die)
+	sprite.set_position(size/2)
 
 func _player_die() -> void:
 	visible = true
