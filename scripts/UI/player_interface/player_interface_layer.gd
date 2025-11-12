@@ -2,8 +2,8 @@ extends CanvasLayer
 
 @onready var player_interface = $PlayerInterface
 
-#func _ready():
-	#player_interface.close()
+func _ready():
+	GameManager.set_player_interface(player_interface)
 
 func _input(event):
 	if event.is_action_pressed("open_inventory"):

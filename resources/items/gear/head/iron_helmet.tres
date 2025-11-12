@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://b6jfsyy83k2nf"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://b6jfsyy83k2nf"]
 
 [ext_resource type="PackedScene" uid="uid://b1d1k5i3pybs3" path="res://scenes/item/gear/head/iron_helmet.tscn" id="1_0vxlb"]
 [ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="1_rgkiw"]
+[ext_resource type="Script" uid="uid://dv1bl7nu8fq2o" path="res://resources/items/socket_layer.gd" id="3_aco34"]
 [ext_resource type="Script" uid="uid://cdjl45ydlav2o" path="res://scripts/components/stats/gear_stats.gd" id="3_baqga"]
 [ext_resource type="Texture2D" uid="uid://bt0e3hn5fv6jv" path="res://assests/sprites/gear/head/fb1905.png" id="3_thqys"]
 
@@ -16,8 +17,8 @@ script = ExtResource("1_rgkiw")
 name = "Iron Helmet"
 texture = ExtResource("3_thqys")
 dimentions = Vector2i(2, 2)
-item_sceen = ExtResource("1_0vxlb")
 type = 1
+item_sceen = ExtResource("1_0vxlb")
 price = 10
 stats = SubResource("Resource_aco34")
 metadata/_custom_type_script = "uid://crqw0yekhotaw"

@@ -68,7 +68,6 @@ func remove_panel(panel: Control):
 		for data in panels[key]:
 			if data.node == panel:
 				panels[key].erase(data)
-				panel.queue_free()
 				_refresh_layout()
 				emit_signal("panel_removed", panel)
 				return
@@ -108,3 +107,12 @@ func clear_panels() -> void:
 
 	for key in panels.keys():
 		panels[key].clear()
+		
+func get_equipment_node() -> Equipment:
+	return equipment
+	
+func get_character_sheet_node() -> CharacterSheet:
+	return character_sheet
+	
+func get_stats_panel_node() -> StatsPanel:
+	return stats_panel

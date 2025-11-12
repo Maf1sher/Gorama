@@ -29,6 +29,6 @@ func _on_static_body_2d_mouse_exited() -> void:
 func _on_static_body_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("action"):
 		if player_in_area and mouse_over:
-			var player_interface = get_tree().get_first_node_in_group("player_interface")
+			var player_interface = GameManager.player_interface
 			player_interface.add_panel(shop_panel, PlayerInterface.PanelPosition.LEFT, 1)
 			player_interface.open()
