@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://drrvwbtgs7gpx" path="res://assests/sprites/stats_panel/stat icons/life_steal.png" id="16_fq76k"]
 
 [node name="StatsPanel" type="Control"]
-custom_minimum_size = Vector2(120, 250)
+custom_minimum_size = Vector2(120, 270)
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0

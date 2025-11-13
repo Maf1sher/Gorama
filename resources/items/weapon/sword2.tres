@@ -1,10 +1,88 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://berthunsd3jyo"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=26 format=3 uid="uid://berthunsd3jyo"]
 
 [ext_resource type="PackedScene" uid="uid://c33hc2cuk70r" path="res://scenes/item/weapon/katana.tscn" id="1_pgd3f"]
 [ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="2_p4yvj"]
 [ext_resource type="Texture2D" uid="uid://dtifdjk71ylnw" path="res://assests/sprites/weapons/katana.png" id="3_73o37"]
 [ext_resource type="Script" uid="uid://v8j5hqe1v1yk" path="res://scripts/components/stats/weapon_stats.gd" id="3_bydu8"]
 [ext_resource type="Script" uid="uid://dv1bl7nu8fq2o" path="res://resources/items/socket_layer.gd" id="3_prw8g"]
+[ext_resource type="Script" uid="uid://dwubxuq2p8vn3" path="res://resources/items/socket.gd" id="4_lakpv"]
+
+[sub_resource type="Resource" id="Resource_v43gn"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_6dt7y"]
+script = ExtResource("3_prw8g")
+sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_v43gn")])
+metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
+
+[sub_resource type="Resource" id="Resource_p6ssn"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_wkeqa"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_scdlu"]
+script = ExtResource("3_prw8g")
+sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_p6ssn"), SubResource("Resource_wkeqa")])
+metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
+
+[sub_resource type="Resource" id="Resource_b5xmc"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_dimx5"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_lakpv"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_ee8qp"]
+script = ExtResource("3_prw8g")
+sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_b5xmc"), SubResource("Resource_dimx5"), SubResource("Resource_lakpv")])
+metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
+
+[sub_resource type="Resource" id="Resource_nortv"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_ljtch"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_mhua1"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_e4fkr"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_w8rsy"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_ov0gw"]
+script = ExtResource("3_prw8g")
+sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_nortv"), SubResource("Resource_ljtch"), SubResource("Resource_mhua1"), SubResource("Resource_e4fkr"), SubResource("Resource_w8rsy")])
+metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
+
+[sub_resource type="Resource" id="Resource_3odk5"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_ex2oi"]
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+
+[sub_resource type="Resource" id="Resource_d3uw2"]
+script = ExtResource("3_prw8g")
+sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_3odk5"), SubResource("Resource_ex2oi")])
+metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
 
 [sub_resource type="Resource" id="Resource_prw8g"]
 script = ExtResource("3_bydu8")
@@ -20,3 +98,4 @@ dimentions = Vector2i(2, 3)
 item_sceen = ExtResource("1_pgd3f")
 price = 20
 stats = SubResource("Resource_prw8g")
+socket_layers = Array[ExtResource("3_prw8g")]([SubResource("Resource_6dt7y"), SubResource("Resource_scdlu"), SubResource("Resource_ee8qp"), SubResource("Resource_ov0gw"), SubResource("Resource_d3uw2")])

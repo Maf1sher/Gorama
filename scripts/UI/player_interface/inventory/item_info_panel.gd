@@ -4,8 +4,8 @@ extends PopupPanel
 @onready var socket_layer_sceen = preload("res://scenes/UI/player_interface/item_info_panel/socket_layer_panel.tscn")
 @onready var socket_sceen = preload("res://scenes/UI/player_interface/item_info_panel/socket_panel.tscn")
 
-@onready var effects_container = $Control/TextureRect/MarginContainer/EffectsContainer
-@onready var sockets_container = $Control/TextureRect/MarginContainer/SocketContainer
+@onready var effects_container = $Control/MarginContainer/VBoxContainer/EffectsContainer
+@onready var sockets_container = $Control/MarginContainer/VBoxContainer/SocketContainer
 
 var data: ItemData = null
 
@@ -20,3 +20,4 @@ func set_data(item_data: ItemData) -> void:
 		effects_container.add_child(new_effect)
 	
 	sockets_container.generate_socket_tree(data.socket_layers)
+	

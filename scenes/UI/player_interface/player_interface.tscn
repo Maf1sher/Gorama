@@ -31,7 +31,7 @@ grow_vertical = 2
 [node name="LeftColumn" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+alignment = 1
 
 [node name="Equipment" parent="HBoxContainer/LeftColumn" instance=ExtResource("1_k3yh5")]
 layout_mode = 2
@@ -40,8 +40,8 @@ items = Array[ExtResource("3_d3ojb")]([ExtResource("4_2x0aj"), ExtResource("5_rh
 [node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 4
+alignment = 1
 
 [node name="CharacterSheet" parent="HBoxContainer/CenterColumn" instance=ExtResource("2_6o75j")]
 layout_mode = 2
@@ -49,8 +49,10 @@ layout_mode = 2
 [node name="RightColumn" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
+size_flags_horizontal = 3
+alignment = 1
 
 [node name="StatsPanel" parent="HBoxContainer/RightColumn" instance=ExtResource("3_k3yh5")]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
