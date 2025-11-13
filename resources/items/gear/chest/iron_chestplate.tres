@@ -1,24 +1,24 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://dg06h07q7pps"]
+[gd_resource type="Resource" script_class="GearData" load_steps=6 format=3 uid="uid://dg06h07q7pps"]
 
 [ext_resource type="PackedScene" uid="uid://n6fvuk2u71wx" path="res://scenes/item/gear/chest/iron_chestplate.tscn" id="1_ldy1n"]
-[ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="1_sqstp"]
+[ext_resource type="Script" uid="uid://d0f3osehvhn7k" path="res://resources/items/item_data/gear_data.gd" id="2_m62ff"]
 [ext_resource type="Texture2D" uid="uid://dvivwleabwqtm" path="res://assests/sprites/gear/chest/fb1921.png" id="3_m62ff"]
 [ext_resource type="Script" uid="uid://cdjl45ydlav2o" path="res://scripts/components/stats/gear_stats.gd" id="3_w4pp3"]
-[ext_resource type="Script" uid="uid://dv1bl7nu8fq2o" path="res://resources/items/socket_layer.gd" id="3_wneno"]
 
-[sub_resource type="Resource" id="Resource_wneno"]
+[sub_resource type="Resource" id="Resource_m62ff"]
 script = ExtResource("3_w4pp3")
+max_hp = 20
 armor = 20
-movement_speed = -10
+movement_speed = -5
 metadata/_custom_type_script = "uid://cdjl45ydlav2o"
 
 [resource]
-script = ExtResource("1_sqstp")
+script = ExtResource("2_m62ff")
+item_sceen = ExtResource("1_ldy1n")
+stats = SubResource("Resource_m62ff")
 name = "Iron Chestplate"
 texture = ExtResource("3_m62ff")
 dimentions = Vector2i(2, 3)
-type = 2
-item_sceen = ExtResource("1_ldy1n")
 price = 20
-stats = SubResource("Resource_wneno")
+type = 2
 metadata/_custom_type_script = "uid://crqw0yekhotaw"

@@ -5,6 +5,7 @@ extends Node2D
 @export var hitbox: HitBox
 
 var stats: WeaponStats
+var sockets: Array[Socket] = []
 var can_attack: bool = true
 
 var playerStats: PlayerStats

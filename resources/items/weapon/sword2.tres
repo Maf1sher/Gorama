@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=26 format=3 uid="uid://berthunsd3jyo"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=23 format=3 uid="uid://berthunsd3jyo"]
 
 [ext_resource type="PackedScene" uid="uid://c33hc2cuk70r" path="res://scenes/item/weapon/katana.tscn" id="1_pgd3f"]
-[ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="2_p4yvj"]
+[ext_resource type="Script" uid="uid://cj6y7ndrbtqmd" path="res://resources/items/item_data/weapon_data.gd" id="2_lakpv"]
 [ext_resource type="Texture2D" uid="uid://dtifdjk71ylnw" path="res://assests/sprites/weapons/katana.png" id="3_73o37"]
 [ext_resource type="Script" uid="uid://v8j5hqe1v1yk" path="res://scripts/components/stats/weapon_stats.gd" id="3_bydu8"]
 [ext_resource type="Script" uid="uid://dv1bl7nu8fq2o" path="res://resources/items/socket_layer.gd" id="3_prw8g"]
@@ -37,14 +37,9 @@ metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 script = ExtResource("4_lakpv")
 metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 
-[sub_resource type="Resource" id="Resource_lakpv"]
+[sub_resource type="Resource" id="Resource_ee8qp"]
 script = ExtResource("4_lakpv")
 metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
-
-[sub_resource type="Resource" id="Resource_ee8qp"]
-script = ExtResource("3_prw8g")
-sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_b5xmc"), SubResource("Resource_dimx5"), SubResource("Resource_lakpv")])
-metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
 
 [sub_resource type="Resource" id="Resource_nortv"]
 script = ExtResource("4_lakpv")
@@ -55,8 +50,9 @@ script = ExtResource("4_lakpv")
 metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 
 [sub_resource type="Resource" id="Resource_mhua1"]
-script = ExtResource("4_lakpv")
-metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
+script = ExtResource("3_prw8g")
+sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_b5xmc"), SubResource("Resource_dimx5"), SubResource("Resource_ee8qp"), SubResource("Resource_nortv"), SubResource("Resource_ljtch")])
+metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
 
 [sub_resource type="Resource" id="Resource_e4fkr"]
 script = ExtResource("4_lakpv")
@@ -67,35 +63,26 @@ script = ExtResource("4_lakpv")
 metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 
 [sub_resource type="Resource" id="Resource_ov0gw"]
-script = ExtResource("3_prw8g")
-sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_nortv"), SubResource("Resource_ljtch"), SubResource("Resource_mhua1"), SubResource("Resource_e4fkr"), SubResource("Resource_w8rsy")])
-metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
+script = ExtResource("4_lakpv")
+metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 
 [sub_resource type="Resource" id="Resource_3odk5"]
-script = ExtResource("4_lakpv")
-metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
-
-[sub_resource type="Resource" id="Resource_ex2oi"]
-script = ExtResource("4_lakpv")
-metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
-
-[sub_resource type="Resource" id="Resource_d3uw2"]
 script = ExtResource("3_prw8g")
-sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_3odk5"), SubResource("Resource_ex2oi")])
+sockets = Array[ExtResource("4_lakpv")]([SubResource("Resource_e4fkr"), SubResource("Resource_w8rsy"), SubResource("Resource_ov0gw")])
 metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
 
-[sub_resource type="Resource" id="Resource_prw8g"]
+[sub_resource type="Resource" id="Resource_ex2oi"]
 script = ExtResource("3_bydu8")
 damage = 60
 attack_speed_percent = 50
 metadata/_custom_type_script = "uid://v8j5hqe1v1yk"
 
 [resource]
-script = ExtResource("2_p4yvj")
+script = ExtResource("2_lakpv")
+socket_layers = Array[ExtResource("3_prw8g")]([SubResource("Resource_6dt7y"), SubResource("Resource_scdlu"), SubResource("Resource_mhua1"), SubResource("Resource_3odk5")])
+item_sceen = ExtResource("1_pgd3f")
+stats = SubResource("Resource_ex2oi")
 name = "katana"
 texture = ExtResource("3_73o37")
 dimentions = Vector2i(2, 3)
-item_sceen = ExtResource("1_pgd3f")
-price = 20
-stats = SubResource("Resource_prw8g")
-socket_layers = Array[ExtResource("3_prw8g")]([SubResource("Resource_6dt7y"), SubResource("Resource_scdlu"), SubResource("Resource_ee8qp"), SubResource("Resource_ov0gw"), SubResource("Resource_d3uw2")])
+price = 60

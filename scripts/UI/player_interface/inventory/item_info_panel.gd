@@ -13,16 +13,17 @@ var socket_map: Dictionary = {}
 
 func set_data(item_data: ItemData) -> void:
 	data = item_data
-	var stats := data.stats.get_modified_stats()
-	for stat in stats:
-		var new_effect = effect_sceen.instantiate()
-		new_effect.set_effect_text(stat, stats[stat])
-		effects_container.add_child(new_effect)
-	
-	#sockets_container.generate_socket_tree(data.socket_layers)
+	if data is EquipmentData:
+		var stats = data.stats.get_modified_stats()
+		for stat in stats:
+			var new_effect = effect_sceen.instantiate()
+			new_effect.set_effect_text(stat, stats[stat])
+			effects_container.add_child(new_effect)
 
 func _on_about_to_popup() -> void:
-	sockets_container.generate_socket_tree(data.socket_layers)
+	if data.type == ItemTypes.Type.WEAPON:
+		sockets_container.generate_socket_tree(data.socket_layers)
 
 func _on_popup_hide() -> void:
-	sockets_container.clear_socket_tree()
+	if data.type == ItemTypes.Type.WEAPON:
+		sockets_container.clear_socket_tree()

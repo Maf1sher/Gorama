@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://14tb3i0ulsku"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=14 format=3 uid="uid://14tb3i0ulsku"]
 
+[ext_resource type="Script" uid="uid://cj6y7ndrbtqmd" path="res://resources/items/item_data/weapon_data.gd" id="1_gsd8o"]
 [ext_resource type="PackedScene" uid="uid://cft2ma5kps054" path="res://scenes/item/weapon/sword.tscn" id="1_idbtl"]
-[ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data.gd" id="2_xfdhe"]
 [ext_resource type="Script" uid="uid://dv1bl7nu8fq2o" path="res://resources/items/socket_layer.gd" id="3_8vgsu"]
 [ext_resource type="Texture2D" uid="uid://cametniu6akn6" path="res://assests/sprites/weapons/fb1608.png" id="3_tw7s7"]
 [ext_resource type="Script" uid="uid://v8j5hqe1v1yk" path="res://scripts/components/stats/weapon_stats.gd" id="3_y64f0"]
@@ -11,40 +11,40 @@
 script = ExtResource("4_re7an")
 metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 
-[sub_resource type="Resource" id="Resource_ws1hs"]
+[sub_resource type="Resource" id="Resource_re7an"]
 script = ExtResource("3_8vgsu")
 sockets = Array[ExtResource("4_re7an")]([SubResource("Resource_8vgsu")])
 metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
 
-[sub_resource type="Resource" id="Resource_re7an"]
+[sub_resource type="Resource" id="Resource_ewxmu"]
 script = ExtResource("4_re7an")
 metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 
-[sub_resource type="Resource" id="Resource_ctva2"]
+[sub_resource type="Resource" id="Resource_ws1hs"]
 script = ExtResource("3_8vgsu")
-sockets = Array[ExtResource("4_re7an")]([SubResource("Resource_re7an")])
+sockets = Array[ExtResource("4_re7an")]([SubResource("Resource_ewxmu")])
 metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
 
 [sub_resource type="Resource" id="Resource_bdcnn"]
 script = ExtResource("4_re7an")
 metadata/_custom_type_script = "uid://dwubxuq2p8vn3"
 
-[sub_resource type="Resource" id="Resource_k3n2w"]
+[sub_resource type="Resource" id="Resource_ctva2"]
 script = ExtResource("3_8vgsu")
 sockets = Array[ExtResource("4_re7an")]([SubResource("Resource_bdcnn")])
 metadata/_custom_type_script = "uid://dv1bl7nu8fq2o"
 
-[sub_resource type="Resource" id="Resource_kc6vr"]
+[sub_resource type="Resource" id="Resource_85vak"]
 script = ExtResource("3_y64f0")
-damage = 10
+damage = 25
 metadata/_custom_type_script = "uid://v8j5hqe1v1yk"
 
 [resource]
-script = ExtResource("2_xfdhe")
+script = ExtResource("1_gsd8o")
+socket_layers = Array[ExtResource("3_8vgsu")]([SubResource("Resource_re7an"), SubResource("Resource_ws1hs"), SubResource("Resource_ctva2")])
+item_sceen = ExtResource("1_idbtl")
+stats = SubResource("Resource_85vak")
 name = "sword"
 texture = ExtResource("3_tw7s7")
 dimentions = Vector2i(2, 3)
-item_sceen = ExtResource("1_idbtl")
-price = 11
-stats = SubResource("Resource_kc6vr")
-socket_layers = Array[ExtResource("3_8vgsu")]([SubResource("Resource_ws1hs"), SubResource("Resource_ctva2"), SubResource("Resource_k3n2w")])
+price = 20
