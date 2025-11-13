@@ -22,6 +22,7 @@ var anchor_point: Vector2:
 		
 func _ready() -> void:
 	if data:
+		data = data.duplicate(true)
 		data.generate_socket_tree()
 		texture = data.texture
 		var control_size = price_control.size

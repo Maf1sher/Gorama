@@ -6,5 +6,6 @@ enum Type {
 	CHEST,
 	BOOTS,
 	RING,
+	UPGRADE,
 	OTHER
 }

@@ -112,8 +112,6 @@ mouse_filter = 1
 wait_time = 0.3
 one_shot = true
 
-[connection signal="about_to_popup" from="ItemInfoPanel" to="ItemInfoPanel" method="_on_about_to_popup"]
-[connection signal="popup_hide" from="ItemInfoPanel" to="ItemInfoPanel" method="_on_popup_hide"]
 [connection signal="mouse_entered" from="MouseDetector" to="." method="_on_mouse_detector_mouse_entered"]
 [connection signal="mouse_exited" from="MouseDetector" to="." method="_on_mouse_detector_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

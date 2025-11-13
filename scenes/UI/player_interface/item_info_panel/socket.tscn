@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://baej3en1gwdco"]
+
+[ext_resource type="Texture2D" uid="uid://bmotxy2ngek8f" path="res://assests/sprites/inventory/equipment/slot.png" id="1_sm4j0"]
+[ext_resource type="Script" uid="uid://5xalwo6bcbyv" path="res://scripts/UI/player_interface/item_info_panel/socket_info_panel.gd" id="2_ql4i6"]
+
+[node name="SocketPanel" type="TextureRect"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_sm4j0")
+stretch_mode = 2
+script = ExtResource("2_ql4i6")
+
+[node name="Item" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

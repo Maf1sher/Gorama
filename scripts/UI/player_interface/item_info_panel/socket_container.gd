@@ -26,6 +26,7 @@ func generate_socket_tree(socket_layers: Array[SocketLayer]) -> void:
 		add_child(layer_instance)
 		for socket in layer.sockets:
 			var socket_instance = socket_sceen.instantiate()
+			socket_instance.socket = socket
 			layer_instance.add_child(socket_instance)
 			socket_map[socket] = socket_instance
 	

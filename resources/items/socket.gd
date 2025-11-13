@@ -1,5 +1,5 @@
 class_name Socket
 extends Resource
 
-var effect: Effect
+var item: ItemData
 var connections: Array[Socket] = []
