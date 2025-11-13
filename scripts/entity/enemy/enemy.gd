@@ -99,6 +99,7 @@ func animation() -> void:
 		animated_sprite.play("walk")
 
 func die():
+	hurtbox.monitoring = false
 	set_physics_process(false)
 	emit_signal("died", enemy_name, exp)
 	animated_sprite.play("death")

@@ -141,6 +141,7 @@ func _change_weapon(item: Node, hand: Node, graphics: Node2D, data: ItemData) ->
 		instance.position.x = item.data.sceen_achor_point.x
 		instance.position.y = item.data.sceen_achor_point.y
 		instance.stats = item.data.stats
+		instance.sockets = item.data.socket_layers[0].sockets
 		instance.playerStats = stats
 		graphics.add_child(instance)
 		return {"instance": instance, "data": data}
