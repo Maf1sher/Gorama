@@ -1,6 +1,6 @@
 extends TextureRect
 
-signal item_changed(item)
+signal item_changed(item: InventoryItem)
 
 @export var dimentions: Vector2i
 @export var type: ItemTypes.Type
