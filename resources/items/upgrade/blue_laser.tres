@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=4 format=3 uid="uid://b62lil74xf8xt"]
+
+[ext_resource type="Script" uid="uid://dx2owphom725a" path="res://resources/items/item_data/upgrade_data.gd" id="1_0kaqi"]
+[ext_resource type="PackedScene" uid="uid://coyrs4af7ohmx" path="res://scenes/effects/blue_laser.tscn" id="1_qw72n"]
+[ext_resource type="Texture2D" uid="uid://blcygabcwo4qf" path="res://assests/sprites/upgrade/fa1023.png" id="3_mgo5f"]
+
+[resource]
+script = ExtResource("1_0kaqi")
+description = "blue laser"
+effect_scene = ExtResource("1_qw72n")
+name = "blue laser"
+texture = ExtResource("3_mgo5f")
+dimentions = Vector2i(1, 1)
+price = 10
+type = 5
+metadata/_custom_type_script = "uid://dx2owphom725a"

@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://coyrs4af7ohmx"]
+
+[ext_resource type="Script" uid="uid://7narit1rfep5" path="res://scripts/effects/blue_laser.gd" id="1_bsgot"]
+[ext_resource type="Texture2D" uid="uid://bmfwrr6ul6evv" path="res://assests/sprites/effects/blue_laser.png" id="2_vs4ea"]
+[ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="3_0w2up"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd6cf"]
+radius = 3.0
+height = 50.0
+
+[sub_resource type="Animation" id="Animation_j7dbq"]
+resource_name = "shot"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"execute_connected_socket"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6yav8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djkn6"]
+_data = {
+&"RESET": SubResource("Animation_6yav8"),
+&"shot": SubResource("Animation_j7dbq")
+}
+
+[node name="BlueLaser" type="Node2D"]
+script = ExtResource("1_bsgot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1)
+texture = ExtResource("2_vs4ea")
+offset = Vector2(-24, 0)
+
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_0w2up")
+metadata/_custom_type_script = "uid://cvxmlyoaq47x5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+position = Vector2(-24, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kd6cf")
+debug_color = Color(0.9704352, 0, 0.45792264, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_djkn6")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
