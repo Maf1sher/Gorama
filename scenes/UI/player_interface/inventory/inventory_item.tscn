@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdhifj2wsy1jx"]
+[gd_scene load_steps=7 format=3 uid="uid://bdhifj2wsy1jx"]
 
 [ext_resource type="Script" uid="uid://civcmu2vwsb8v" path="res://scripts/UI/player_interface/inventory/inventory_item.gd" id="1_hsmp6"]
 [ext_resource type="Script" uid="uid://dbdmfdytrxq5t" path="res://scripts/UI/player_interface/inventory/item_info_panel.gd" id="3_8jjbs"]
 [ext_resource type="Texture2D" uid="uid://blu5r8ykg1yoi" path="res://assests/sprites/crystal_hud.png" id="3_hkgny"]
 [ext_resource type="Texture2D" uid="uid://b7o52rb378ntj" path="res://assests/sprites/inventory/item_info_panel.png" id="4_8jjbs"]
-[ext_resource type="Script" uid="uid://ddrw1mj42u82f" path="res://scripts/UI/player_interface/item_info_panel/socket_container.gd" id="5_gps3u"]
-[ext_resource type="PackedScene" uid="uid://baej3en1gwdco" path="res://scenes/UI/player_interface/item_info_panel/socket.tscn" id="6_fmwml"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jjbs"]
 
@@ -79,23 +77,9 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ItemInfoPanel/Control/MarginContainer"]
+[node name="ItemDetailsContainer" type="VBoxContainer" parent="ItemInfoPanel/Control/MarginContainer"]
 layout_mode = 2
-
-[node name="SocketContainer" type="VBoxContainer" parent="ItemInfoPanel/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-script = ExtResource("5_gps3u")
-socket_sceen = ExtResource("6_fmwml")
-
-[node name="EffectsContainer" type="VBoxContainer" parent="ItemInfoPanel/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="LineDrawer" type="Control" parent="ItemInfoPanel/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 4
 
 [node name="MouseDetector" type="Control" parent="."]
 layout_mode = 3

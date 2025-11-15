@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b3hjy3onmi13d"]
+
+[node name="EffectsContainer" type="VBoxContainer"]
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+alignment = 1

@@ -1,7 +1,7 @@
 class_name UpgradeData
 extends ItemData
 
-@export var description: String
+@export_multiline var description: String
 @export var on_hit: bool = false
 @export var effect_scene: PackedScene
 

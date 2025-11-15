@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brjhyku1d463k"]
+
+[ext_resource type="Script" uid="uid://ddrw1mj42u82f" path="res://scripts/UI/player_interface/item_info_panel/socket_container.gd" id="1_81d2v"]
+[ext_resource type="PackedScene" uid="uid://baej3en1gwdco" path="res://scenes/UI/player_interface/item_info_panel/socket.tscn" id="2_lo8nr"]
+
+[node name="SocketContainer" type="VBoxContainer"]
+size_flags_vertical = 0
+script = ExtResource("1_81d2v")
+socket_sceen = ExtResource("2_lo8nr")

@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_0kaqi")
-description = "blue laser"
+description = "Creates a laser that damages all enemies along its path"
 effect_scene = ExtResource("1_qw72n")
 name = "blue laser"
 texture = ExtResource("3_mgo5f")
