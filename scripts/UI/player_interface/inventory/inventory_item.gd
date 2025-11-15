@@ -29,8 +29,8 @@ func _ready() -> void:
 		var control_size = price_control.size
 		price_control.set_size(size)
 		price_control.set_position(Vector2(
-			price_control.position.x - ((size.x - control_size.x) / 2),
-			price_control.position.y - ((size.y - control_size.y) / 2)))
+			price_control.position.x - (size.x / 2),
+			price_control.position.y - (size.y / 2)))
 		price_label.text = str(data.price)
 		
 		item_info_panel.set_data(data)
