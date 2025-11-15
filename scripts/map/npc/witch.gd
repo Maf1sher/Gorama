@@ -19,10 +19,12 @@ func _on_player_detector_player_detection(in_area: bool) -> void:
 	_border_visibility_update()
 
 func _on_static_body_2d_mouse_entered() -> void:
+	InputManager.block_attack()
 	mouse_over = true
 	_border_visibility_update()
 
 func _on_static_body_2d_mouse_exited() -> void:
+	InputManager.unblock_attack()
 	mouse_over = false
 	_border_visibility_update()
 	

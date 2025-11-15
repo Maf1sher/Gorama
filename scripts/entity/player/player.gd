@@ -67,10 +67,10 @@ func _input(event: InputEvent) -> void:
 		if InputManager.is_input_blocked():
 			return
 
-		if Input.is_action_pressed("letf_hand_attack") and _left_hand:
+		if Input.is_action_pressed("letf_hand_attack") and _left_hand and !InputManager.is_attack_blocked():
 			_left_hand.play_attack_animation()
 			
-		if Input.is_action_pressed("right_hand_attack") and _right_hand:
+		if Input.is_action_pressed("right_hand_attack") and _right_hand and !InputManager.is_attack_blocked():
 			_right_hand.play_attack_animation()
 
 func animation():
