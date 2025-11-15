@@ -70,11 +70,13 @@ func swap_items(held_item: Node) -> void:
 	var tmp = item
 	item.get_picked_up()
 	item = null
+	socket.item = null
 	emit_signal("item_changed", item)
 	ItemDragManager.swap_items(tmp, self)
 	if held_item.data.is_rotated:
 		held_item.do_rotation()
 	item = held_item
+	socket.item = held_item.data
 	held_item.get_placed(global_position + size / 2 - held_item.size / 2)
 	emit_signal("item_changed", item)
 	
