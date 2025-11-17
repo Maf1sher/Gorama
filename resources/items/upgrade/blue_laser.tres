@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx2owphom725a" path="res://resources/items/item_data/upgrade_data.gd" id="1_0kaqi"]
 [ext_resource type="PackedScene" uid="uid://coyrs4af7ohmx" path="res://scenes/effects/blue_laser.tscn" id="1_qw72n"]
-[ext_resource type="Texture2D" uid="uid://blcygabcwo4qf" path="res://assests/sprites/upgrade/fa1023.png" id="3_mgo5f"]
+[ext_resource type="Texture2D" uid="uid://blcygabcwo4qf" path="res://assests/sprites/items/upgrade/fa1023.png" id="3_mgo5f"]
 
 [resource]
 script = ExtResource("1_0kaqi")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bbuhkb4divhbv" path="res://scripts/UI/menu.gd" id="1_7w07o"]
 [ext_resource type="PackedScene" uid="uid://dtpeejkmh0uwu" path="res://scenes/maps/SaveZone.tscn" id="2_nh0fe"]
-[ext_resource type="Texture2D" uid="uid://b3htmts71574o" path="res://assests/sprites/buttons/Default.png" id="3_4vbaf"]
-[ext_resource type="Texture2D" uid="uid://bkp1sfxjlop3a" path="res://assests/sprites/buttons/Hover.png" id="4_ssd2u"]
+[ext_resource type="Texture2D" uid="uid://b3htmts71574o" path="res://assests/sprites/UI/buttons/Default.png" id="3_4vbaf"]
+[ext_resource type="Texture2D" uid="uid://bkp1sfxjlop3a" path="res://assests/sprites/UI/buttons/Hover.png" id="4_ssd2u"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nh0fe"]
 texture = ExtResource("3_4vbaf")

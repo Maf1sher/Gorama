@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dausc8m1fsx3p" path="res://scripts/entity/enemy/golem.gd" id="1_qsi3s"]
 [ext_resource type="Script" uid="uid://1q37vrdh48ae" path="res://scripts/components/stats/enemy_stats.gd" id="2_hsw8r"]
 [ext_resource type="Script" uid="uid://cecrxxvtjbuty" path="res://resources/special_attacks/special_attack.gd" id="2_p7ecp"]
-[ext_resource type="Texture2D" uid="uid://cv3wg7snj8j4u" path="res://assests/sprites/enemys/golem/golem.png" id="3_3iwn7"]
+[ext_resource type="Texture2D" uid="uid://cv3wg7snj8j4u" path="res://assests/sprites/entity/enemys/golem/golem.png" id="3_3iwn7"]
 [ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://scripts/components/entity/player_detector.gd" id="3_agum6"]
 [ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="4_d0g3o"]
 [ext_resource type="Script" uid="uid://cl8oo8fht7pn" path="res://resources/special_attacks/around_red_ball.gd" id="4_mgb50"]

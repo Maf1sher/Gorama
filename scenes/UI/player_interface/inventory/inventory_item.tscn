@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://civcmu2vwsb8v" path="res://scripts/UI/player_interface/inventory/inventory_item.gd" id="1_hsmp6"]
 [ext_resource type="Script" uid="uid://dbdmfdytrxq5t" path="res://scripts/UI/player_interface/inventory/item_info_panel.gd" id="3_8jjbs"]
-[ext_resource type="Texture2D" uid="uid://blu5r8ykg1yoi" path="res://assests/sprites/crystal_hud.png" id="3_hkgny"]
-[ext_resource type="Texture2D" uid="uid://b7o52rb378ntj" path="res://assests/sprites/inventory/item_info_panel.png" id="4_8jjbs"]
+[ext_resource type="Texture2D" uid="uid://blu5r8ykg1yoi" path="res://assests/sprites/UI/crystal_hud.png" id="3_hkgny"]
+[ext_resource type="Texture2D" uid="uid://b7o52rb378ntj" path="res://assests/sprites/UI/inventory/item_info_panel.png" id="4_8jjbs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jjbs"]
 

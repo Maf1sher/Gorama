@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://n6fvuk2u71wx" path="res://scenes/item/gear/chest/iron_chestplate.tscn" id="1_ldy1n"]
 [ext_resource type="Script" uid="uid://d0f3osehvhn7k" path="res://resources/items/item_data/gear_data.gd" id="2_m62ff"]
-[ext_resource type="Texture2D" uid="uid://dvivwleabwqtm" path="res://assests/sprites/gear/chest/fb1921.png" id="3_m62ff"]
+[ext_resource type="Texture2D" uid="uid://dvivwleabwqtm" path="res://assests/sprites/items/gear/chest/fb1921.png" id="3_m62ff"]
 [ext_resource type="Script" uid="uid://cdjl45ydlav2o" path="res://scripts/components/stats/gear_stats.gd" id="3_w4pp3"]
 
 [sub_resource type="Resource" id="Resource_m62ff"]

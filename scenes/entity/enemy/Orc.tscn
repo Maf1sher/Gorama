@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b046cc3jnev11" path="res://scripts/entity/enemy/orc.gd" id="1_ji0vp"]
 [ext_resource type="Script" uid="uid://1q37vrdh48ae" path="res://scripts/components/stats/enemy_stats.gd" id="2_2onpk"]
-[ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/enemys/orc/Orc.png" id="3_f00c8"]
+[ext_resource type="Texture2D" uid="uid://b1d6cp1cyq87a" path="res://assests/sprites/entity/enemys/orc/Orc.png" id="3_f00c8"]
 [ext_resource type="Script" uid="uid://c873jx0bhbj56" path="res://scripts/components/entity/hit_popup_spawner.gd" id="3_yyrdk"]
 [ext_resource type="Script" uid="uid://c01f5hr4ai7oq" path="res://scripts/components/entity/player_detector.gd" id="4_4jv7i"]
 [ext_resource type="Script" uid="uid://cvxmlyoaq47x5" path="res://scripts/components/entity/hitbox.gd" id="5_qyqbv"]

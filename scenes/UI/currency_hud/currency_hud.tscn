@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://brriki1m05fmo"]
 
-[ext_resource type="Texture2D" uid="uid://blu5r8ykg1yoi" path="res://assests/sprites/crystal_hud.png" id="1_0uxfb"]
-[ext_resource type="Script" path="res://scripts/UI/currency_hud/currency_hud.gd" id="1_3ohuo"]
+[ext_resource type="Texture2D" uid="uid://blu5r8ykg1yoi" path="res://assests/sprites/UI/crystal_hud.png" id="1_0uxfb"]
+[ext_resource type="Script" uid="uid://2wx2vbirobxb" path="res://scripts/UI/currency_hud/currency_hud.gd" id="1_3ohuo"]
 
 [node name="CurrencyHUD" type="Control"]
 layout_mode = 3

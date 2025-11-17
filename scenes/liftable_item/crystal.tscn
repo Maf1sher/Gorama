@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjgrr0y7d4qgn"]
 
-[ext_resource type="Texture2D" uid="uid://bvvb5ogetceuk" path="res://assests/sprites/crystal.png" id="1_tyfmq"]
-[ext_resource type="Script" path="res://scripts/crystal/liftable_area.gd" id="2_8juvw"]
+[ext_resource type="Texture2D" uid="uid://bvvb5ogetceuk" path="res://assests/sprites/UI/crystal.png" id="1_tyfmq"]
+[ext_resource type="Script" uid="uid://b54lgomthui0w" path="res://scripts/crystal/liftable_area.gd" id="2_8juvw"]
 
 [sub_resource type="Animation" id="Animation_6ebu0"]
 length = 0.001

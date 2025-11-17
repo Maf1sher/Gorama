@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dk3u45www6nga"]
 
 [ext_resource type="Script" uid="uid://cc8rg2htg8n80" path="res://scripts/UI/game_over_screen/game_over_screen.gd" id="1_18v77"]
-[ext_resource type="Texture2D" uid="uid://cd0yeol51x5ak" path="res://assests/sprites/game_over_screen/game_over_screen.png" id="1_yg5i1"]
+[ext_resource type="Texture2D" uid="uid://cd0yeol51x5ak" path="res://assests/sprites/UI/game_over_screen/game_over_screen.png" id="1_yg5i1"]
 
 [sub_resource type="Animation" id="Animation_18v77"]
 length = 0.001
