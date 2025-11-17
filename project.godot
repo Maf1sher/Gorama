@@ -13,7 +13,8 @@ config_version=5
 config/name="Gorama"
 run/main_scene="res://scenes/UI/Menu.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://4twbyifqb0iy"
+config/windows_native_icon="res://assests/sprites/icons/icon.ico"
 
 [autoload]
 
