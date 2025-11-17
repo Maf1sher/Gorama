@@ -126,11 +126,11 @@ func _on_item_changed(slot, item: Node) -> void:
 			var result = _change_gear(item, _boots, graphics_boots, _boots_data)
 			_boots = result.instance
 			_boots_data = result.data
-		"left_ring":
+		"left_accessory":
 			var result = _change_gear(item, _left_accessory, graphics_left_accessory, _left_accessory_data)
 			_left_accessory = result.instance
 			_left_accessory_data = result.data
-		"right_ring":
+		"right_accessory":
 			var result = _change_gear(item, _right_accessory, graphics_right_accessory, _right_accessory_data)
 			_right_accessory = result.instance
 			_right_accessory_data = result.data

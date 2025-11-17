@@ -3,8 +3,8 @@ extends Control
 
 signal item_changed(slot, item)
 
-@onready var leftRing = $TextureRect/LeftRing
-@onready var rightRing = $TextureRect/RightRing
+@onready var leftAccessory = $TextureRect/LeftAccessory
+@onready var rightAccessory = $TextureRect/RightAccessory
 @onready var leftHand = $TextureRect/LeftHand
 @onready var rightHand = $TextureRect/RightHand
 @onready var head = $TextureRect/HBoxContainer/Head
@@ -18,11 +18,11 @@ func _exit_tree() -> void:
 	ItemDragManager.unregister_fast_move_target("character_sheet")
 
 func _on_left_ring_item_changed(item: Variant) -> void:
-	emit_signal("item_changed", "left_ring", item)
+	emit_signal("item_changed", "left_accessory", item)
 
 
 func _on_right_ring_item_changed(item: Variant) -> void:
-	emit_signal("item_changed", "right_ring", item)
+	emit_signal("item_changed", "right_accessory", item)
 
 
 func _on_left_hand_item_changed(item: Variant) -> void:
@@ -65,10 +65,10 @@ func can_fast_move(item: Node) -> bool:
 			if boots.is_empty():
 				return true
 			return false
-		ItemTypes.Type.RING:
-			if leftRing.is_empty():
+		ItemTypes.Type.ACCESSORY:
+			if leftAccessory.is_empty():
 				return true
-			elif rightRing.is_empty():
+			elif rightAccessory.is_empty():
 				return true
 			return false
 	return false
@@ -99,12 +99,12 @@ func fast_move(item: Node) -> bool:
 				boots.place_item(item)
 				return true
 			return false
-		ItemTypes.Type.RING:
-			if leftRing.is_empty():
-				leftRing.place_item(item)
+		ItemTypes.Type.ACCESSORY:
+			if leftAccessory.is_empty():
+				leftAccessory.place_item(item)
 				return true
-			elif rightRing.is_empty():
-				rightRing.place_item(item)
+			elif rightAccessory.is_empty():
+				rightAccessory.place_item(item)
 				return true
 			return false
 	return false

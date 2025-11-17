@@ -5,7 +5,7 @@ enum Type {
 	HEAD,
 	CHEST,
 	BOOTS,
-	RING,
+	ACCESSORY,
 	UPGRADE,
 	OTHER
 }
@@ -15,14 +15,14 @@ const equipment_types = [
 	Type.HEAD,
 	Type.CHEST,
 	Type.BOOTS,
-	Type.RING,
+	Type.ACCESSORY,
 ]
 
 const gear_types = [
 	Type.HEAD,
 	Type.CHEST,
 	Type.BOOTS,
-	Type.RING,
+	Type.ACCESSORY,
 ]
 
 func is_equipment_type(type: ItemTypes.Type) -> bool:

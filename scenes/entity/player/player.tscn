@@ -12,7 +12,6 @@
 
 [sub_resource type="Resource" id="Resource_jo4e4"]
 script = ExtResource("2_7rkla")
-hp = 90
 max_hp = 100
 hp_regeneration = 2
 attack_speed_percent = 100

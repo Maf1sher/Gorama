@@ -22,7 +22,7 @@ const gear_types = [
 	ItemTypes.Type.HEAD,
 	ItemTypes.Type.CHEST,
 	ItemTypes.Type.BOOTS,
-	ItemTypes.Type.RING,
+	ItemTypes.Type.ACCESSORY,
 ]
 
 func is_gear_type() -> bool:
@@ -35,7 +35,7 @@ const equipment_types = [
 	ItemTypes.Type.HEAD,
 	ItemTypes.Type.CHEST,
 	ItemTypes.Type.BOOTS,
-	ItemTypes.Type.RING,
+	ItemTypes.Type.ACCESSORY,
 ]
 
 func is_equipment_type() -> bool:

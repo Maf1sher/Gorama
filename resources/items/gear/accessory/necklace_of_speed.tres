@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=6 format=3 uid="uid://bdnefceux2oxg"]
+
+[ext_resource type="PackedScene" uid="uid://b7i8yjyfv3vo3" path="res://scenes/item/gear/accessory/necklace_of_speed.tscn" id="1_2cvpb"]
+[ext_resource type="Script" uid="uid://d0f3osehvhn7k" path="res://resources/items/item_data/gear_data.gd" id="1_3htqi"]
+[ext_resource type="Script" uid="uid://cdjl45ydlav2o" path="res://scripts/components/stats/gear_stats.gd" id="3_rsy0p"]
+[ext_resource type="Texture2D" uid="uid://dnckrsbntypub" path="res://assests/sprites/gear/accessory/fa2184.png" id="4_gqirc"]
+
+[sub_resource type="Resource" id="Resource_vem44"]
+script = ExtResource("3_rsy0p")
+movement_speed = 25
+metadata/_custom_type_script = "uid://cdjl45ydlav2o"
+
+[resource]
+script = ExtResource("1_3htqi")
+item_sceen = ExtResource("1_2cvpb")
+stats = SubResource("Resource_vem44")
+name = "Necklace Of Speed"
+texture = ExtResource("4_gqirc")
+dimentions = Vector2i(1, 1)
+price = 10
+type = 4
+metadata/_custom_type_script = "uid://d0f3osehvhn7k"

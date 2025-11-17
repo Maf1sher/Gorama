@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnckrsbntypub"
-path="res://.godot/imported/fa2184.png-b23a2d709792c2fd68231174d9cb3eed.ctex"
+path="res://.godot/imported/fa2184.png-83e5bd669ad265ffcabbc65a3bc086f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/gear/ring/fa2184.png"
-dest_files=["res://.godot/imported/fa2184.png-b23a2d709792c2fd68231174d9cb3eed.ctex"]
+source_file="res://assests/sprites/gear/accessory/fa2184.png"
+dest_files=["res://.godot/imported/fa2184.png-83e5bd669ad265ffcabbc65a3bc086f3.ctex"]
 
 [params]
 

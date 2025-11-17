@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_71lp6")
 
-[node name="LeftRing" parent="TextureRect" instance=ExtResource("3_5hfor")]
+[node name="LeftAccessory" parent="TextureRect" instance=ExtResource("3_5hfor")]
 layout_mode = 1
 offset_left = 15.0
 offset_top = 108.0
@@ -49,7 +49,7 @@ texture = ExtResource("4_5hfor")
 type = 4
 fill_texture = ExtResource("5_y6g2o")
 
-[node name="RightRing" parent="TextureRect" instance=ExtResource("3_5hfor")]
+[node name="RightAccessory" parent="TextureRect" instance=ExtResource("3_5hfor")]
 layout_mode = 1
 offset_left = 88.0
 offset_top = 108.0
@@ -113,8 +113,8 @@ texture = ExtResource("10_0hu2j")
 type = 3
 fill_texture = ExtResource("11_r36bv")
 
-[connection signal="item_changed" from="TextureRect/LeftRing" to="." method="_on_left_ring_item_changed"]
-[connection signal="item_changed" from="TextureRect/RightRing" to="." method="_on_right_ring_item_changed"]
+[connection signal="item_changed" from="TextureRect/LeftAccessory" to="." method="_on_left_ring_item_changed"]
+[connection signal="item_changed" from="TextureRect/RightAccessory" to="." method="_on_right_ring_item_changed"]
 [connection signal="item_changed" from="TextureRect/LeftHand" to="." method="_on_left_hand_item_changed"]
 [connection signal="item_changed" from="TextureRect/RightHand" to="." method="_on_right_hand_item_changed"]
 [connection signal="item_changed" from="TextureRect/HBoxContainer/Head" to="." method="_on_head_item_changed"]
