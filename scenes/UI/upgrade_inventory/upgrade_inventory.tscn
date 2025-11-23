@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://div3xiuisp6l2"]
+[gd_scene load_steps=9 format=3 uid="uid://div3xiuisp6l2"]
 
 [ext_resource type="Texture2D" uid="uid://belpf3pq8jlyb" path="res://assests/sprites/UI/upgrade_panel/upgrade_panel.png" id="1_etjpw"]
 [ext_resource type="Script" uid="uid://teghfbm6j3b6" path="res://scripts/UI/upgrade_inventory/upgrade_inventory.gd" id="1_tiv7i"]
 [ext_resource type="PackedScene" uid="uid://co8eb2bac67yh" path="res://scenes/UI/player_interface/character_sheet/character_sheet_slot.tscn" id="2_txw2u"]
+[ext_resource type="Texture2D" uid="uid://be87v5rh0nkn8" path="res://assests/sprites/UI/witch/upgrade_label.png" id="3_3j6ln"]
 [ext_resource type="Texture2D" uid="uid://yfgjjowhkf25" path="res://assests/sprites/UI/inventory/character_sheet/slot/fill/weapon_slot.png" id="3_k7yel"]
 [ext_resource type="Texture2D" uid="uid://c6aeqlpirfbqe" path="res://assests/sprites/UI/inventory/character_sheet/slot/empty/weapon_slot.png" id="4_b4jr8"]
 [ext_resource type="Script" uid="uid://ddrw1mj42u82f" path="res://scripts/UI/player_interface/item_info_panel/socket_container.gd" id="7_336yb"]
@@ -30,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_etjpw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,24 +39,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 32)
+layout_mode = 2
+texture = ExtResource("3_3j6ln")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/margin_left = 20
 
-[node name="CharacterSheetSlot" parent="HBoxContainer/MarginContainer" instance=ExtResource("2_txw2u")]
+[node name="CharacterSheetSlot" parent="VBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource("2_txw2u")]
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("4_b4jr8")
 dimentions = Vector2i(2, 3)
 fill_texture = ExtResource("3_k7yel")
 
-[node name="SocketPanel" type="Control" parent="HBoxContainer"]
+[node name="SocketPanel" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SocketPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/SocketPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,10 +77,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SocketContainer" type="VBoxContainer" parent="HBoxContainer/SocketPanel/MarginContainer"]
+[node name="SocketContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/SocketPanel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("7_336yb")
 socket_sceen = ExtResource("8_3j6ln")
 
-[connection signal="item_changed" from="HBoxContainer/MarginContainer/CharacterSheetSlot" to="." method="_on_character_sheet_slot_item_changed"]
+[connection signal="item_changed" from="VBoxContainer/HBoxContainer/MarginContainer/CharacterSheetSlot" to="." method="_on_character_sheet_slot_item_changed"]

@@ -2,7 +2,7 @@ class_name StoreInventory
 extends PanelContainer
 
 @export var inventory_item_scene: PackedScene
-@onready var item_grid = $ScrollContainer/ItemGrid
+@onready var item_grid = $VBoxContainer/ScrollContainer/ItemGrid
 
 func _ready() -> void:
 	generate_shop_inventory(5)

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var socket_container = $HBoxContainer/SocketPanel/MarginContainer/SocketContainer
+@onready var socket_container = $VBoxContainer/HBoxContainer/SocketPanel/MarginContainer/SocketContainer
 
 func _on_character_sheet_slot_item_changed(item: InventoryItem) -> void:
 	if item:
