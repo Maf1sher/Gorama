@@ -12,3 +12,6 @@ func _input(event):
 		else:
 			player_interface.open()
 			player_interface.grab_focus()
+	elif event.is_action_pressed("close_gui"):
+		if player_interface.is_open:
+			player_interface.close()
