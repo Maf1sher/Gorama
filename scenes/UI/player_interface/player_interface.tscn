@@ -1,20 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://3huutkecev2r"]
+[gd_scene load_steps=7 format=3 uid="uid://3huutkecev2r"]
 
 [ext_resource type="Script" uid="uid://bqui2v8amgf57" path="res://scripts/UI/player_interface/player_interface.gd" id="1_6o75j"]
 [ext_resource type="PackedScene" uid="uid://derfvwc5yjuf8" path="res://scenes/UI/player_interface/equipment/equipment.tscn" id="1_k3yh5"]
 [ext_resource type="PackedScene" uid="uid://bf13jv0o4f3ra" path="res://scenes/UI/player_interface/character_sheet/character_sheet.tscn" id="2_6o75j"]
 [ext_resource type="Script" uid="uid://crqw0yekhotaw" path="res://resources/items/item_data/item_data.gd" id="3_d3ojb"]
 [ext_resource type="PackedScene" uid="uid://d1amtmrswyst8" path="res://scenes/UI/player_interface/stats_panel/stats_panel.tscn" id="3_k3yh5"]
-[ext_resource type="Resource" uid="uid://berthunsd3jyo" path="res://resources/items/weapon/sword2.tres" id="4_2x0aj"]
 [ext_resource type="Resource" uid="uid://14tb3i0ulsku" path="res://resources/items/weapon/sword.tres" id="5_rh4vq"]
-[ext_resource type="Resource" uid="uid://b6jfsyy83k2nf" path="res://resources/items/gear/head/iron_helmet.tres" id="6_28eu6"]
-[ext_resource type="Resource" uid="uid://dg06h07q7pps" path="res://resources/items/gear/chest/iron_chestplate.tres" id="7_2x0aj"]
-[ext_resource type="Resource" uid="uid://c3s043dcoxxjl" path="res://resources/items/gear/boots/iron_boots.tres" id="8_rh4vq"]
-[ext_resource type="Resource" uid="uid://lqqnlovo5yu1" path="res://resources/items/upgrade/cloud.tres" id="9_28eu6"]
-[ext_resource type="Resource" uid="uid://b41l0vbld7twn" path="res://resources/items/upgrade/explosion.tres" id="10_7y57c"]
-[ext_resource type="Resource" uid="uid://b62lil74xf8xt" path="res://resources/items/upgrade/blue_laser.tres" id="11_rx5jw"]
-[ext_resource type="Resource" uid="uid://btv2w30tatbea" path="res://resources/items/gear/accessory/life_steel_necklace.tres" id="12_ufrti"]
-[ext_resource type="Resource" uid="uid://bdnefceux2oxg" path="res://resources/items/gear/accessory/necklace_of_speed.tres" id="13_omvfo"]
 
 [node name="PlayerInterface" type="Control"]
 layout_mode = 3
@@ -40,7 +31,7 @@ alignment = 1
 
 [node name="Equipment" parent="HBoxContainer/LeftColumn" instance=ExtResource("1_k3yh5")]
 layout_mode = 2
-items = Array[ExtResource("3_d3ojb")]([ExtResource("4_2x0aj"), ExtResource("5_rh4vq"), ExtResource("6_28eu6"), ExtResource("7_2x0aj"), ExtResource("8_rh4vq"), ExtResource("9_28eu6"), ExtResource("9_28eu6"), ExtResource("9_28eu6"), ExtResource("10_7y57c"), ExtResource("10_7y57c"), ExtResource("11_rx5jw"), ExtResource("11_rx5jw"), ExtResource("12_ufrti"), ExtResource("13_omvfo")])
+items = Array[ExtResource("3_d3ojb")]([ExtResource("5_rh4vq")])
 
 [node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)

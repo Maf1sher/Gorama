@@ -1,14 +1,19 @@
 class_name StoreInventory
 extends PanelContainer
 
-@export var items: Array[ItemData] = []
 @export var inventory_item_scene: PackedScene
 @onready var item_grid = $ScrollContainer/ItemGrid
 
 func _ready() -> void:
-	for i in items:
-		add_item(i)
+	generate_shop_inventory(5)
 
+func generate_shop_inventory(amount: int):
+	var available_items = ItemDatabase.all_items.duplicate()
+	available_items.shuffle()
+	var items_to_sell = available_items.slice(0, amount)
+	for item in items_to_sell:
+		add_item(item)
+	
 func add_item(item_data: ItemData) -> void:
 	var inventory_item = inventory_item_scene.instantiate()
 	inventory_item.data = item_data

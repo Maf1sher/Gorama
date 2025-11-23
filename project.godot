@@ -23,6 +23,7 @@ CurrencyManager="*res://scripts/auto_load/CurrencyManager.gd"
 CardDatabase="*res://scripts/auto_load/CardDatabase.gd"
 ItemDragManager="*res://scripts/auto_load/ItemDragManager.gd"
 GameManager="*res://scripts/auto_load/GameManager.gd"
+ItemDatabase="*res://scripts/auto_load/ItemDatabase.gd"
 
 [display]
 
