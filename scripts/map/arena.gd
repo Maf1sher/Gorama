@@ -41,6 +41,6 @@ func _on_ennemy_genetaor_enemy_died(_name: String) -> void:
 	enemy_counter-=1
 	check_wave_finished()
 
-
 func _on_counter_counting_completed() -> void:
 	change_map.emit(next_map_path)
+	GameManager.increment_wave_number()

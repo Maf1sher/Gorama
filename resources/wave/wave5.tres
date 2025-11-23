@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="WaveResource" load_steps=11 format=3 uid="uid://cyv3ntls4joj1"]
+
+[ext_resource type="Script" uid="uid://bn8ipqcdcg1sw" path="res://resources/enemy_spawner/wave_phase.gd" id="1_rusq0"]
+[ext_resource type="Script" uid="uid://5pe6hxflfuo2" path="res://resources/enemy_spawner/enemy_spawn_definition.gd" id="2_u5qxp"]
+[ext_resource type="PackedScene" uid="uid://dip0t5cixw72i" path="res://scenes/entity/enemy/Orc.tscn" id="3_6af5v"]
+[ext_resource type="Script" uid="uid://c5cutsgoeq40t" path="res://resources/enemy_spawner/wave_resource.gd" id="4_4pavr"]
+[ext_resource type="PackedScene" uid="uid://bm76p8tlql2i6" path="res://scenes/entity/enemy/golem.tscn" id="4_u5qxp"]
+
+[sub_resource type="Resource" id="Resource_iphpr"]
+script = ExtResource("2_u5qxp")
+enemy_scene = ExtResource("3_6af5v")
+group_count = 5
+interval = 0.8
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_wkdph"]
+script = ExtResource("2_u5qxp")
+enemy_scene = ExtResource("3_6af5v")
+group_size = 4
+initial_delay = 5.0
+interval = 4.0
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_lix01"]
+script = ExtResource("1_rusq0")
+spawn_definitions = Array[ExtResource("2_u5qxp")]([SubResource("Resource_iphpr"), SubResource("Resource_wkdph")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
+[sub_resource type="Resource" id="Resource_6af5v"]
+script = ExtResource("2_u5qxp")
+enemy_scene = ExtResource("4_u5qxp")
+initial_delay = 6.0
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_4pavr"]
+script = ExtResource("1_rusq0")
+spawn_definitions = Array[ExtResource("2_u5qxp")]([SubResource("Resource_iphpr"), SubResource("Resource_wkdph"), SubResource("Resource_6af5v")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
+[resource]
+script = ExtResource("4_4pavr")
+phases = Array[ExtResource("1_rusq0")]([SubResource("Resource_lix01"), SubResource("Resource_4pavr")])
+metadata/_custom_type_script = "uid://c5cutsgoeq40t"

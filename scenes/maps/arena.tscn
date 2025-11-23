@@ -1,10 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://clpdj4xlxskgm"]
+[gd_scene load_steps=24 format=3 uid="uid://clpdj4xlxskgm"]
 
 [ext_resource type="Texture2D" uid="uid://bs7v0nodsx568" path="res://assests/sprites/map/tilesets/Ground_rocks.png" id="1_ry644"]
 [ext_resource type="Script" uid="uid://julv7uybn0pc" path="res://scripts/map/arena.gd" id="2_ce1uw"]
 [ext_resource type="Script" uid="uid://dkcapw4gb3q8v" path="res://scripts/enemy_generator.gd" id="3_dxv3a"]
-[ext_resource type="Resource" uid="uid://ngul3asgwcpg" path="res://resources/wave/test1.tres" id="4_dxv3a"]
+[ext_resource type="Resource" uid="uid://ngul3asgwcpg" path="res://resources/wave/wave1.tres" id="4_dxv3a"]
+[ext_resource type="Script" uid="uid://c5cutsgoeq40t" path="res://resources/enemy_spawner/wave_resource.gd" id="4_lix01"]
+[ext_resource type="Resource" uid="uid://cks7sql2o1kxo" path="res://resources/wave/wave2.tres" id="6_6bo0k"]
+[ext_resource type="Resource" uid="uid://c3sr27mkufemo" path="res://resources/wave/wave3.tres" id="7_lix01"]
+[ext_resource type="Resource" uid="uid://boi6eg1e5706o" path="res://resources/wave/wave4.tres" id="8_77nds"]
 [ext_resource type="PackedScene" uid="uid://cqrphsbtpcpe4" path="res://scenes/UI/counter.tscn" id="8_lix01"]
+[ext_resource type="Resource" uid="uid://cyv3ntls4joj1" path="res://resources/wave/wave5.tres" id="9_33ont"]
+[ext_resource type="Resource" uid="uid://d1adxxo2ld2ri" path="res://resources/wave/wave6.tres" id="10_dmtwy"]
+[ext_resource type="Resource" uid="uid://de8aw23o3ekil" path="res://resources/wave/wave7.tres" id="11_3382n"]
+[ext_resource type="Resource" uid="uid://cf4yyit411po2" path="res://resources/wave/wave8.tres" id="12_75ev3"]
+[ext_resource type="Resource" uid="uid://b3t64u3yvn7oh" path="res://resources/wave/wave9.tres" id="13_3odia"]
+[ext_resource type="Resource" uid="uid://c3e7q2j20kbmr" path="res://resources/wave/wave10.tres" id="14_6usb1"]
+[ext_resource type="Resource" uid="uid://d5e8ilwutwv8" path="res://resources/wave/wave11.tres" id="15_vkvye"]
+[ext_resource type="Resource" uid="uid://d4gssp144f17w" path="res://resources/wave/wave12.tres" id="16_0amnc"]
+[ext_resource type="Resource" uid="uid://vb7uaooop51i" path="res://resources/wave/wave13.tres" id="17_3iihm"]
+[ext_resource type="Resource" uid="uid://c82jemt4h58q8" path="res://resources/wave/wave14.tres" id="18_ijckv"]
+[ext_resource type="Resource" uid="uid://dl2y0bm7dy7vh" path="res://resources/wave/wave15.tres" id="19_evjje"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
 texture = ExtResource("1_ry644")
@@ -166,6 +181,8 @@ size = Vector2(541.75, 298.75)
 
 [node name="Arena" type="Node2D" node_paths=PackedStringArray("start_point")]
 script = ExtResource("2_ce1uw")
+map_width = 25
+map_height = 20
 start_point = NodePath("StartPoint")
 
 [node name="Map" type="TileMapLayer" parent="."]
@@ -177,7 +194,7 @@ position = Vector2(240, 131)
 
 [node name="EnnemyGenetaor" type="Node2D" parent="." node_paths=PackedStringArray("spawn_area")]
 script = ExtResource("3_dxv3a")
-wave = ExtResource("4_dxv3a")
+waves = Array[ExtResource("4_lix01")]([ExtResource("4_dxv3a"), ExtResource("6_6bo0k"), ExtResource("7_lix01"), ExtResource("8_77nds"), ExtResource("9_33ont"), ExtResource("9_33ont"), ExtResource("10_dmtwy"), ExtResource("11_3382n"), ExtResource("12_75ev3"), ExtResource("13_3odia"), ExtResource("14_6usb1"), ExtResource("15_vkvye"), ExtResource("16_0amnc"), ExtResource("17_3iihm"), ExtResource("18_ijckv"), ExtResource("19_evjje")])
 spawn_area = NodePath("Area2D")
 metadata/_custom_type_script = "uid://dkcapw4gb3q8v"
 

@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="WaveResource" load_steps=13 format=3 uid="uid://c82jemt4h58q8"]
+
+[ext_resource type="Script" uid="uid://bn8ipqcdcg1sw" path="res://resources/enemy_spawner/wave_phase.gd" id="1_0xe7a"]
+[ext_resource type="Script" uid="uid://5pe6hxflfuo2" path="res://resources/enemy_spawner/enemy_spawn_definition.gd" id="2_0hw0m"]
+[ext_resource type="PackedScene" uid="uid://dip0t5cixw72i" path="res://scenes/entity/enemy/Orc.tscn" id="3_y58rf"]
+[ext_resource type="PackedScene" uid="uid://bm76p8tlql2i6" path="res://scenes/entity/enemy/golem.tscn" id="4_bcho1"]
+[ext_resource type="Script" uid="uid://c5cutsgoeq40t" path="res://resources/enemy_spawner/wave_resource.gd" id="5_eg6ve"]
+
+[sub_resource type="Resource" id="Resource_iphpr"]
+script = ExtResource("2_0hw0m")
+enemy_scene = ExtResource("3_y58rf")
+group_size = 8
+group_count = 16
+interval = 0.2
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_wkdph"]
+script = ExtResource("2_0hw0m")
+enemy_scene = ExtResource("3_y58rf")
+group_size = 12
+group_count = 12
+initial_delay = 5.0
+interval = 0.8
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_6af5v"]
+script = ExtResource("2_0hw0m")
+enemy_scene = ExtResource("4_bcho1")
+group_size = 2
+group_count = 12
+cluster_radius = 100.0
+initial_delay = 6.0
+interval = 2.0
+interval_randomness = 1.0
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_4pavr"]
+script = ExtResource("1_0xe7a")
+spawn_definitions = Array[ExtResource("2_0hw0m")]([SubResource("Resource_iphpr"), SubResource("Resource_wkdph"), SubResource("Resource_6af5v")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
+[sub_resource type="Resource" id="Resource_fpnhg"]
+script = ExtResource("2_0hw0m")
+enemy_scene = ExtResource("3_y58rf")
+group_size = 10
+group_count = 12
+initial_delay = 5.0
+interval = 0.5
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_2vb5o"]
+script = ExtResource("2_0hw0m")
+enemy_scene = ExtResource("4_bcho1")
+group_size = 3
+group_count = 10
+cluster_radius = 200.0
+initial_delay = 6.0
+interval = 1.5
+interval_randomness = 0.6
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_j7ccs"]
+script = ExtResource("1_0xe7a")
+spawn_definitions = Array[ExtResource("2_0hw0m")]([SubResource("Resource_fpnhg"), SubResource("Resource_2vb5o")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
+[resource]
+script = ExtResource("5_eg6ve")
+phases = Array[ExtResource("1_0xe7a")]([SubResource("Resource_4pavr"), SubResource("Resource_j7ccs")])
+metadata/_custom_type_script = "uid://c5cutsgoeq40t"

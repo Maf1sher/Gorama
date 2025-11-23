@@ -5,7 +5,7 @@ signal wave_finished
 signal enemy_spawned(enemy_instance: Enemy)
 signal enemy_died(name: String)
 
-@export var wave: WaveResource
+@export var waves: Array[WaveResource]
 @export var spawn_area: Area2D
 
 var player: Player
@@ -14,16 +14,18 @@ var _is_running: bool = false
 var _is_paused: bool = false
 var _current_phase_index: int = -1
 var _active_spawners: Array[Dictionary] = []
+var _current_wave: WaveResource
 
 func _ready() -> void:
 	start_wave()
 
 func start_wave():
-	if not wave or not spawn_area:
+	if not waves or waves.size() == 0 or not spawn_area:
 		return
 	if _is_running:
 		return
-
+	
+	_current_wave = waves[min(GameManager.wave_number, waves.size() - 1)]
 	_is_running = true
 	_is_paused = false
 	_current_phase_index = -1
@@ -49,12 +51,12 @@ func stop():
 
 func _start_next_phase():
 	_current_phase_index += 1
-	if _current_phase_index >= wave.phases.size():
+	if _current_phase_index >=_current_wave.phases.size():
 		_is_running = false
 		emit_signal("wave_finished")
 		return
 
-	var current_phase: WavePhase = wave.phases[_current_phase_index]
+	var current_phase: WavePhase = _current_wave.phases[_current_phase_index]
 	
 	if current_phase.spawn_definitions.is_empty():
 		_start_next_phase()

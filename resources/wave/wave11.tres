@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="WaveResource" load_steps=11 format=3 uid="uid://d5e8ilwutwv8"]
+
+[ext_resource type="Script" uid="uid://bn8ipqcdcg1sw" path="res://resources/enemy_spawner/wave_phase.gd" id="1_o7m0j"]
+[ext_resource type="Script" uid="uid://5pe6hxflfuo2" path="res://resources/enemy_spawner/enemy_spawn_definition.gd" id="2_uqpaw"]
+[ext_resource type="PackedScene" uid="uid://dip0t5cixw72i" path="res://scenes/entity/enemy/Orc.tscn" id="3_2xn11"]
+[ext_resource type="PackedScene" uid="uid://bm76p8tlql2i6" path="res://scenes/entity/enemy/golem.tscn" id="4_vxcdn"]
+[ext_resource type="Script" uid="uid://c5cutsgoeq40t" path="res://resources/enemy_spawner/wave_resource.gd" id="5_3mcgl"]
+
+[sub_resource type="Resource" id="Resource_iphpr"]
+script = ExtResource("2_uqpaw")
+enemy_scene = ExtResource("3_2xn11")
+group_size = 5
+group_count = 15
+interval = 0.5
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_wkdph"]
+script = ExtResource("2_uqpaw")
+enemy_scene = ExtResource("3_2xn11")
+group_size = 10
+group_count = 7
+initial_delay = 5.0
+interval = 2.0
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_lix01"]
+script = ExtResource("1_o7m0j")
+spawn_definitions = Array[ExtResource("2_uqpaw")]([SubResource("Resource_iphpr"), SubResource("Resource_wkdph")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
+[sub_resource type="Resource" id="Resource_6af5v"]
+script = ExtResource("2_uqpaw")
+enemy_scene = ExtResource("4_vxcdn")
+group_size = 2
+group_count = 8
+cluster_radius = 100.0
+initial_delay = 6.0
+interval = 2.0
+interval_randomness = 1.0
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_4pavr"]
+script = ExtResource("1_o7m0j")
+spawn_definitions = Array[ExtResource("2_uqpaw")]([SubResource("Resource_iphpr"), SubResource("Resource_wkdph"), SubResource("Resource_6af5v")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
+[resource]
+script = ExtResource("5_3mcgl")
+phases = Array[ExtResource("1_o7m0j")]([SubResource("Resource_lix01"), SubResource("Resource_4pavr")])
+metadata/_custom_type_script = "uid://c5cutsgoeq40t"

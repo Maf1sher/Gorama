@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WaveResource" load_steps=7 format=3 uid="uid://cks7sql2o1kxo"]
+
+[ext_resource type="Script" uid="uid://bn8ipqcdcg1sw" path="res://resources/enemy_spawner/wave_phase.gd" id="1_mk6bp"]
+[ext_resource type="Script" uid="uid://5pe6hxflfuo2" path="res://resources/enemy_spawner/enemy_spawn_definition.gd" id="2_15apl"]
+[ext_resource type="PackedScene" uid="uid://dip0t5cixw72i" path="res://scenes/entity/enemy/Orc.tscn" id="3_xup6d"]
+[ext_resource type="Script" uid="uid://c5cutsgoeq40t" path="res://resources/enemy_spawner/wave_resource.gd" id="4_scx5n"]
+
+[sub_resource type="Resource" id="Resource_iphpr"]
+script = ExtResource("2_15apl")
+enemy_scene = ExtResource("3_xup6d")
+group_count = 4
+metadata/_custom_type_script = "uid://5pe6hxflfuo2"
+
+[sub_resource type="Resource" id="Resource_lix01"]
+script = ExtResource("1_mk6bp")
+spawn_definitions = Array[ExtResource("2_15apl")]([SubResource("Resource_iphpr")])
+metadata/_custom_type_script = "uid://bn8ipqcdcg1sw"
+
+[resource]
+script = ExtResource("4_scx5n")
+phases = Array[ExtResource("1_mk6bp")]([SubResource("Resource_lix01")])
+metadata/_custom_type_script = "uid://c5cutsgoeq40t"
