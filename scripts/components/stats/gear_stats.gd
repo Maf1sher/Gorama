@@ -10,18 +10,22 @@ const GEAR_STAT_NAMES := [
 
 @export var physical_damage: int = 0: 
 	set(value):
+		if physical_damage == value: return
 		physical_damage = value
 		emit_signal("stats_changed", "physical_damage", physical_damage)
 @export var magic_damage: int = 0:
 	set(value):
+		if magic_damage == value: return
 		magic_damage = value
 		emit_signal("stats_changed", "magic_damage", magic_damage)
 @export var physical_damage_percent: int = 0:
 	set(value):
+		if physical_damage_percent == value: return
 		physical_damage_percent = value
 		emit_signal("stats_changed", "physical_damage_percent", physical_damage_percent)
 @export var magic_damage_percent: int = 0:
 	set(value):
+		if magic_damage_percent == value: return
 		magic_damage_percent = value
 		emit_signal("stats_changed", "magic_damage_percent", magic_damage_percent)
 
