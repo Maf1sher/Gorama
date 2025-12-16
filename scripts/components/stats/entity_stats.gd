@@ -10,7 +10,6 @@ extends Stats
 			var new_hp = min(value, max_hp)
 			if hp == new_hp: return
 			hp = new_hp
-		print(hp)
 		emit_signal("stats_changed", "hp", hp)
 
 var life_steal_counter: float = 0.0

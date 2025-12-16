@@ -16,17 +16,24 @@ func _border_visibility_update():
 
 func _on_player_detector_player_detection(in_area: bool) -> void:
 	player_in_area = in_area
+	_change_block_attack()
 	_border_visibility_update()
 
 func _on_static_body_2d_mouse_entered() -> void:
-	InputManager.block_attack()
 	mouse_over = true
+	_change_block_attack()
 	_border_visibility_update()
 
 func _on_static_body_2d_mouse_exited() -> void:
-	InputManager.unblock_attack()
 	mouse_over = false
+	_change_block_attack()
 	_border_visibility_update()
+	
+func _change_block_attack() -> void:
+	if mouse_over and player_in_area:
+		InputManager.block_attack()
+	else:
+		InputManager.unblock_attack()
 	
 func _on_static_body_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("action"):
